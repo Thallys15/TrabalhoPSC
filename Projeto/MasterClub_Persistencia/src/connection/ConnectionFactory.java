@@ -10,5 +10,8 @@ package connection;
  * @author tls15
  */
 public class ConnectionFactory {
-    
+    private static final String DRIVER ="";
+    private static final String URL="";
+    private static final String USER ="";
+    private static final String PASS ="";
 }
