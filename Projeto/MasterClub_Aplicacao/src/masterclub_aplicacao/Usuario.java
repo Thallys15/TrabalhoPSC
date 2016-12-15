@@ -13,6 +13,15 @@ public class Usuario {
     private String login;
     private String senha;
 
+    public Usuario(int id, String login, String senha) {
+        this.id = id;
+        this.login = login;
+        this.senha = senha;
+    }
+
+    public Usuario() {
+    }
+
     public int getId() {
         return id;
     }
@@ -61,6 +70,11 @@ public class Usuario {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", login=" + login + ", senha=" + senha + '}';
     }
     
     
