@@ -91,6 +91,11 @@ public class Funcionario {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" + "idfuncionario=" + idfuncionario + ", cpf=" + cpf + ", rg=" + rg + ", cargo=" + cargo + ", idade=" + idade + '}';
+    }
     
     
     

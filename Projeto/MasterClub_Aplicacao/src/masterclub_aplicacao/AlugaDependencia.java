@@ -12,7 +12,7 @@ import java.util.Date;
  * @author tls15
  */
 public class AlugaDependencia {
-    private int clube;
+    public int clube;
     private int dependencia;
     private Date TempoAluguel;
 
