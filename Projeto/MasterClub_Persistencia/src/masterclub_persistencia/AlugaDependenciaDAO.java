@@ -85,7 +85,7 @@ public class AlugaDependenciaDAO extends AlugaDependencia {
                 tmp.setClube(resultado.getInt(1));
                 tmp.setDependencia(resultado.getInt(2));
                 tmp.setTempoAluguel(resultado.getDate(3));
-                //tmp.setDataNascimento(resultado.getString(2));
+                
                 
                 // Retorna o objeto
                 return tmp;
