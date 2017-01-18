@@ -148,7 +148,7 @@
               <Color blue="d" green="d" red="fe" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/br/edu/ifnmg/masterclub/apresentacao/img/MasteClubLogo.png"/>
+              <Image iconType="3" name="/br/edu/ifnmg/masterclub/apresentacao/imagens/MasteClubLogo.png"/>
             </Property>
           </Properties>
         </Component>

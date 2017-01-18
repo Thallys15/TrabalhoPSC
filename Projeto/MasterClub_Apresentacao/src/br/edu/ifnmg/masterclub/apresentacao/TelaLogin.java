@@ -73,7 +73,7 @@ public class TelaLogin extends javax.swing.JFrame {
         PlanodeFundo1.setName(""); // NOI18N
 
         LogoMaster.setBackground(new java.awt.Color(254, 13, 13));
-        LogoMaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/masterclub/apresentacao/img/MasteClubLogo.png"))); // NOI18N
+        LogoMaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/masterclub/apresentacao/imagens/MasteClubLogo.png"))); // NOI18N
 
         BotaoEntraLogin.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         BotaoEntraLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/masterclub/apresentacao/icone/1473721990_Key.png"))); // NOI18N
