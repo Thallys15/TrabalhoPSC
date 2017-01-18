@@ -80,7 +80,7 @@ public class AlugaDependenciaDAO extends AlugaDependencia {
             // Verifica se algum registro foi retornado na consulta
             if(resultado.next()){
                 
-                // Posso os dados do resultado para o objeto
+                // Passo os dados do resultado para o objeto
                 AlugaDependencia tmp = new AlugaDependencia();
                 tmp.setClube(resultado.getInt(1));
                 tmp.setDependencia(resultado.getInt(2));
