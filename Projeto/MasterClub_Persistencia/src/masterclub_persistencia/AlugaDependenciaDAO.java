@@ -9,7 +9,7 @@ import connection.ConnectionFactory;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import masterclub_aplicacao.AlugaDependencia;
+import br.edu.ifnmg.MasterClub.Entidades.AlugaDependencia;
 
 /**
  *

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package masterclub_aplicacao;
+package br.edu.ifnmg.MasterClub.Entidades;
 
 import java.util.Date;
 

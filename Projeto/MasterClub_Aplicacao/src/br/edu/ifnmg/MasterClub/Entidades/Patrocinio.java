@@ -3,32 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package masterclub_aplicacao;
+package br.edu.ifnmg.MasterClub.Entidades;
 
 /**
  *
  * @author tls15
  */
-public class Clube {
-    private int cnpj;
+public class Patrocinio {
+    private int codigo;
     private String nome;
-    private int quantidade;
 
-    public Clube() {
+    public int getCodigo() {
+        return codigo;
     }
 
-    public Clube(int cnpj, String nome, int quantidade) {
-        this.cnpj = cnpj;
-        this.nome = nome;
-        this.quantidade = quantidade;
-    }
-
-    public int getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(int cnpj) {
-        this.cnpj = cnpj;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getNome() {
@@ -39,18 +29,18 @@ public class Clube {
         this.nome = nome;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public Patrocinio() {
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public Patrocinio(int codigo, String nome) {
+        this.codigo = codigo;
+        this.nome = nome;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + this.cnpj;
+        hash = 59 * hash + this.codigo;
         return hash;
     }
 
@@ -65,8 +55,8 @@ public class Clube {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Clube other = (Clube) obj;
-        if (this.cnpj != other.cnpj) {
+        final Patrocinio other = (Patrocinio) obj;
+        if (this.codigo != other.codigo) {
             return false;
         }
         return true;
@@ -74,7 +64,7 @@ public class Clube {
 
     @Override
     public String toString() {
-        return "Clube{" + "cnpj=" + cnpj + ", nome=" + nome + ", quantidade=" + quantidade + '}';
+        return "Patrocinio{" + "codigo=" + codigo + ", nome=" + nome + '}';
     }
     
     

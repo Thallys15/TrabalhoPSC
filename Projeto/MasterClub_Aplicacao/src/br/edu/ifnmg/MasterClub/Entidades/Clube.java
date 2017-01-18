@@ -3,32 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package masterclub_aplicacao;
-
-import java.util.Objects;
+package br.edu.ifnmg.MasterClub.Entidades;
 
 /**
  *
  * @author tls15
  */
-public class Pessoa {
-    private int codigo;
+public class Clube {
+    private int cnpj;
     private String nome;
+    private int quantidade;
 
-    public Pessoa() {
+    public Clube() {
     }
 
-    public Pessoa(int codigo, String nome) {
-        this.codigo = codigo;
+    public Clube(int cnpj, String nome, int quantidade) {
+        this.cnpj = cnpj;
         this.nome = nome;
+        this.quantidade = quantidade;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getCnpj() {
+        return cnpj;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCnpj(int cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getNome() {
@@ -39,11 +39,18 @@ public class Pessoa {
         this.nome = nome;
     }
 
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 37 * hash + this.codigo;
-        hash = 37 * hash + Objects.hashCode(this.nome);
+        int hash = 7;
+        hash = 53 * hash + this.cnpj;
         return hash;
     }
 
@@ -58,8 +65,8 @@ public class Pessoa {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Pessoa other = (Pessoa) obj;
-        if (this.codigo != other.codigo) {
+        final Clube other = (Clube) obj;
+        if (this.cnpj != other.cnpj) {
             return false;
         }
         return true;
@@ -67,7 +74,7 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" + "codigo=" + codigo + ", nome=" + nome + '}';
+        return "Clube{" + "cnpj=" + cnpj + ", nome=" + nome + ", quantidade=" + quantidade + '}';
     }
     
     

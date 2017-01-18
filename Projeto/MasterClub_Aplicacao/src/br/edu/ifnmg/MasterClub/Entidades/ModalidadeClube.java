@@ -3,15 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package masterclub_aplicacao;
+package br.edu.ifnmg.MasterClub.Entidades;
 
 /**
  *
  * @author tls15
  */
-public class PatrocinaClube {
+public class ModalidadeClube {
     private int clube;
-    private int patrocinio;
+    private int modalidade;
+
+    public ModalidadeClube(int clube, int modalidade) {
+        this.clube = clube;
+        this.modalidade = modalidade;
+    }
+
+    public ModalidadeClube() {
+    }
 
     public int getClube() {
         return clube;
@@ -21,23 +29,19 @@ public class PatrocinaClube {
         this.clube = clube;
     }
 
-    public int getPatrocinio() {
-        return patrocinio;
+    public int getModalidade() {
+        return modalidade;
     }
 
-    public void setPatrocinio(int patrocinio) {
-        this.patrocinio = patrocinio;
-    }
-
-    public PatrocinaClube() {
-    
+    public void setModalidade(int modalidade) {
+        this.modalidade = modalidade;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + this.clube;
-        hash = 53 * hash + this.patrocinio;
+        int hash = 7;
+        hash = 29 * hash + this.clube;
+        hash = 29 * hash + this.modalidade;
         return hash;
     }
 
@@ -52,11 +56,11 @@ public class PatrocinaClube {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final PatrocinaClube other = (PatrocinaClube) obj;
+        final ModalidadeClube other = (ModalidadeClube) obj;
         if (this.clube != other.clube) {
             return false;
         }
-        if (this.patrocinio != other.patrocinio) {
+        if (this.modalidade != other.modalidade) {
             return false;
         }
         return true;
@@ -64,7 +68,7 @@ public class PatrocinaClube {
 
     @Override
     public String toString() {
-        return "PatrocinaClube{" + "clube=" + clube + ", patrocinio=" + patrocinio + '}';
+        return "ModalidadeClube{" + "clube=" + clube + ", modalidade=" + modalidade + '}';
     }
     
     
