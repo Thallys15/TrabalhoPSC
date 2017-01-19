@@ -8,21 +8,22 @@ import connection.ConnectionFactory;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import br.edu.ifnmg.MasterClub.Entidades.Atleta;
+import br.edu.ifnmg.MasterClub.Entidades.Contrato;
+import java.sql.Date;
 /**
  *
  * @author tls15
  */
-public class AtletaDAO extends Atleta{
+public class ContratoDAO extends Contrato{
     ConnectionFactory conn;
-    public AtletaDAO() {
+    public ContratoDAO() {
             ConnectionFactory.getConnection();
     }
     
-    public AtletaDAO Abrir(String cpf) {
+    public ContratoDAO Abrir(String cpf) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    public boolean Salvar(AtletaDAO obj) {
+    public boolean Salvar(ContratoDAO obj) {
         try {
             if(obj.getid() == 0){
                 // Objeto não está no BD, inserir
@@ -34,15 +35,10 @@ public class AtletaDAO extends Atleta{
                 
                 // Passa os parâmetros para a consulta SQL
                 sql.setInt(1, obj.getid());
-                sql.setString(2, obj.getposicao());
-                sql.setString(3, obj.getlado());
-                sql.setString(4, obj.getcategoria());
-                sql.setString(5, obj.getnaturalidade());
-                sql.setInt(6, obj.getidade());
-                sql.setDouble(7, obj.getaltura());
-                sql.setDouble(8, obj.getpeso());
-                sql.setString(9, obj.getcpf());
-                sql.setString(10, obj.getrg());
+                sql.setString(2, obj.getrecisao());
+                sql.setInt(3, obj.getrenovacao());
+                sql.setDouble(4, obj.getsalario());
+               
               
                 
                 
@@ -67,43 +63,26 @@ public class AtletaDAO extends Atleta{
     private int getid() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    private String getposicao() {
+    private Object getdate_inicio() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private String getlado() {
+    private String getrecisao() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private String getcategoria() {
+    private int getrenovacao() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private String getnaturalidade() {
+    private double getsalario() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private int getidade() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private double getaltura() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private double getpeso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private String getcpf() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private String getrg() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+  
 
     
     
 }
+
