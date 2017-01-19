@@ -66,6 +66,18 @@ public class PatrocinaClube {
     public String toString() {
         return "PatrocinaClube{" + "clube=" + clube + ", patrocinio=" + patrocinio + '}';
     }
+
+    public int getclube() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getclube() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getmodalidade() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

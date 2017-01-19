@@ -6,25 +6,25 @@
 package masterclub_persistencia;
 import connection.ConnectionFactory;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import br.edu.ifnmg.MasterClub.Entidades.Clube;
+import br.edu.ifnmg.MasterClub.Entidades.Financas;
+
 /**
  *
  * @author tls15
  */
-public class ClubeDAO extends Clube{
+public class FinancasDAO extends Financas{
     ConnectionFactory conn;
-    public ClubeDAO() {
+    public FinancasDAO() {
             ConnectionFactory.getConnection();
     }
     
-    public ClubeDAO Abrir(int cnpj) {
+    public FinancasDAO Abrir(int codigo ) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    public boolean Salvar(ClubeDAO obj) {
+    public boolean Salvar(FinancasDAO obj) {
         try {
-            if(obj.getcnpj() == 0){
+            if(obj.getcodigo() == 0){
                 // Objeto não está no BD, inserir
 
                 // Cria a consulta sql
@@ -33,10 +33,15 @@ public class ClubeDAO extends Clube{
                 
                 
                 // Passa os parâmetros para a consulta SQL
-                sql.setInt(1, obj.getcnpj());
-                sql.setString(2, obj.getnome());
-                sql.setInt(3, obj.getrenovacao());
-                
+                sql.setInt(1, obj.getcodigo());
+                sql.setString(2, obj.getcontratacoes());
+                sql.setString(3, obj.getvendas());
+                sql.setInt(4, obj.getnumero());
+                sql.setString(5, obj.getcomplemento());
+                sql.setString(6, obj.getcidade());
+                sql.setString(7, obj.getestado());
+              
+               
               
                 
                 
@@ -58,21 +63,38 @@ public class ClubeDAO extends Clube{
         return false;
     }
 
-    private int getcnpj() {
+    private int getcodigo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private String getnome() {
+    private int getnumero() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private int getquantidade() {
+    private String getcomplemento() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private int getrenovacao() {
+    private String getcidade() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    private String getestado() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String getcontratacoes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String getvendas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+
+    
+  
 
     
     
