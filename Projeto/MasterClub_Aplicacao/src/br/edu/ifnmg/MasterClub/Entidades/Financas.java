@@ -5,11 +5,11 @@
  */
 package br.edu.ifnmg.MasterClub.Entidades;
 
-/**
+/** 
  *
  * @author tls15
  */
-public class Financas {
+public class Financas implements Entidade{
     private int codigo;
     private String contratacoes;
     private String vendas;
@@ -85,6 +85,16 @@ public class Financas {
     @Override
     public String toString() {
         return "Financas{" + "codigo=" + codigo + ", contratacoes=" + contratacoes + ", vendas=" + vendas + ", emprestimos=" + emprestimos + '}';
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

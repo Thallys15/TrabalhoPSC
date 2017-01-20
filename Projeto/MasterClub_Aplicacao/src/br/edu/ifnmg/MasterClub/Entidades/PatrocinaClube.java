@@ -5,39 +5,37 @@
  */
 package br.edu.ifnmg.MasterClub.Entidades;
 
+import java.util.Objects;
+
 /**
  *
  * @author tls15
  */
-public class PatrocinaClube {
-    private int clube;
-    private int patrocinio;
+public class PatrocinaClube implements Entidade{
+    private Clube clube;
+    private Patrocinio patrocinio;
 
-    public int getClube() {
+    public Clube getClube() {
         return clube;
     }
 
-    public void setClube(int clube) {
+    public void setClube(Clube clube) {
         this.clube = clube;
     }
 
-    public int getPatrocinio() {
+    public Patrocinio getPatrocinio() {
         return patrocinio;
     }
 
-    public void setPatrocinio(int patrocinio) {
+    public void setPatrocinio(Patrocinio patrocinio) {
         this.patrocinio = patrocinio;
-    }
-
-    public PatrocinaClube() {
-    
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 53 * hash + this.clube;
-        hash = 53 * hash + this.patrocinio;
+        hash = 17 * hash + Objects.hashCode(this.clube);
+        hash = 17 * hash + Objects.hashCode(this.patrocinio);
         return hash;
     }
 
@@ -53,10 +51,10 @@ public class PatrocinaClube {
             return false;
         }
         final PatrocinaClube other = (PatrocinaClube) obj;
-        if (this.clube != other.clube) {
+        if (!Objects.equals(this.clube, other.clube)) {
             return false;
         }
-        if (this.patrocinio != other.patrocinio) {
+        if (!Objects.equals(this.patrocinio, other.patrocinio)) {
             return false;
         }
         return true;
@@ -67,18 +65,14 @@ public class PatrocinaClube {
         return "PatrocinaClube{" + "clube=" + clube + ", patrocinio=" + patrocinio + '}';
     }
 
-    public int getclube() {
+    @Override
+    public int getId() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public int getclube() {
+    @Override
+    public void setId(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public int getmodalidade() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
     
 }

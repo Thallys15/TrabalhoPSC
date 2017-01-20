@@ -5,15 +5,17 @@
  */
 package br.edu.ifnmg.MasterClub.Entidades;
 
+import java.util.Objects;
+
 /**
  *
  * @author tls15
  */
-public class ModalidadeClube {
+public class ModalidadeClube implements Entidade{
     private int clube;
-    private int modalidade;
+    private Modalidade modalidade;
 
-    public ModalidadeClube(int clube, int modalidade) {
+    public ModalidadeClube(int clube, Modalidade modalidade) {
         this.clube = clube;
         this.modalidade = modalidade;
     }
@@ -29,19 +31,21 @@ public class ModalidadeClube {
         this.clube = clube;
     }
 
-    public int getModalidade() {
+    public Modalidade getModalidade() {
         return modalidade;
     }
 
-    public void setModalidade(int modalidade) {
+    
+
+    public void setModalidade(Modalidade modalidade) {
         this.modalidade = modalidade;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + this.clube;
-        hash = 29 * hash + this.modalidade;
+        int hash = 3;
+        hash = 17 * hash + this.clube;
+        hash = 17 * hash + Objects.hashCode(this.modalidade);
         return hash;
     }
 
@@ -60,7 +64,7 @@ public class ModalidadeClube {
         if (this.clube != other.clube) {
             return false;
         }
-        if (this.modalidade != other.modalidade) {
+        if (!Objects.equals(this.modalidade, other.modalidade)) {
             return false;
         }
         return true;
@@ -70,6 +74,18 @@ public class ModalidadeClube {
     public String toString() {
         return "ModalidadeClube{" + "clube=" + clube + ", modalidade=" + modalidade + '}';
     }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     
     
     

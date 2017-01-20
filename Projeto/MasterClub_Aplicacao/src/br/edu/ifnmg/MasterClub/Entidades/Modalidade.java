@@ -9,7 +9,7 @@ package br.edu.ifnmg.MasterClub.Entidades;
  *
  * @author tls15
  */
-public class Modalidade {
+public class Modalidade implements Entidade{
     private int codigo;
     private String nome;
     private String descricao;
@@ -70,6 +70,16 @@ public class Modalidade {
     @Override
     public String toString() {
         return "Modalidade{" + "codigo=" + codigo + ", nome=" + nome + ", descricao=" + descricao + '}';
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
