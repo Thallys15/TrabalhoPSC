@@ -9,7 +9,7 @@ package br.edu.ifnmg.MasterClub.Entidades;
  *
  * @author tls15
  */
-public class Dependencia {
+public class Dependencia implements Entidade{
     private int codigo;
     private String nome;
     private int capacidade;
@@ -75,6 +75,16 @@ public class Dependencia {
     @Override
     public String toString() {
         return "Dependencia{" + "codigo=" + codigo + ", nome=" + nome + ", capacidade=" + capacidade + '}';
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

@@ -9,7 +9,7 @@ package br.edu.ifnmg.MasterClub.Entidades;
  *
  * @author tls15
  */
-public class Atleta {
+public class Atleta implements Entidade{
     private int id;
     private String posicao;
     private String lado;

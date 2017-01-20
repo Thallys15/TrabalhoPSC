@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author tls15
  */
-public class Contrato {
+public class Contrato implements Entidade {
     private int id;
     private Date date_inicio;
     private Date date_termino;

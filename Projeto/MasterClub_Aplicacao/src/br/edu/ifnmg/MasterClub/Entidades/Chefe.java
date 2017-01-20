@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author tls15
  */
-public class Chefe {
+public class Chefe implements Entidade{
     private String administracao;
 
     public String getAdministracao() {
@@ -54,6 +54,16 @@ public class Chefe {
     @Override
     public String toString() {
         return "Chefe{" + "administracao=" + administracao + '}';
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

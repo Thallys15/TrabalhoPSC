@@ -9,7 +9,7 @@ package br.edu.ifnmg.MasterClub.Entidades;
  *
  * @author tls15
  */
-public class Endereco {
+public class Endereco implements Entidade{
     private int codigo;
     private String rua;
     private String bairro;
@@ -115,6 +115,16 @@ public class Endereco {
     @Override
     public String toString() {
         return "Endereco{" + "codigo=" + codigo + ", rua=" + rua + ", bairro=" + bairro + ", numero=" + numero + ", complemento=" + complemento + ", cidade=" + cidade + ", estado=" + estado + '}';
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
