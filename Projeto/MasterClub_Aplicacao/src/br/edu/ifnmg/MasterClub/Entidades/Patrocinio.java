@@ -9,7 +9,7 @@ package br.edu.ifnmg.MasterClub.Entidades;
  *
  * @author tls15
  */
-public class Patrocinio {
+public class Patrocinio implements Entidade{
     private int codigo;
     private String nome;
 
@@ -65,6 +65,16 @@ public class Patrocinio {
     @Override
     public String toString() {
         return "Patrocinio{" + "codigo=" + codigo + ", nome=" + nome + '}';
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

@@ -8,7 +8,7 @@ package br.edu.ifnmg.MasterClub.Entidades;
 import java.util.Objects;
 
 
-public class Usuario {
+public class Usuario implements Entidade{
     private int id;
     private String login;
     private String senha;

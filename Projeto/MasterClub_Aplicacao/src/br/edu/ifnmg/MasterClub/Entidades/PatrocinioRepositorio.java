@@ -9,6 +9,6 @@ package br.edu.ifnmg.MasterClub.Entidades;
  *
  * @author Igor Pereira
  */
-public interface ModalidadeClubeRepositorio extends Repositorio<ModalidadeClube>{
+public interface PatrocinioRepositorio extends Repositorio<Patrocinio>{
     
 }

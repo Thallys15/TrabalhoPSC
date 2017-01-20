@@ -5,19 +5,21 @@
  */
 package br.edu.ifnmg.MasterClub.Entidades;
 
+import java.util.Objects;
+
 /**
  *
  * @author tls15
  */
-public class ResponsavelModalidade {
+public class ResponsavelModalidade implements Entidade{
     private int modalidade;
-    private int funcionario;
+    private Funcionario funcionario;
     private String coordenador;
 
     public ResponsavelModalidade() {
     }
 
-    public ResponsavelModalidade(int modalidade, int funcionario, String coordenador) {
+    public ResponsavelModalidade(int modalidade, Funcionario funcionario, String coordenador) {
         this.modalidade = modalidade;
         this.funcionario = funcionario;
         this.coordenador = coordenador;
@@ -31,13 +33,14 @@ public class ResponsavelModalidade {
         this.modalidade = modalidade;
     }
 
-    public int getFuncionario() {
+    public Funcionario getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(int funcionario) {
+    public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
+
 
     public String getCoordenador() {
         return coordenador;
@@ -49,9 +52,10 @@ public class ResponsavelModalidade {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + this.modalidade;
-        hash = 89 * hash + this.funcionario;
+        int hash = 7;
+        hash = 29 * hash + this.modalidade;
+        hash = 29 * hash + Objects.hashCode(this.funcionario);
+        hash = 29 * hash + Objects.hashCode(this.coordenador);
         return hash;
     }
 
@@ -70,7 +74,10 @@ public class ResponsavelModalidade {
         if (this.modalidade != other.modalidade) {
             return false;
         }
-        if (this.funcionario != other.funcionario) {
+        if (!Objects.equals(this.coordenador, other.coordenador)) {
+            return false;
+        }
+        if (!Objects.equals(this.funcionario, other.funcionario)) {
             return false;
         }
         return true;
@@ -80,6 +87,20 @@ public class ResponsavelModalidade {
     public String toString() {
         return "ResponsavelModalidade{" + "modalidade=" + modalidade + ", funcionario=" + funcionario + ", coordenador=" + coordenador + '}';
     }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
+   
+   
     
     
     

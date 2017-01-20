@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author tls15
  */
-public class Titulos {
+public class Titulos implements Entidade {
     private int codigotitulo;
     private Date datatitulo;
 
@@ -62,6 +62,16 @@ public class Titulos {
     @Override
     public String toString() {
         return "Titulos{" + "codigotitulo=" + codigotitulo + ", datatitulo=" + datatitulo + '}';
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

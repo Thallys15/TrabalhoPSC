@@ -7,8 +7,8 @@ package br.edu.ifnmg.MasterClub.Entidades;
 
 /**
  *
- * @author Igor Pereira
+ * @author Jardel Farias
  */
-public interface ModalidadeClubeRepositorio extends Repositorio<ModalidadeClube>{
+public interface TitulosRepositorio extends Repositorio<Titulos>{
     
 }

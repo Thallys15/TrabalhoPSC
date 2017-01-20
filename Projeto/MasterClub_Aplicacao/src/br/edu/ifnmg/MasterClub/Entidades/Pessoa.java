@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author tls15
  */
-public class Pessoa {
+public class Pessoa implements Entidade{
     private int codigo;
     private String nome;
 
@@ -68,6 +68,16 @@ public class Pessoa {
     @Override
     public String toString() {
         return "Pessoa{" + "codigo=" + codigo + ", nome=" + nome + '}';
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

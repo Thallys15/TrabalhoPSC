@@ -9,6 +9,7 @@ package br.edu.ifnmg.MasterClub.Entidades;
  *
  * @author Igor Pereira
  */
-public interface ModalidadeClubeRepositorio extends Repositorio<ModalidadeClube>{
+public interface UsuarioRepositorio extends Repositorio<Usuario>{
+    public Usuario Abrir(String login, String senha);
     
 }
