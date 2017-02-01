@@ -1,0 +1,99 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.edu.ifnmg.MasterClub.Persistencia;
+
+import br.edu.ifnmg.MasterClub.Entidades.Funcionario;
+import br.edu.ifnmg.MasterClub.Entidades.FuncionarioRepositorio;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author Igor Pereira
+ */
+public class FuncionarioDAO extends DAOGenerico<Funcionario> implements FuncionarioRepositorio{
+    
+    public FuncionarioDAO(){
+        setConsultaAbrir("select id, cpf, rg, cargo, idade from funcionario where id = ?");
+        setConsultaApagar("delete from funcionario where id = ?");
+        setConsultaInserir("insert into funcionario(cpf, rg, cargo, idade) values(?,?,?,?)");
+        setConsultaAlterar("update funcionario set cpf = ?, rg = ?, cargo = ?, idade = ? where id = ?");
+        setConsultaBusca("select id, cpf, rg, cargo, idade from funcionario ");
+    
+    }
+
+    @Override
+    protected Funcionario preencheObjeto(ResultSet resultado) {
+        try {
+            Funcionario tmp = new Funcionario();
+            tmp.setIdfuncionario(resultado.getInt(1));
+            tmp.setCpf(resultado.getString(2));
+            tmp.setRg(resultado.getString(3));
+            tmp.setCargo(resultado.getString(4));
+            tmp.setIdade(resultado.getInt(3));
+            
+            return tmp;
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    @Override
+    protected void preencheConsulta(PreparedStatement sql, Funcionario obj) {
+        try {
+            sql.setString(1, obj.getCpf());
+            sql.setString(2, obj.getRg());
+            sql.setString(3, obj.getCargo());
+            sql.setInt(2, obj.getIdade());
+            if(obj.getId() > 0) sql.setInt(3, obj.getId());
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    protected void preencheFiltros(Funcionario filtro) {
+        if(filtro.getIdfuncionario()> 0 ) adicionarFiltro("id", "=");
+        if(filtro.getCpf()!= null) adicionarFiltro("nome", " like ");
+        if(filtro.getRg()!= null) adicionarFiltro("nome", " like ");
+        if(filtro.getCargo()!= null) adicionarFiltro("nome", " like ");
+        if(filtro.getIdade() > 0) adicionarFiltro("preco", " = ");
+    }
+
+    @Override
+    protected void preencheParametros(PreparedStatement sql, Funcionario filtro) {
+        try {
+            int cont = 1;
+            if(filtro.getIdfuncionario()> 0){ sql.setInt(cont, filtro.getIdfuncionario()); cont++; }
+            if(filtro.getCpf()!= null ){ sql.setString(cont, filtro.getCpf()); cont++; }
+            if(filtro.getRg()!= null ){ sql.setString(cont, filtro.getRg()); cont++; }
+            if(filtro.getCargo()!= null ){ sql.setString(cont, filtro.getCargo()); cont++; }
+            if(filtro.getIdade()  > 0 ){ sql.setInt(cont, filtro.getIdade()); cont++; }
+                 
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public Funcionario Abrir(String cpf) {
+        try{
+          PreparedStatement sql = conn.prepareStatement("SELECT id, cpf, rg, cargo, idade FROM Funcionario WHERE cpf = ?");
+          sql.setString(1, cpf);
+          ResultSet resultado = sql.executeQuery();
+          if(resultado.next()) return preencheObjeto(resultado);
+        } catch (SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
+    
+    
+}
