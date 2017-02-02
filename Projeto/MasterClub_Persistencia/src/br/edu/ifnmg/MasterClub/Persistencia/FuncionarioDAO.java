@@ -7,6 +7,8 @@ package br.edu.ifnmg.MasterClub.Persistencia;
 
 import br.edu.ifnmg.MasterClub.Entidades.Funcionario;
 import br.edu.ifnmg.MasterClub.Entidades.FuncionarioRepositorio;
+import br.edu.ifnmg.MasterClub.Entidades.Modalidade;
+import br.edu.ifnmg.MasterClub.Entidades.ResponsavelModalidade;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -94,6 +96,46 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
         }
         return null;
     }
+
+    @Override
+    public boolean Salvar(Funcionario obj) {
+         if(!super.Salvar(obj)) 
+            return false;
+        
+        if(obj.getId() > 0 ){
+            for(ResponsavelModalidade item : obj.getModalidades()){
+                if(item.getId() == 0){
+                    try {
+                        String consulta = "insert into responsavel_modalidades(modalidade, funcionario, coordenador) values(?,?,?)";
+                        PreparedStatement sql = conn.prepareStatement(consulta);
+                        sql.setInt(1, obj.getId());
+                        sql.setInt(2, item.getModalidade().getId());
+                        sql.setString(3, item.getCoordenador());
+                        sql.executeUpdate();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+                        return false;
+                    }
+                } else {
+                    try {
+                        String consulta = "update vendasitens set modalidade = ?, funcionario = ?,coordenador = ? where id = ?";
+                        PreparedStatement sql = conn.prepareStatement(consulta);
+                        sql.setInt(1, obj.getId());
+                        sql.setInt(2, item.getModalidade().getId());
+                        sql.setString(3, item.getCoordenador());
+                        sql.setInt(4, item.getId());
+                        sql.executeUpdate();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+                        return false;
+                    }
+                }
+            }
+        }
+        
+        return true;
+    }
+    
     
     
 }
