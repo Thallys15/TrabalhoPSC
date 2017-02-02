@@ -54,6 +54,22 @@ public class Funcionario implements Entidade{
         }
     }
 
+    public BigDecimal getQtdmodalidades() {
+        return qtdmodalidades;
+    }
+
+    public void setQtdmodalidades(BigDecimal qtdmodalidades) {
+        this.qtdmodalidades = qtdmodalidades;
+    }
+
+    public List<ResponsavelModalidade> getModalidades() {
+        return modalidades;
+    }
+
+    public void setModalidades(List<ResponsavelModalidade> modalidades) {
+        this.modalidades = modalidades;
+    }
+
     public int getIdfuncionario() {
         return idfuncionario;
     }

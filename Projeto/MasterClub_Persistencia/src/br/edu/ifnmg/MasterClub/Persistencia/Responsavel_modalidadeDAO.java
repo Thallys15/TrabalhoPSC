@@ -41,15 +41,15 @@ public class Responsavel_modalidadeDAO extends DAOGenerico<ResponsavelModalidade
     @Override
     protected ResponsavelModalidade preencheObjeto(ResultSet resultado) {
 try {
-            ResponsavelModalidade tmp = new ResponsavelModalidade();
-            tmp.setId( resultado.getInt(1) );
-            tmp.setFuncionario(funcionario.Abrir( resultado.getInt(2) ));
-            tmp.setCoordenador(resultado.getString(3)  );
-            tmp.setModalidade(modalidade.Abrir( resultado.getInt(4) ));
+            Funcionario tmp = new Funcionario();
+            tmp.setCpf(resultado.getString(1) );
+            tmp.setRg(resultado.getString(2)  );
+            tmp.setCargo(resultado.getString(3)  );
+            tmp.setIdade(resultado.getInt(5)  );
+            tmp.setId(resultado.getInt(6)  );
+            tmp.setQtdmodalidades( resultado.getBigDecimal(6) );
             
-            tmp.setItens(  carregaItens(tmp)  );
-            
-            return tmp;
+            tmp.setModalidades(carregaItens(tmp)  );            
             
         } catch (SQLException ex) {
             Logger.getLogger(Responsavel_modalidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -71,27 +71,21 @@ try {
     protected void preencheParametros(PreparedStatement sql, ResponsavelModalidade filtro) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-     private List<VendaItem> carregaItens(Venda obj){
-        List<VendaItem> ret = new ArrayList<>();
-        String consulta = "select id, venda_id, produto_id, quantidade from vendasitens where venda_id = ?";
+     private List<ResponsavelModalidade> carregaItens(Funcionario obj){
+        List<ResponsavelModalidade> ret = new ArrayList<>();
+        String consulta = "select id, modalidade, funcionario, cordenador from responsavelmodalidade where modalidade = ?";
         try {
-            
-            // Crio a consulta sql
             PreparedStatement sql = conn.prepareStatement(consulta);
             
             sql.setInt(1, obj.getId());
-            
-            // Executo a consulta sql e pego os resultados
             ResultSet resultado = sql.executeQuery();
-                        
-            // Verifica se algum registro foi retornado na consulta
             while(resultado.next()){
-                VendaItem item = new VendaItem();
+                ResponsavelModalidade item = new ResponsavelModalidade();
                 
                 item.setId(resultado.getInt(1));
-                item.setVenda(obj);
-                item.setProduto(  produtos.Abrir( resultado.getInt(3)  )   );
-                item.setQuantidade(  resultado.getInt(4)  );
+                item.setFuncionario(2);
+                item.setModalidade(modalidade.Abrir( resultado.getInt(3)  )   );
+                item.setQtdModalidades(resultado.getInt(4)  );
                 ret.add(item);
             }            
             
