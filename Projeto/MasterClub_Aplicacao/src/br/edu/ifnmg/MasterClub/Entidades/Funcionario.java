@@ -5,6 +5,11 @@
  */
 package br.edu.ifnmg.MasterClub.Entidades;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author tls15
@@ -15,8 +20,11 @@ public class Funcionario implements Entidade{
     private String rg;
     private String cargo;
     private int idade;
+    private BigDecimal qtdmodalidades;
+    private List<ResponsavelModalidade>modalidades;
 
     public Funcionario() {
+        modalidades = new ArrayList<>();
     }
 
     public Funcionario(int idfuncionario, String cpf, String rg, String cargo, int idade) {
@@ -25,6 +33,25 @@ public class Funcionario implements Entidade{
         this.rg = rg;
         this.cargo = cargo;
         this.idade = idade;
+        this.qtdmodalidades = qtdmodalidades;
+        modalidades = new ArrayList<>();
+    }
+     public void addItem(ResponsavelModalidade modalidade){
+        if(!modalidades.contains(modalidade)) {
+            modalidades.add(modalidade);
+            this.qtdmodalidades = this.qtdmodalidades.add( 
+                    modalidade.getModalidade().getValorPagoModalidade().multiply
+                        (  new BigDecimal( modalidade.getQtdModalidades())   )  );
+        }
+    }
+    
+     public void removeItem(ResponsavelModalidade modalidade){
+        if(modalidades.contains(modalidade)){
+            modalidades.remove(modalidade);
+        this.qtdmodalidades = this.qtdmodalidades.subtract(
+                    modalidade.getModalidade().getValorPagoModalidade().multiply
+                        (  new BigDecimal( modalidade.getQtdModalidades())   )  );
+        }
     }
 
     public int getIdfuncionario() {

@@ -5,6 +5,7 @@
  */
 package br.edu.ifnmg.MasterClub.Entidades;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -12,27 +13,37 @@ import java.util.Objects;
  * @author tls15
  */
 public class ResponsavelModalidade implements Entidade{
-    private int modalidade;
+    private Modalidade modalidade;
     private Funcionario funcionario;
     private String coordenador;
-
+    private int qtdModalidades;
     public ResponsavelModalidade() {
     }
 
-    public ResponsavelModalidade(int modalidade, Funcionario funcionario, String coordenador) {
+    public ResponsavelModalidade(Modalidade modalidade, Funcionario funcionario, String coordenador) {
         this.modalidade = modalidade;
         this.funcionario = funcionario;
         this.coordenador = coordenador;
+        this.qtdModalidades = qtdModalidades;
     }
 
-    public int getModalidade() {
+    public int getQtdModalidades() {
+        return qtdModalidades;
+    }
+
+    public void setQtdModalidades(int qtdModalidades) {
+        this.qtdModalidades = qtdModalidades;
+    }
+    
+    public Modalidade getModalidade() {
         return modalidade;
     }
 
-    public void setModalidade(int modalidade) {
+    public void setModalidade(Modalidade modalidade) {
         this.modalidade = modalidade;
     }
 
+ 
     public Funcionario getFuncionario() {
         return funcionario;
     }
@@ -52,10 +63,11 @@ public class ResponsavelModalidade implements Entidade{
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + this.modalidade;
-        hash = 29 * hash + Objects.hashCode(this.funcionario);
-        hash = 29 * hash + Objects.hashCode(this.coordenador);
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.modalidade);
+        hash = 97 * hash + Objects.hashCode(this.funcionario);
+        hash = 97 * hash + Objects.hashCode(this.coordenador);
+        hash = 97 * hash + Objects.hashCode(this.qtdModalidades);
         return hash;
     }
 
@@ -71,13 +83,16 @@ public class ResponsavelModalidade implements Entidade{
             return false;
         }
         final ResponsavelModalidade other = (ResponsavelModalidade) obj;
-        if (this.modalidade != other.modalidade) {
-            return false;
-        }
         if (!Objects.equals(this.coordenador, other.coordenador)) {
             return false;
         }
+        if (!Objects.equals(this.modalidade, other.modalidade)) {
+            return false;
+        }
         if (!Objects.equals(this.funcionario, other.funcionario)) {
+            return false;
+        }
+        if (!Objects.equals(this.qtdModalidades, other.qtdModalidades)) {
             return false;
         }
         return true;
@@ -85,7 +100,7 @@ public class ResponsavelModalidade implements Entidade{
 
     @Override
     public String toString() {
-        return "ResponsavelModalidade{" + "modalidade=" + modalidade + ", funcionario=" + funcionario + ", coordenador=" + coordenador + '}';
+        return "ResponsavelModalidade{" + "modalidade=" + modalidade + ", funcionario=" + funcionario + ", coordenador=" + coordenador + ", qtdModalidades=" + qtdModalidades + '}';
     }
 
     @Override
