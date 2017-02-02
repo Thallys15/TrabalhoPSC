@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Jardel Farias
+ * @author Igor Pereira
  */
 public class ContratoDAO extends DAOGenerico<Contrato> implements ContratoRepositorio{
 
