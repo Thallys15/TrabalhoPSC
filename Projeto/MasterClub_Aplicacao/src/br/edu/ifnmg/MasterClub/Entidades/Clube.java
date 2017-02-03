@@ -5,6 +5,9 @@
  */
 package br.edu.ifnmg.MasterClub.Entidades;
 
+import java.math.BigDecimal;
+import java.util.Objects;
+
 /**
  *
  * @author tls15
@@ -12,14 +15,16 @@ package br.edu.ifnmg.MasterClub.Entidades;
 public class Clube implements Entidade{
     private int cnpj;
     private String nome;
+    private BigDecimal salarioAtletas;
     private int quantidade;
 
     public Clube() {
     }
 
-    public Clube(int cnpj, String nome, int quantidade) {
+    public Clube(int cnpj, String nome, BigDecimal salarioAtletas, int quantidade) {
         this.cnpj = cnpj;
         this.nome = nome;
+        this.salarioAtletas = salarioAtletas;
         this.quantidade = quantidade;
     }
 
@@ -47,10 +52,32 @@ public class Clube implements Entidade{
         this.quantidade = quantidade;
     }
 
+    public BigDecimal getSalarioAtletas() {
+        return salarioAtletas;
+    }
+
+    public void setSalarioAtletas(BigDecimal salarioAtletas) {
+        this.salarioAtletas = salarioAtletas;
+    }
+
+    
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + this.cnpj;
+        int hash = 3;
+        hash = 97 * hash + this.cnpj;
+        hash = 97 * hash + Objects.hashCode(this.nome);
+        hash = 97 * hash + Objects.hashCode(this.salarioAtletas);
+        hash = 97 * hash + this.quantidade;
         return hash;
     }
 
@@ -69,22 +96,21 @@ public class Clube implements Entidade{
         if (this.cnpj != other.cnpj) {
             return false;
         }
+        if (this.quantidade != other.quantidade) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.salarioAtletas, other.salarioAtletas)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Clube{" + "cnpj=" + cnpj + ", nome=" + nome + ", quantidade=" + quantidade + '}';
-    }
-
-    @Override
-    public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Clube{" + "cnpj=" + cnpj + ", nome=" + nome + ", salarioAtletas=" + salarioAtletas + ", quantidade=" + quantidade + '}';
     }
     
     

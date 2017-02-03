@@ -21,9 +21,9 @@ import java.util.logging.Logger;
 public class ModalidadeDAO extends DAOGenerico<Modalidade> implements ModalidadeRepositorio{
       public ModalidadeDAO() {
         setConsultaAbrir("select codigo,nome,descricao from modalidade where codigo = ?");
-        setConsultaApagar("DELETE FROM modalidade WHERE codigo = ? ");
-        setConsultaInserir("INSERT INTO modalidade(nome, descricao) VALUES(?,?)");
-        setConsultaAlterar("UPDATE modalidade SET nome = ?, descricao = ? WHERE codigo = ?");
+        setConsultaApagar("delete from modalidade where codigo = ? ");
+        setConsultaInserir("insert into modalidade(nome, descricao) values(?,?)");
+        setConsultaAlterar("update modalidade set nome = ?, descricao = ? where codigo = ?");
         setConsultaBusca("select codigo,nome,descricao from modalidade ");
     }
 

@@ -38,7 +38,7 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
             tmp.setCpf(resultado.getString(2));
             tmp.setRg(resultado.getString(3));
             tmp.setCargo(resultado.getString(4));
-            tmp.setIdade(resultado.getInt(3));
+            tmp.setIdade(resultado.getInt(5));
             
             return tmp;
         } catch (SQLException ex) {
@@ -53,8 +53,8 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
             sql.setString(1, obj.getCpf());
             sql.setString(2, obj.getRg());
             sql.setString(3, obj.getCargo());
-            sql.setInt(2, obj.getIdade());
-            if(obj.getId() > 0) sql.setInt(3, obj.getId());
+            sql.setInt(4, obj.getIdade());
+            if(obj.getId() > 0) sql.setInt(5, obj.getId());
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
