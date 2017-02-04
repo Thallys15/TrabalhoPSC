@@ -12,8 +12,34 @@ import java.util.Objects;
  * @author tls15
  */
 public class PatrocinaClube implements Entidade{
+    private int id;
     private Clube clube;
     private Patrocinio patrocinio;
+    private int qtdpatrocinadores;
+
+    public PatrocinaClube() {
+    }
+
+    public PatrocinaClube(int id, Clube clube, Patrocinio patrocinio, int qtdpatrocinadores) {
+        this.id = id;
+        this.clube = clube;
+        this.patrocinio = patrocinio;
+        this.qtdpatrocinadores = qtdpatrocinadores;
+    }
+
+    public PatrocinaClube(Clube clube, Patrocinio patrocinio, int qtdpatrocinadores) {
+        this.clube = clube;
+        this.patrocinio = patrocinio;
+        this.qtdpatrocinadores = qtdpatrocinadores;
+    }
+
+    public int getQtdpatrocinadores() {
+        return qtdpatrocinadores;
+    }
+
+    public void setQtdpatrocinadores(int qtdpatrocinadores) {
+        this.qtdpatrocinadores = qtdpatrocinadores;
+    }
 
     public Clube getClube() {
         return clube;
@@ -34,8 +60,10 @@ public class PatrocinaClube implements Entidade{
     @Override
     public int hashCode() {
         int hash = 5;
+        hash = 17 * hash + this.id;
         hash = 17 * hash + Objects.hashCode(this.clube);
         hash = 17 * hash + Objects.hashCode(this.patrocinio);
+        hash = 17 * hash + this.qtdpatrocinadores;
         return hash;
     }
 
@@ -51,6 +79,12 @@ public class PatrocinaClube implements Entidade{
             return false;
         }
         final PatrocinaClube other = (PatrocinaClube) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.qtdpatrocinadores != other.qtdpatrocinadores) {
+            return false;
+        }
         if (!Objects.equals(this.clube, other.clube)) {
             return false;
         }
@@ -62,7 +96,7 @@ public class PatrocinaClube implements Entidade{
 
     @Override
     public String toString() {
-        return "PatrocinaClube{" + "clube=" + clube + ", patrocinio=" + patrocinio + '}';
+        return "PatrocinaClube{" + "id=" + id + ", clube=" + clube + ", patrocinio=" + patrocinio + ", qtdpatrocinadores=" + qtdpatrocinadores + '}';
     }
 
     @Override
@@ -72,6 +106,10 @@ public class PatrocinaClube implements Entidade{
 
     @Override
     public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setPatrocinio(Patrocinar obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
