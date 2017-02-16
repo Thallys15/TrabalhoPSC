@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author tls15
  */
 public class Clube implements Entidade{
-    private int cnpj;
+    private String cnpj;
     private String nome;
     private BigDecimal salarioAtletas;
     private int quantidade;
@@ -21,26 +21,30 @@ public class Clube implements Entidade{
     public Clube() {
     }
 
-    public Clube(int cnpj, String nome, BigDecimal salarioAtletas, int quantidade) {
+    public Clube(String cnpj, String nome, BigDecimal salarioAtletas, int quantidade) {
         this.cnpj = cnpj;
         this.nome = nome;
         this.salarioAtletas = salarioAtletas;
         this.quantidade = quantidade;
     }
 
-    public int getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(int cnpj) {
-        this.cnpj = cnpj;
+    public void setCnpj(String cnpj) throws ErroValidacao{
+        if(cnpj.length() > 18)
+            throw new ErroValidacao("O atributo cnpj deve ter no máximo 18 caracteres!");
+        this.cnpj = cnpj.replace("-", "").replace(".", "").replace("/", "");
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws ErroValidacao {
+        if(nome.length() > 250)
+            throw new ErroValidacao("O atributo nome deve ter no máximo 250 caracteres!");
         this.nome = nome;
     }
 
@@ -73,11 +77,11 @@ public class Clube implements Entidade{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + this.cnpj;
-        hash = 97 * hash + Objects.hashCode(this.nome);
-        hash = 97 * hash + Objects.hashCode(this.salarioAtletas);
-        hash = 97 * hash + this.quantidade;
+        int hash = 5;
+        hash = 41 * hash + Objects.hashCode(this.cnpj);
+        hash = 41 * hash + Objects.hashCode(this.nome);
+        hash = 41 * hash + Objects.hashCode(this.salarioAtletas);
+        hash = 41 * hash + this.quantidade;
         return hash;
     }
 
@@ -93,10 +97,10 @@ public class Clube implements Entidade{
             return false;
         }
         final Clube other = (Clube) obj;
-        if (this.cnpj != other.cnpj) {
+        if (this.quantidade != other.quantidade) {
             return false;
         }
-        if (this.quantidade != other.quantidade) {
+        if (!Objects.equals(this.cnpj, other.cnpj)) {
             return false;
         }
         if (!Objects.equals(this.nome, other.nome)) {
@@ -112,6 +116,6 @@ public class Clube implements Entidade{
     public String toString() {
         return "Clube{" + "cnpj=" + cnpj + ", nome=" + nome + ", salarioAtletas=" + salarioAtletas + ", quantidade=" + quantidade + '}';
     }
-    
+
     
 }

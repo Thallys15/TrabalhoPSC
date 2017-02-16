@@ -5,6 +5,9 @@
  */
 package br.edu.ifnmg.MasterClub.Entidades;
 
+import java.math.BigDecimal;
+import java.util.Objects;
+
 /**
  *
  * @author tls15
@@ -12,7 +15,16 @@ package br.edu.ifnmg.MasterClub.Entidades;
 public class Dependencia implements Entidade{
     private int codigo;
     private String nome;
-    private int capacidade;
+    private BigDecimal capacidade;
+
+    public Dependencia() {
+    }
+
+    public Dependencia(int codigo, String nome, BigDecimal capacidade) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.capacidade = capacidade;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -30,18 +42,30 @@ public class Dependencia implements Entidade{
         this.nome = nome;
     }
 
-    public int getCapacidade() {
+    public BigDecimal getCapacidade() {
         return capacidade;
     }
 
-    public void setCapacidade(int capacidade) {
+    public void setCapacidade(BigDecimal capacidade) {
         this.capacidade = capacidade;
+    }
+    
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + this.codigo;
+        hash = 29 * hash + this.codigo;
+        hash = 29 * hash + Objects.hashCode(this.nome);
+        hash = 29 * hash + Objects.hashCode(this.capacidade);
         return hash;
     }
 
@@ -60,31 +84,18 @@ public class Dependencia implements Entidade{
         if (this.codigo != other.codigo) {
             return false;
         }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.capacidade, other.capacidade)) {
+            return false;
+        }
         return true;
-    }
-
-    public Dependencia() {
-    }
-
-    public Dependencia(int codigo, String nome, int capacidade) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.capacidade = capacidade;
     }
 
     @Override
     public String toString() {
         return "Dependencia{" + "codigo=" + codigo + ", nome=" + nome + ", capacidade=" + capacidade + '}';
-    }
-
-    @Override
-    public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
