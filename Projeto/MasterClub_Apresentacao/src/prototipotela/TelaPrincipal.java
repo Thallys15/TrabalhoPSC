@@ -28,7 +28,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         try {
-            jPanel2 =(javax.swing.JPanel)java.beans.Beans.instantiate(getClass().getClassLoader(), "prototipotela.TelaPrincipal_jPanel2");
+            FundoTela =(javax.swing.JPanel)java.beans.Beans.instantiate(getClass().getClassLoader(), "prototipotela.TelaPrincipal_jPanel2");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (java.io.IOException e) {
@@ -41,38 +41,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ItemCadFuncionario = new javax.swing.JMenuItem();
         ItemCadPatrocinadores = new javax.swing.JMenuItem();
         BarraMenuDepartamentos = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        ItemDepartamentoFutebol = new javax.swing.JMenuItem();
+        ItemDepartamentoMarketing = new javax.swing.JMenuItem();
         ItemDepMedico = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        ItemInfraestrutura = new javax.swing.JMenuItem();
         BarraMenuCampeonato = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        ItemInserirTorneio = new javax.swing.JMenuItem();
+        ItemTemporada = new javax.swing.JMenuItem();
+        ItemTitulos = new javax.swing.JMenuItem();
         BarraMenuFinanceiro = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        ItemContratacoes = new javax.swing.JMenuItem();
+        ItemEmprestimos = new javax.swing.JMenuItem();
+        ItemVendas = new javax.swing.JMenuItem();
+        ItemPatrocinadores = new javax.swing.JMenuItem();
         BarraMenuSobre = new javax.swing.JMenu();
         BarraMenuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout FundoTelaLayout = new javax.swing.GroupLayout(FundoTela);
+        FundoTela.setLayout(FundoTelaLayout);
+        FundoTelaLayout.setHorizontalGroup(
+            FundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1010, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        FundoTelaLayout.setVerticalGroup(
+            FundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 510, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 1010, 510);
+        getContentPane().add(FundoTela);
+        FundoTela.setBounds(0, 0, 1010, 510);
 
         BarraMenuTelaPrincipal.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 
@@ -116,21 +116,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuDepartamentos.setText("Departamentos");
         BarraMenuDepartamentos.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066799_Football_2-09.png"))); // NOI18N
-        jMenuItem1.setText("Departamento de Futebol");
-        BarraMenuDepartamentos.add(jMenuItem1);
+        ItemDepartamentoFutebol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066799_Football_2-09.png"))); // NOI18N
+        ItemDepartamentoFutebol.setText("Departamento de Futebol");
+        BarraMenuDepartamentos.add(ItemDepartamentoFutebol);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067021_vector_65_10.png"))); // NOI18N
-        jMenuItem2.setText("Departamento de Marketing");
-        BarraMenuDepartamentos.add(jMenuItem2);
+        ItemDepartamentoMarketing.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067021_vector_65_10.png"))); // NOI18N
+        ItemDepartamentoMarketing.setText("Departamento de Marketing");
+        BarraMenuDepartamentos.add(ItemDepartamentoMarketing);
 
         ItemDepMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066900_cross_1.png"))); // NOI18N
         ItemDepMedico.setText("Departamento Médico");
         BarraMenuDepartamentos.add(ItemDepMedico);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066748_Football_2-17.png"))); // NOI18N
-        jMenuItem3.setText("Infraestrutura");
-        BarraMenuDepartamentos.add(jMenuItem3);
+        ItemInfraestrutura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066748_Football_2-17.png"))); // NOI18N
+        ItemInfraestrutura.setText("Infraestrutura");
+        BarraMenuDepartamentos.add(ItemInfraestrutura);
 
         BarraMenuTelaPrincipal.add(BarraMenuDepartamentos);
 
@@ -138,17 +138,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuCampeonato.setText("Campeonatos");
         BarraMenuCampeonato.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067356_compose.png"))); // NOI18N
-        jMenuItem4.setText("Inserir Torneio");
-        BarraMenuCampeonato.add(jMenuItem4);
+        ItemInserirTorneio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067356_compose.png"))); // NOI18N
+        ItemInserirTorneio.setText("Inserir Torneio");
+        BarraMenuCampeonato.add(ItemInserirTorneio);
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067408_calendar.png"))); // NOI18N
-        jMenuItem5.setText("Temporada");
-        BarraMenuCampeonato.add(jMenuItem5);
+        ItemTemporada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067408_calendar.png"))); // NOI18N
+        ItemTemporada.setText("Temporada");
+        BarraMenuCampeonato.add(ItemTemporada);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067531_trophy.png"))); // NOI18N
-        jMenuItem6.setText("Títulos");
-        BarraMenuCampeonato.add(jMenuItem6);
+        ItemTitulos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067531_trophy.png"))); // NOI18N
+        ItemTitulos.setText("Títulos");
+        BarraMenuCampeonato.add(ItemTitulos);
 
         BarraMenuTelaPrincipal.add(BarraMenuCampeonato);
 
@@ -156,21 +156,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuFinanceiro.setText("Financeiro");
         BarraMenuFinanceiro.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067819_vector_65_12.png"))); // NOI18N
-        jMenuItem7.setText("Contratações");
-        BarraMenuFinanceiro.add(jMenuItem7);
+        ItemContratacoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067819_vector_65_12.png"))); // NOI18N
+        ItemContratacoes.setText("Contratações");
+        BarraMenuFinanceiro.add(ItemContratacoes);
 
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067951_finance-23.png"))); // NOI18N
-        jMenuItem8.setText("Empréstimos");
-        BarraMenuFinanceiro.add(jMenuItem8);
+        ItemEmprestimos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067951_finance-23.png"))); // NOI18N
+        ItemEmprestimos.setText("Empréstimos");
+        BarraMenuFinanceiro.add(ItemEmprestimos);
 
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474068036_Cart.png"))); // NOI18N
-        jMenuItem9.setText("Vendas");
-        BarraMenuFinanceiro.add(jMenuItem9);
+        ItemVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474068036_Cart.png"))); // NOI18N
+        ItemVendas.setText("Vendas");
+        BarraMenuFinanceiro.add(ItemVendas);
 
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067698_visa.png"))); // NOI18N
-        jMenuItem10.setText("Patrocinadores");
-        BarraMenuFinanceiro.add(jMenuItem10);
+        ItemPatrocinadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067698_visa.png"))); // NOI18N
+        ItemPatrocinadores.setText("Patrocinadores");
+        BarraMenuFinanceiro.add(ItemPatrocinadores);
 
         BarraMenuTelaPrincipal.add(BarraMenuFinanceiro);
 
@@ -259,21 +259,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu BarraMenuSair;
     private javax.swing.JMenu BarraMenuSobre;
     private javax.swing.JMenuBar BarraMenuTelaPrincipal;
+    private javax.swing.JPanel FundoTela;
     private javax.swing.JMenuItem ItemCadComTecnica;
     private javax.swing.JMenuItem ItemCadFuncionario;
     private javax.swing.JMenuItem ItemCadJogadores;
     private javax.swing.JMenuItem ItemCadPatrocinadores;
+    private javax.swing.JMenuItem ItemContratacoes;
     private javax.swing.JMenuItem ItemDepMedico;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenuItem ItemDepartamentoFutebol;
+    private javax.swing.JMenuItem ItemDepartamentoMarketing;
+    private javax.swing.JMenuItem ItemEmprestimos;
+    private javax.swing.JMenuItem ItemInfraestrutura;
+    private javax.swing.JMenuItem ItemInserirTorneio;
+    private javax.swing.JMenuItem ItemPatrocinadores;
+    private javax.swing.JMenuItem ItemTemporada;
+    private javax.swing.JMenuItem ItemTitulos;
+    private javax.swing.JMenuItem ItemVendas;
     // End of variables declaration//GEN-END:variables
 }
