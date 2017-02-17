@@ -34,7 +34,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (java.io.IOException e) {
             e.printStackTrace();
         }
-        jLabel2 = new javax.swing.JLabel();
         BarraMenuTelaPrincipal = new javax.swing.JMenuBar();
         BarraMenuCadastro = new javax.swing.JMenu();
         ItemCadJogadores = new javax.swing.JMenuItem();
@@ -61,23 +60,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/MasteClubLogo.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(369, 369, 369)
-                .addComponent(jLabel2)
-                .addContainerGap(419, Short.MAX_VALUE))
+            .addGap(0, 1010, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(jLabel2)
-                .addContainerGap(233, Short.MAX_VALUE))
+            .addGap(0, 510, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel2);
@@ -92,12 +83,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ItemCadJogadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474063085_football.png"))); // NOI18N
         ItemCadJogadores.setText("Jogadores");
         ItemCadJogadores.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                ItemCadJogadoresAncestorMoved(evt);
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+                ItemCadJogadoresAncestorMoved(evt);
             }
         });
         ItemCadJogadores.addActionListener(new java.awt.event.ActionListener() {
@@ -191,6 +182,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474061346_Shutdown_Box_Red.png"))); // NOI18N
         BarraMenuSair.setText("Sair");
         BarraMenuSair.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        BarraMenuSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BarraMenuSairMouseClicked(evt);
+            }
+        });
+        BarraMenuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BarraMenuSairActionPerformed(evt);
+            }
+        });
         BarraMenuTelaPrincipal.add(BarraMenuSair);
 
         setJMenuBar(BarraMenuTelaPrincipal);
@@ -206,6 +207,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void ItemCadJogadoresAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ItemCadJogadoresAncestorMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_ItemCadJogadoresAncestorMoved
+
+    private void BarraMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraMenuSairActionPerformed
+        
+    }//GEN-LAST:event_BarraMenuSairActionPerformed
+
+    private void BarraMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraMenuSairMouseClicked
+      System.exit(1);
+    }//GEN-LAST:event_BarraMenuSairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -255,7 +264,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem ItemCadJogadores;
     private javax.swing.JMenuItem ItemCadPatrocinadores;
     private javax.swing.JMenuItem ItemDepMedico;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
