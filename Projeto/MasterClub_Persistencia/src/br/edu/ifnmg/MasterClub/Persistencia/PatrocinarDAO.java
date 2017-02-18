@@ -22,7 +22,20 @@ import java.util.logging.Logger;
  * @author Igor Pereira
  */
 public class PatrocinarDAO extends DAOGenerico<Patrocinio> implements PatrocinioRepositorio{
-
+    
+    private PatrocinioDAO patrocinio;
+    private ClubeDAO clube;
+    
+    public PatrocinarDAO() {
+        setConsultaAbrir("select id, patrocinio, clube, valorpatrocinio from patrocinar where id = ?");
+        setConsultaApagar("delete from patrocinar where id = ? ");
+        setConsultaInserir("insert into participa(patrocinio,valorpatrocinio) values(?,?)");
+        setConsultaAlterar("update patrocinar set patrocinio = ?, valorpatrocinio = ? where id = ?");
+        setConsultaBusca("select id,patrocinio,valorpatrocinio from patrocinar ");
+        patrocinio = new PatrocinioDAO();
+        clube = new ClubeDAO();
+    }
+    
     @Override
     protected Patrocinio preencheObjeto(ResultSet resultado) {
           try {
