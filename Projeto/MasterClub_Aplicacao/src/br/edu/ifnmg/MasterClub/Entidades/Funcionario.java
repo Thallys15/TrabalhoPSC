@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Funcionario implements Entidade{
     private String cpf;
     private String rg;
     private String cargo;
+    private String nome;
     private int idade;
     private BigDecimal qtdmodalidades;
     private List<ResponsavelModalidade>modalidades;
@@ -27,12 +29,13 @@ public class Funcionario implements Entidade{
         modalidades = new ArrayList<>();
     }
 
-    public Funcionario(int idfuncionario, String cpf, String rg, String cargo, int idade) {
+    public Funcionario(int idfuncionario, String cpf, String rg, String cargo, String nome, int idade) {
         this.idfuncionario = idfuncionario;
         this.cpf = cpf;
         this.rg = rg;
         this.cargo = cargo;
         this.idade = idade;
+        this.nome = nome;
         this.qtdmodalidades = qtdmodalidades;
         modalidades = new ArrayList<>();
     }
@@ -110,10 +113,35 @@ public class Funcionario implements Entidade{
         this.idade = idade;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + this.idfuncionario;
+        int hash = 5;
+        hash = 59 * hash + this.idfuncionario;
+        hash = 59 * hash + Objects.hashCode(this.cpf);
+        hash = 59 * hash + Objects.hashCode(this.rg);
+        hash = 59 * hash + Objects.hashCode(this.cargo);
+        hash = 59 * hash + Objects.hashCode(this.nome);
+        hash = 59 * hash + this.idade;
+        hash = 59 * hash + Objects.hashCode(this.qtdmodalidades);
+        hash = 59 * hash + Objects.hashCode(this.modalidades);
         return hash;
     }
 
@@ -132,24 +160,33 @@ public class Funcionario implements Entidade{
         if (this.idfuncionario != other.idfuncionario) {
             return false;
         }
+        if (this.idade != other.idade) {
+            return false;
+        }
+        if (!Objects.equals(this.cpf, other.cpf)) {
+            return false;
+        }
+        if (!Objects.equals(this.rg, other.rg)) {
+            return false;
+        }
+        if (!Objects.equals(this.cargo, other.cargo)) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.qtdmodalidades, other.qtdmodalidades)) {
+            return false;
+        }
+        if (!Objects.equals(this.modalidades, other.modalidades)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Funcionario{" + "idfuncionario=" + idfuncionario + ", cpf=" + cpf + ", rg=" + rg + ", cargo=" + cargo + ", idade=" + idade + '}';
+        return "Funcionario{" + "idfuncionario=" + idfuncionario + ", cpf=" + cpf + ", rg=" + rg + ", cargo=" + cargo + ", nome=" + nome + ", idade=" + idade + ", qtdmodalidades=" + qtdmodalidades + ", modalidades=" + modalidades + '}';
     }
-
-    @Override
-    public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
     
 }
