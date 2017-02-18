@@ -55,22 +55,23 @@ create database MasterClub;
         funcionario int primary key,
         foreign key (modalidade) references modalidade(codigo),
         foreign key (funcionario) references funcionario(id),
-        cordenador varchar(30)
+        coordenador varchar(30)
     );
     create table clube(
-    cnpj int primary key auto_increment,
+    id int primary key auto_increment,
+    cnpj char(18),
     nome varchar(30),
     quantidade_atletas int,
     titulo int,
     foreign key (titulo) references titulo(codigo)
     );
-    create table modalidade_clube(
+    create table participa(
 		clube int primary key auto_increment,
         modalidade int primary key auto_increment,
         foreign key (clube) references clube(cnpj),
         foreign key (modalidade) references modalidade(codigo)
     );
-	create table titulo(
+	create table titulos(
 		codigo int primary key auto_increment,
         data_titulo date
     );
@@ -90,21 +91,23 @@ create database MasterClub;
 		codigo int primary key auto_increment,
         nome varchar(50)
     );
-	create table patrocina_clube(
+	create table patrocinar(
 		patrocinio int primary key auto_increment,
         clube int primary key auto_increment,
+        valorpatrocinio float,
         foreign key (clube) references clube(cnpj),
         foreign key (patrocinio) references patrocinio(codigo)
     );
     create table dependencia(
-		codigo int primary key auto_increment,
+		id int primary key auto_increment,
         nome varchar(50),
         capacidade int
     );
-    create table aluga_dependencia(
+    create table aluguel(
 		clube int primary key auto_increment ,
         dependencia int primary key auto_increment,
         foreign key (clube) references clube(cnpj),
         foreign key (dependencia) references dependencia(codigo),
-        tempo_de_aluguel int
+        dataaluguel date,
+        valorTotalAluguel float
     );
