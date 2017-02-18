@@ -87,6 +87,11 @@ public class TelaLogin extends javax.swing.JFrame {
         BotaoSairLogin.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         BotaoSairLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
         BotaoSairLogin.setText("Sair");
+        BotaoSairLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotaoSairLoginMouseClicked(evt);
+            }
+        });
 
         UsuarioTextoNome.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         UsuarioTextoNome.setText("Usuário");
@@ -163,6 +168,10 @@ public class TelaLogin extends javax.swing.JFrame {
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_BotaoEntraLoginActionPerformed
+
+    private void BotaoSairLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotaoSairLoginMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoSairLoginMouseClicked
 
     /**
      * @param args the command line arguments
