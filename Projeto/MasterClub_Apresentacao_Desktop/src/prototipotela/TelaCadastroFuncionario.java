@@ -6,6 +6,7 @@
 package prototipotela;
 
 import br.edu.ifnmg.MasterClub.Entidades.Funcionario;
+import br.edu.ifnmg.MasterClub.Entidades.FuncionarioRepositorio;
 import com.sun.javafx.tk.quantum.MasterTimer;
 import java.sql.Date;
 import java.text.ParseException;
@@ -22,6 +23,7 @@ import masterclub_apresentacao.MasterClub_Apresentacao;
 public class TelaCadastroFuncionario extends javax.swing.JFrame {
     Funcionario funcionario = new Funcionario();
     MasterClub_Apresentacao master = new MasterClub_Apresentacao();
+    FuncionarioRepositorio bd = new GerenciarFuncionamento();
     /**
      * Creates new form TelaCadastroFuncionario
      */
