@@ -71,6 +71,11 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
 
         BotaoSairTemporada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474061346_Shutdown_Box_Red.png"))); // NOI18N
         BotaoSairTemporada.setText("Sair");
+        BotaoSairTemporada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoSairTemporadaActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,6 +182,12 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BotaoSairTemporadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairTemporadaActionPerformed
+        TelaPrincipal entrar = new TelaPrincipal();
+        entrar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BotaoSairTemporadaActionPerformed
 
     /**
      * @param args the command line arguments
