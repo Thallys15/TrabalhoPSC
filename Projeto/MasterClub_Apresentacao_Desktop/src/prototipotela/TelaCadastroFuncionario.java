@@ -6,6 +6,14 @@
 package prototipotela;
 
 import br.edu.ifnmg.MasterClub.Entidades.Funcionario;
+import com.sun.javafx.tk.quantum.MasterTimer;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import masterclub_apresentacao.MasterClub_Apresentacao;
 
 /**
  *
@@ -13,7 +21,7 @@ import br.edu.ifnmg.MasterClub.Entidades.Funcionario;
  */
 public class TelaCadastroFuncionario extends javax.swing.JFrame {
     Funcionario funcionario = new Funcionario();
-
+    MasterClub_Apresentacao master = new MasterClub_Apresentacao();
     /**
      * Creates new form TelaCadastroFuncionario
      */
@@ -253,7 +261,23 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        
+        try {
+            
+            this.recuperarCampos();
+            int codigo = funcionario.getId();
+            if (codigo==0) {
+            master.criarFuncionario(funcionario);
+            this.limparCampos();
+            JOptionPane.showMessageDialog(this, "Cadastro realizado com sucesso!!!");
+            } else {
+                dao.Alterar(funcionario);
+                JOptionPane.showMessageDialog(this, "Cliente editado com sucesso!!!", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Cadastro não realizado falha na conexao com o banco de dados: " + e.getMessage(), "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(CadastrarFilial.class.getName()).log(Level.SEVERE, null, e);
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -325,7 +349,46 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField txtRg;
     private javax.swing.JTextField txtSalario;
     // End of variables declaration//GEN-END:variables
-private void preencherCampos() {
+    private void limparCampos() {
+        
+        txtNome.setText("");
+        txtCpf.setText("");        
+        txtCargo.setText("");
+        txtRg.setText("");
+        txtIdade.setText("");
+        
+    }
+    private void recuperarCampos() throws ParseException {
+        
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+        String nome = txtNome.getText().trim();
+        if(!nome.equals("")){
+            funcionario.setNome(nome);
+        }
+        
+        String cpf = txtCpf.getText().trim();
+        if(!cpf.equals("")){
+            funcionario.setCpf(cpf);
+        }        
+        
+        String rg = txtRg.getText().trim();
+        if(!rg.equals("")){
+            funcionario.setRg(rg);
+        }        
+        
+        String cargo = txtCargo.getText().trim();
+        if(!cargo.equals("")){
+            funcionario.setCargo(cargo);
+        }
+        
+        int idade = Integer.parseInt(txtIdade.getText().trim());
+        if(idade > 0){
+            funcionario.setIdade(idade);
+        }
+           
+    }
+    private void preencherCampos() {
         
         txtNome.setText(funcionario.getNome());
         txtCargo.setText(funcionario.getCargo());
