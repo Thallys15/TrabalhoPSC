@@ -203,7 +203,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextPane" name="jTextPane1">
+            <Component class="javax.swing.JTextPane" name="CampoInserirLogin">
             </Component>
           </SubComponents>
         </Container>
@@ -214,7 +214,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextPane" name="jTextPane2">
+            <Component class="javax.swing.JTextPane" name="CampoInserirSenha">
             </Component>
           </SubComponents>
         </Container>

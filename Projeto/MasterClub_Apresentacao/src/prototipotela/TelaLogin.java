@@ -36,9 +36,9 @@ public class TelaLogin extends javax.swing.JFrame {
         UsuarioTextoNome = new javax.swing.JLabel();
         SenhaTextoNome = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        CampoInserirLogin = new javax.swing.JTextPane();
         CampoTextoSenha = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
+        CampoInserirSenha = new javax.swing.JTextPane();
         IconePessoaLogin = new javax.swing.JLabel();
 
         jInternalFrame1.setVisible(true);
@@ -99,9 +99,9 @@ public class TelaLogin extends javax.swing.JFrame {
         SenhaTextoNome.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         SenhaTextoNome.setText("Senha");
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(CampoInserirLogin);
 
-        CampoTextoSenha.setViewportView(jTextPane2);
+        CampoTextoSenha.setViewportView(CampoInserirSenha);
 
         IconePessoaLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722844_group2.png"))); // NOI18N
         IconePessoaLogin.setText("jLabel1");
@@ -211,6 +211,8 @@ public class TelaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoEntraLogin;
     private javax.swing.JButton BotaoSairLogin;
+    private javax.swing.JTextPane CampoInserirLogin;
+    private javax.swing.JTextPane CampoInserirSenha;
     private javax.swing.JScrollPane CampoTextoSenha;
     private javax.swing.JLabel IconePessoaLogin;
     private javax.swing.JLabel LogoMaster;
@@ -220,7 +222,5 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
     // End of variables declaration//GEN-END:variables
 }

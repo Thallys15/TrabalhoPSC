@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class UsuarioDAO extends DAOGenerico<Usuario> implements UsuarioRepositorio{
     
     public UsuarioDAO(){
-         setConsultaAbrir("select id,login,senha from usuario where id = ?");
+        setConsultaAbrir("select id,login,senha from usuario where id = ?");
         setConsultaApagar("delete from usuario where id = ? ");
         setConsultaInserir("insert into usuario(login,senha) values(?,?)");
         setConsultaAlterar("update clientes set login = ?, senha = ? WHERE id = ?");
