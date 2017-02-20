@@ -83,12 +83,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ItemCadJogadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474063085_football.png"))); // NOI18N
         ItemCadJogadores.setText("Jogadores");
         ItemCadJogadores.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+                ItemCadJogadoresAncestorMoved(evt);
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                ItemCadJogadoresAncestorMoved(evt);
             }
         });
         ItemCadJogadores.addActionListener(new java.awt.event.ActionListener() {
@@ -100,14 +100,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         ItemCadComTecnica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474063520_person_4.png"))); // NOI18N
         ItemCadComTecnica.setText("Comissão Técnica");
+        ItemCadComTecnica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemCadComTecnicaActionPerformed(evt);
+            }
+        });
         BarraMenuCadastro.add(ItemCadComTecnica);
 
         ItemCadFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474063801_icon-person.png"))); // NOI18N
         ItemCadFuncionario.setText("Funcionários");
+        ItemCadFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemCadFuncionarioActionPerformed(evt);
+            }
+        });
         BarraMenuCadastro.add(ItemCadFuncionario);
 
         ItemCadPatrocinadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474063975_nike.png"))); // NOI18N
         ItemCadPatrocinadores.setText("Patrocinadores");
+        ItemCadPatrocinadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemCadPatrocinadoresActionPerformed(evt);
+            }
+        });
         BarraMenuCadastro.add(ItemCadPatrocinadores);
 
         BarraMenuTelaPrincipal.add(BarraMenuCadastro);
@@ -201,7 +216,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ItemCadJogadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadJogadoresActionPerformed
-        // TODO add your handling code here:
+        TelaCadastroJogadores tela = new TelaCadastroJogadores();
+        tela.setVisible(true);
+        dispose();
     }//GEN-LAST:event_ItemCadJogadoresActionPerformed
 
     private void ItemCadJogadoresAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ItemCadJogadoresAncestorMoved
@@ -215,6 +232,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void BarraMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraMenuSairMouseClicked
       System.exit(1);
     }//GEN-LAST:event_BarraMenuSairMouseClicked
+
+    private void ItemCadComTecnicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadComTecnicaActionPerformed
+        TelaCadastroComissao tela = new TelaCadastroComissao();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ItemCadComTecnicaActionPerformed
+
+    private void ItemCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadFuncionarioActionPerformed
+        TelaCadastroFuncionario tela = new TelaCadastroFuncionario();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ItemCadFuncionarioActionPerformed
+
+    private void ItemCadPatrocinadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadPatrocinadoresActionPerformed
+        TelaCadastroPatrocinador tela = new TelaCadastroPatrocinador();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ItemCadPatrocinadoresActionPerformed
 
     /**
      * @param args the command line arguments

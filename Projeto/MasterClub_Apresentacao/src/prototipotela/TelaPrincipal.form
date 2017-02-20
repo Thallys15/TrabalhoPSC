@@ -39,6 +39,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Comiss&#xe3;o T&#xe9;cnica"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemCadComTecnicaActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ItemCadFuncionario">
               <Properties>
@@ -47,6 +50,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemCadFuncionarioActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ItemCadPatrocinadores">
               <Properties>
@@ -55,6 +61,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Patrocinadores"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemCadPatrocinadoresActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
