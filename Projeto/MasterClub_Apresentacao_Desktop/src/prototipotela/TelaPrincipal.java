@@ -133,6 +133,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         ItemDepartamentoFutebol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066799_Football_2-09.png"))); // NOI18N
         ItemDepartamentoFutebol.setText("Departamento de Futebol");
+        ItemDepartamentoFutebol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemDepartamentoFutebolActionPerformed(evt);
+            }
+        });
         BarraMenuDepartamentos.add(ItemDepartamentoFutebol);
 
         ItemDepartamentoMarketing.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067021_vector_65_10.png"))); // NOI18N
@@ -141,10 +146,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         ItemDepMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066900_cross_1.png"))); // NOI18N
         ItemDepMedico.setText("Departamento Médico");
+        ItemDepMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemDepMedicoActionPerformed(evt);
+            }
+        });
         BarraMenuDepartamentos.add(ItemDepMedico);
 
         ItemInfraestrutura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066748_Football_2-17.png"))); // NOI18N
         ItemInfraestrutura.setText("Infraestrutura");
+        ItemInfraestrutura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemInfraestruturaActionPerformed(evt);
+            }
+        });
         BarraMenuDepartamentos.add(ItemInfraestrutura);
 
         BarraMenuTelaPrincipal.add(BarraMenuDepartamentos);
@@ -173,6 +188,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         ItemContratacoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067819_vector_65_12.png"))); // NOI18N
         ItemContratacoes.setText("Contratações");
+        ItemContratacoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemContratacoesActionPerformed(evt);
+            }
+        });
         BarraMenuFinanceiro.add(ItemContratacoes);
 
         ItemEmprestimos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067951_finance-23.png"))); // NOI18N
@@ -250,6 +270,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_ItemCadPatrocinadoresActionPerformed
+
+    private void ItemDepartamentoFutebolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemDepartamentoFutebolActionPerformed
+        TelaDepFutebol entrar = new TelaDepFutebol();
+        entrar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ItemDepartamentoFutebolActionPerformed
+
+    private void ItemDepMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemDepMedicoActionPerformed
+        TelaDepMedico entrar = new TelaDepMedico();
+        entrar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ItemDepMedicoActionPerformed
+
+    private void ItemInfraestruturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemInfraestruturaActionPerformed
+        // TODO add your handling code here:
+        TelaInfraEstrutura entrar = new TelaInfraEstrutura();
+        entrar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ItemInfraestruturaActionPerformed
+
+    private void ItemContratacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemContratacoesActionPerformed
+        Contratacoes entrar = new Contratacoes();
+        entrar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ItemContratacoesActionPerformed
 
     /**
      * @param args the command line arguments

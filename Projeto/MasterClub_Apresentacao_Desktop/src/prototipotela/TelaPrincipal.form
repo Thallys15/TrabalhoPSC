@@ -85,6 +85,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Departamento de Futebol"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemDepartamentoFutebolActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ItemDepartamentoMarketing">
               <Properties>
@@ -101,6 +104,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Departamento M&#xe9;dico"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemDepMedicoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ItemInfraestrutura">
               <Properties>
@@ -109,6 +115,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Infraestrutura"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemInfraestruturaActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -167,6 +176,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Contrata&#xe7;&#xf5;es"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemContratacoesActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ItemEmprestimos">
               <Properties>

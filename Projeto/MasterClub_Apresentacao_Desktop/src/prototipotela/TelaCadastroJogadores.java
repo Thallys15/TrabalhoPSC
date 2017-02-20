@@ -65,7 +65,7 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BotaoSairJogaadores = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -142,9 +142,14 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
         jButton1.setText("Salvar");
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360844_Exit.png"))); // NOI18N
-        jButton2.setText("Sair");
+        BotaoSairJogaadores.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        BotaoSairJogaadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360844_Exit.png"))); // NOI18N
+        BotaoSairJogaadores.setText("Sair");
+        BotaoSairJogaadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoSairJogaadoresActionPerformed(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474361761_Football_2-61.png"))); // NOI18N
@@ -219,7 +224,7 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
                         .addGap(56, 56, 56)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BotaoSairJogaadores, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(351, 351, 351)
@@ -269,10 +274,11 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel6))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel12)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -310,7 +316,7 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton1)
-                                    .addComponent(jButton2))
+                                    .addComponent(BotaoSairJogaadores))
                                 .addGap(33, 33, 33))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -333,6 +339,12 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1073, 537));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BotaoSairJogaadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairJogaadoresActionPerformed
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BotaoSairJogaadoresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -370,8 +382,8 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoSairJogaadores;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
