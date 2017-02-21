@@ -107,6 +107,19 @@ public abstract class DAOGenerico<T extends Entidade> implements Repositorio<T> 
     }
     
     @Override
+    public boolean Alterar(T obj) {
+        try {
+            PreparedStatement sql = conn.prepareStatement(consultaAlterar);
+            preencheConsulta(sql, obj);
+            sql.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println(ex + "Dg Alterar");
+        }
+        return false;
+    }
+    
+    @Override
     public T Abrir(int id) {
         try {
 

@@ -23,7 +23,7 @@ import masterclub_apresentacao.MasterClub_Apresentacao;
 public class TelaCadastroFuncionario extends javax.swing.JFrame {
     Funcionario funcionario = new Funcionario();
     MasterClub_Apresentacao master = new MasterClub_Apresentacao();
-    FuncionarioRepositorio bd = new GerenciarFuncionamento();
+    FuncionarioRepositorio bd = new GerenciarFuncionamento().getFuncionario();
     /**
      * Creates new form TelaCadastroFuncionario
      */
@@ -270,15 +270,15 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             if (codigo==0) {
             master.criarFuncionario(funcionario);
             this.limparCampos();
-            JOptionPane.showMessageDialog(this, "Cadastro realizado com sucesso!!!");
+            JOptionPane.showMessageDialog(this, "Funcionario Cadastrado com sucesso");
             } else {
-                dao.Alterar(funcionario);
-                JOptionPane.showMessageDialog(this, "Cliente editado com sucesso!!!", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
+                bd.Alterar(funcionario);
+                JOptionPane.showMessageDialog(this, "Sucesso!!! O funcionario foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
             }
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Cadastro não realizado falha na conexao com o banco de dados: " + e.getMessage(), "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(CadastrarFilial.class.getName()).log(Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 

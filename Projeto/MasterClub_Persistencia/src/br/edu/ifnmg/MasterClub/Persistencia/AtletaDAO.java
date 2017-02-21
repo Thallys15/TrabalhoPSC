@@ -98,5 +98,6 @@ public class AtletaDAO extends DAOGenerico<Atleta> implements AtletaRepositorio{
         }
         catch(Exception ex) {}
     }
+
     
 }

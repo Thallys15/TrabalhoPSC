@@ -97,4 +97,5 @@ public class AluguelDAO extends DAOGenerico<Aluguel> implements AluguelRepositor
         
         return ret;
     }
+
 }

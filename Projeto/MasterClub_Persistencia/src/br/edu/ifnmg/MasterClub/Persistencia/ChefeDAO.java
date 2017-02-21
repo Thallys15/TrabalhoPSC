@@ -68,5 +68,6 @@ public class ChefeDAO extends DAOGenerico<Chefe> implements ChefeRepositorio{
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     
 }

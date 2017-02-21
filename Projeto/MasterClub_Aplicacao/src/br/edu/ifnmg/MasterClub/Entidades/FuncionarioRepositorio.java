@@ -5,11 +5,13 @@
  */
 package br.edu.ifnmg.MasterClub.Entidades;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author Igor Pereira
  */
 public interface FuncionarioRepositorio extends Repositorio<Funcionario>{
-    public Funcionario Abrir(String cpf);
+    public Funcionario Abrir(String cpf) throws SQLException;
     
 }

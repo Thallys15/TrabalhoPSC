@@ -10,10 +10,12 @@ import java.util.List;
 /**
  *
  * @author Igor Pereira
+ * @param <T>
  */
 public interface Repositorio <T extends Entidade> {
     public boolean Salvar(T obj);
     public boolean Apagar(T obj);
+    public boolean Alterar(T obj);
     public T Abrir(int id);
     public List<T> Buscar(T filtro);
     
