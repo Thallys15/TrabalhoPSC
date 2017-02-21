@@ -5,12 +5,16 @@
  */
 package prototipotela;
 
+import br.edu.ifnmg.MasterClub.Entidades.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tls15
  */
 public class TelaLogin extends javax.swing.JFrame {
-
+Usuario novo = new Usuario();
+UsuarioRepositorio dao = GerenciadorDeReferencias.getAdministrador();
     /**
      * Creates new form TelaLogin
      */
@@ -164,9 +168,14 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoEntraLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntraLoginActionPerformed
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
-        dispose();
+         this.recuperaCampos();
+        if(dao.VerificaLogin(novo.getLogin(), novo.getSenha())){
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.setVisible(true);
+            this.dispose();
+        }else JOptionPane.showMessageDialog(this,"USUÁRIO OU SENHA INCORRETOS");
+        
+        
     }//GEN-LAST:event_BotaoEntraLoginActionPerformed
 
     private void BotaoSairLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotaoSairLoginMouseClicked
@@ -223,4 +232,17 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+  private void recuperaCampos() {
+       String login = CampoInserirLogin.getText().trim();
+        if( !login.equals("")){
+            novo.setLogin(login);
+        }
+      
+        String senha = new String( CampoInserirSenha.getText()).trim();
+        if( !senha.equals("")){
+             novo.setSenha(senha);
+        }
+        
+    }
+
 }

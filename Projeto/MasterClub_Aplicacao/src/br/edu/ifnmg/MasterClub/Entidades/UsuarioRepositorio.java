@@ -11,5 +11,6 @@ package br.edu.ifnmg.MasterClub.Entidades;
  */
 public interface UsuarioRepositorio extends Repositorio<Usuario>{
     public Usuario Abrir(String login, String senha);
+    public boolean VerificaLogin(String login, String senha);
     
 }

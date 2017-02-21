@@ -50,7 +50,7 @@ public class TelaCadastroComissao extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BotaoSairComissao = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,12 +106,12 @@ public class TelaCadastroComissao extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
         jButton1.setText("Salvar");
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360844_Exit.png"))); // NOI18N
-        jButton2.setText("Sair");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BotaoSairComissao.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        BotaoSairComissao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360844_Exit.png"))); // NOI18N
+        BotaoSairComissao.setText("Sair");
+        BotaoSairComissao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BotaoSairComissaoActionPerformed(evt);
             }
         });
 
@@ -174,7 +174,7 @@ public class TelaCadastroComissao extends javax.swing.JFrame {
                 .addGroup(TelaFUndoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(TelaFUndoLayout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BotaoSairComissao, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(63, 63, 63)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(78, 78, 78))
@@ -237,7 +237,7 @@ public class TelaCadastroComissao extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(TelaFUndoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
-                            .addComponent(jButton2))
+                            .addComponent(BotaoSairComissao))
                         .addGap(69, 69, 69))))
         );
 
@@ -263,9 +263,11 @@ public class TelaCadastroComissao extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextoNOmeActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void BotaoSairComissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairComissaoActionPerformed
+        TelaPrincipal entrar = new TelaPrincipal();
+        entrar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BotaoSairComissaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,10 +308,10 @@ public class TelaCadastroComissao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoSairComissao;
     private javax.swing.JPanel TelaFUndo;
     private javax.swing.JTextField TextoNOme;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

@@ -1,4 +1,5 @@
 create database MasterClub;
+use MasterClub;
 	create table usuario(
 		id int primary key auto_increment,
         login varchar(8),
@@ -51,8 +52,8 @@ create database MasterClub;
         descricao varchar(255)
     );
     create table responsavel_modalidade(
-		modalidade int primary key,
-        funcionario int primary key,
+        id int primary key,
+        modalidade int,
         foreign key (modalidade) references modalidade(codigo),
         foreign key (funcionario) references funcionario(id),
         coordenador varchar(30)

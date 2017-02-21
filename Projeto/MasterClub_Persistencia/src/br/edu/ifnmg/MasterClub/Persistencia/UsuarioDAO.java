@@ -97,5 +97,22 @@ public class UsuarioDAO extends DAOGenerico<Usuario> implements UsuarioRepositor
         
         return null;
     }
+
+    @Override
+    public boolean VerificaLogin(String login, String senha) {
+     try {
+            PreparedStatement sql = conn.prepareStatement("SELECT ID FROM usuario WHERE LOGIN = ? AND SENHA = ?");
+            sql.setString(1, login);
+            sql.setString(2, senha);
+            ResultSet resultado = sql.executeQuery();
+            if(resultado.next()){
+                return true ;
+            }else
+                return false;
+        } catch (SQLException ex) {
+           System.out.println(ex);
+        }
+        return false;
+    }
     
 }
