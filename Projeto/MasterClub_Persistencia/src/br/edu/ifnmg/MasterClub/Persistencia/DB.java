@@ -19,7 +19,7 @@ public class DB {
     }
     
     public static Connection criarConexao() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost/MasterClub","root","root");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/masterclub","root","maromba");
     }
     
 }

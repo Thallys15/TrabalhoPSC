@@ -79,10 +79,8 @@ UsuarioRepositorio dao = GerenciarFuncionamento
         PlanodeFundo1.setName(""); // NOI18N
 
         LogoMaster.setBackground(new java.awt.Color(254, 13, 13));
-        LogoMaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/MasteClubLogo.png"))); // NOI18N
 
         BotaoEntraLogin.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        BotaoEntraLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473721990_Key.png"))); // NOI18N
         BotaoEntraLogin.setText("Entrar");
         BotaoEntraLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +89,6 @@ UsuarioRepositorio dao = GerenciarFuncionamento
         });
 
         BotaoSairLogin.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        BotaoSairLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
         BotaoSairLogin.setText("Sair");
         BotaoSairLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -114,7 +111,6 @@ UsuarioRepositorio dao = GerenciarFuncionamento
 
         CampoTextoSenha.setViewportView(CampoInserirSenha);
 
-        IconePessoaLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722844_group2.png"))); // NOI18N
         IconePessoaLogin.setText("jLabel1");
 
         javax.swing.GroupLayout PlanodeFundo1Layout = new javax.swing.GroupLayout(PlanodeFundo1);
