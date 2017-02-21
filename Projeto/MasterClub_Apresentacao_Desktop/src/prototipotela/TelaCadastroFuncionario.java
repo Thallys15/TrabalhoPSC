@@ -283,7 +283,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        TelaPrincipal entrar = new TelaPrincipal();
+         TelaPrincipal entrar = new TelaPrincipal();
         entrar.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

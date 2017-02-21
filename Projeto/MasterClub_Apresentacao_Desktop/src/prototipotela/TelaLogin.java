@@ -6,6 +6,7 @@
 package prototipotela;
 
 import br.edu.ifnmg.MasterClub.Entidades.Usuario;
+import br.edu.ifnmg.MasterClub.Entidades.UsuarioRepositorio;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class TelaLogin extends javax.swing.JFrame {
 Usuario novo = new Usuario();
-UsuarioRepositorio dao = GerenciadorDeReferencias.getAdministrador();
+UsuarioRepositorio dao = GerenciarFuncionamento
+        .getUsuario();
     /**
      * Creates new form TelaLogin
      */
@@ -96,6 +98,11 @@ UsuarioRepositorio dao = GerenciadorDeReferencias.getAdministrador();
                 BotaoSairLoginMouseClicked(evt);
             }
         });
+        BotaoSairLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoSairLoginActionPerformed(evt);
+            }
+        });
 
         UsuarioTextoNome.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         UsuarioTextoNome.setText("Usuário");
@@ -168,12 +175,13 @@ UsuarioRepositorio dao = GerenciadorDeReferencias.getAdministrador();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoEntraLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntraLoginActionPerformed
-         this.recuperaCampos();
+
+        this.recuperaCampos();
         if(dao.VerificaLogin(novo.getLogin(), novo.getSenha())){
             TelaPrincipal telaPrincipal = new TelaPrincipal();
             telaPrincipal.setVisible(true);
             this.dispose();
-        }else JOptionPane.showMessageDialog(this,"USUÁRIO OU SENHA INCORRETOS");
+        }else JOptionPane.showMessageDialog(this,"O Usuário ou senha incorreto");
         
         
     }//GEN-LAST:event_BotaoEntraLoginActionPerformed
@@ -181,6 +189,10 @@ UsuarioRepositorio dao = GerenciadorDeReferencias.getAdministrador();
     private void BotaoSairLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotaoSairLoginMouseClicked
        System.exit(1);
     }//GEN-LAST:event_BotaoSairLoginMouseClicked
+
+    private void BotaoSairLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoSairLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,15 +246,16 @@ UsuarioRepositorio dao = GerenciadorDeReferencias.getAdministrador();
     // End of variables declaration//GEN-END:variables
   private void recuperaCampos() {
        String login = CampoInserirLogin.getText().trim();
+       String senha = new String( CampoInserirSenha.getText()).trim();
+        
         if( !login.equals("")){
             novo.setLogin(login);
         }
       
-        String senha = new String( CampoInserirSenha.getText()).trim();
         if( !senha.equals("")){
              novo.setSenha(senha);
         }
         
     }
-
+  
 }

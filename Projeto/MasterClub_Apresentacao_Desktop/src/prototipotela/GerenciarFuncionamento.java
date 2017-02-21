@@ -9,6 +9,7 @@ import br.edu.ifnmg.MasterClub.Entidades.ContratoRepositorio;
 import br.edu.ifnmg.MasterClub.Entidades.DependenciaRepositorio;
 import br.edu.ifnmg.MasterClub.Entidades.FuncionarioRepositorio;
 import br.edu.ifnmg.MasterClub.Entidades.ModalidadeRepositorio;
+import br.edu.ifnmg.MasterClub.Entidades.UsuarioRepositorio;
 import br.edu.ifnmg.MasterClub.Persistencia.AluguelDAO;
 import br.edu.ifnmg.MasterClub.Persistencia.AtletaDAO;
 import br.edu.ifnmg.MasterClub.Persistencia.ChefeDAO;
@@ -17,6 +18,7 @@ import br.edu.ifnmg.MasterClub.Persistencia.ContratoDAO;
 import br.edu.ifnmg.MasterClub.Persistencia.DependenciaDAO;
 import br.edu.ifnmg.MasterClub.Persistencia.FuncionarioDAO;
 import br.edu.ifnmg.MasterClub.Persistencia.ModalidadeDAO;
+import br.edu.ifnmg.MasterClub.Persistencia.UsuarioDAO;
 import java.sql.SQLException;
 import java.util.Locale;
 
@@ -40,6 +42,7 @@ public class GerenciarFuncionamento {
     private static ModalidadeRepositorio daoModalidade;
     private static ContratoRepositorio daoContrato;
     private static FuncionarioRepositorio daoFuncionario;
+    private static UsuarioRepositorio daoUsuario;
 
     public static DependenciaRepositorio getDependencia() {
         if (daoDependencia == null) {
@@ -130,5 +133,15 @@ public class GerenciarFuncionamento {
         }
         return null;
     }
-    
+     public static UsuarioRepositorio getUsuario() {
+        try {
+            if (daoUsuario == null) {
+                daoUsuario = new UsuarioDAO();
+            }
+            return daoUsuario;
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+        return null;
+    }
 }
