@@ -43,9 +43,8 @@ UsuarioRepositorio dao = GerenciarFuncionamento
         SenhaTextoNome = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         CampoInserirLogin = new javax.swing.JTextPane();
-        CampoTextoSenha = new javax.swing.JScrollPane();
-        CampoInserirSenha = new javax.swing.JTextPane();
         IconePessoaLogin = new javax.swing.JLabel();
+        CampoInserirSenha = new javax.swing.JPasswordField();
 
         jInternalFrame1.setVisible(true);
 
@@ -82,6 +81,7 @@ UsuarioRepositorio dao = GerenciarFuncionamento
         LogoMaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/MasteClubLogo.png"))); // NOI18N
 
         BotaoEntraLogin.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        BotaoEntraLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473721990_Key.png"))); // NOI18N
         BotaoEntraLogin.setText("Entrar");
         BotaoEntraLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +90,7 @@ UsuarioRepositorio dao = GerenciarFuncionamento
         });
 
         BotaoSairLogin.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        BotaoSairLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
         BotaoSairLogin.setText("Sair");
         BotaoSairLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -110,9 +111,14 @@ UsuarioRepositorio dao = GerenciarFuncionamento
 
         jScrollPane1.setViewportView(CampoInserirLogin);
 
-        CampoTextoSenha.setViewportView(CampoInserirSenha);
-
+        IconePessoaLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722844_group2.png"))); // NOI18N
         IconePessoaLogin.setText("jLabel1");
+
+        CampoInserirSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoInserirSenhaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PlanodeFundo1Layout = new javax.swing.GroupLayout(PlanodeFundo1);
         PlanodeFundo1.setLayout(PlanodeFundo1Layout);
@@ -122,18 +128,18 @@ UsuarioRepositorio dao = GerenciarFuncionamento
                 .addGap(22, 22, 22)
                 .addComponent(LogoMaster, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PlanodeFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PlanodeFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PlanodeFundo1Layout.createSequentialGroup()
+                        .addComponent(SenhaTextoNome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PlanodeFundo1Layout.createSequentialGroup()
                         .addComponent(BotaoEntraLogin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BotaoSairLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PlanodeFundo1Layout.createSequentialGroup()
-                        .addComponent(SenhaTextoNome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CampoTextoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PlanodeFundo1Layout.createSequentialGroup()
+                    .addGroup(PlanodeFundo1Layout.createSequentialGroup()
                         .addComponent(UsuarioTextoNome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addGroup(PlanodeFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(IconePessoaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -155,8 +161,8 @@ UsuarioRepositorio dao = GerenciarFuncionamento
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(PlanodeFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CampoTextoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SenhaTextoNome))
+                            .addComponent(SenhaTextoNome)
+                            .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addGroup(PlanodeFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BotaoEntraLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,6 +196,10 @@ UsuarioRepositorio dao = GerenciarFuncionamento
     private void BotaoSairLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoSairLoginActionPerformed
+
+    private void CampoInserirSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoInserirSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,8 +240,7 @@ UsuarioRepositorio dao = GerenciarFuncionamento
     private javax.swing.JButton BotaoEntraLogin;
     private javax.swing.JButton BotaoSairLogin;
     private javax.swing.JTextPane CampoInserirLogin;
-    private javax.swing.JTextPane CampoInserirSenha;
-    private javax.swing.JScrollPane CampoTextoSenha;
+    private javax.swing.JPasswordField CampoInserirSenha;
     private javax.swing.JLabel IconePessoaLogin;
     private javax.swing.JLabel LogoMaster;
     private javax.swing.JPanel PlanodeFundo1;
