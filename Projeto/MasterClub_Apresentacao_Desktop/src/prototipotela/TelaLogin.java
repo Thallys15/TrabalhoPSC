@@ -79,6 +79,7 @@ UsuarioRepositorio dao = GerenciarFuncionamento
         PlanodeFundo1.setName(""); // NOI18N
 
         LogoMaster.setBackground(new java.awt.Color(254, 13, 13));
+        LogoMaster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/MasteClubLogo.png"))); // NOI18N
 
         BotaoEntraLogin.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         BotaoEntraLogin.setText("Entrar");
