@@ -247,11 +247,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemCadJogadoresAncestorMoved
 
     private void BarraMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraMenuSairActionPerformed
-       System.exit(1);
+        TelaLogin sair = new TelaLogin();
+        sair.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BarraMenuSairActionPerformed
 
     private void BarraMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraMenuSairMouseClicked
-      System.exit(1);
+      TelaLogin sair = new TelaLogin();
+        sair.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BarraMenuSairMouseClicked
 
     private void ItemCadComTecnicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadComTecnicaActionPerformed
