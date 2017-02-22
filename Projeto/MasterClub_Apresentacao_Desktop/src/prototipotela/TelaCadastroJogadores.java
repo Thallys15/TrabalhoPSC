@@ -481,6 +481,9 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
         txtLado.setText("");
         txtPeso.setText("");
         txtRg.setText("");
+        txtPosicao.setText("");
+        txtNaturalidade.setText("");
+        txtIdade.setText("");
         
     }
     private void recuperarCampos() throws ParseException {
@@ -520,8 +523,22 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
         String rg = txtRg.getText().trim();
         if(!rg.equals("")){
             atleta.setRg(rg);
-        }               
-           
+        }
+        
+        String posicao = txtPosicao.getText().trim();
+        if(!posicao.equals("")){
+            atleta.setPosicao(posicao);
+        }
+        
+        String naturalidade = txtNaturalidade.getText().trim();
+        if(!naturalidade.equals("")){
+            atleta.setNaturalidade(naturalidade);
+        }
+        
+        int idade = Integer.parseInt(txtIdade.getText().trim());
+        if(idade > 0){
+            atleta.setIdade(idade);
+        }
     }
     private void preencherCampos() {
         
@@ -534,6 +551,6 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
         txtRg.setText(atleta.getRg());
         txtPosicao.setText(atleta.getPosicao());
         txtNaturalidade.setText(atleta.getNaturalidade());
-        txtIdade.setText(atleta.getIdade());
+        txtIdade.setText(Integer.toString(atleta.getIdade()));
     }
 }

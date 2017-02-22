@@ -19,10 +19,10 @@ import java.util.logging.Logger;
  */
 public class AtletaDAO extends DAOGenerico<Atleta> implements AtletaRepositorio{
     public AtletaDAO(){
-        setConsultaAbrir("select id, posicao, lado, categoria, naturalidade"
-                + " idade, altura, peso, cpf, rg, nome from atleta where id = ?");
+        setConsultaAbrir("select id, nome, posicao, lado, categoria, naturalidade"
+                + " idade, altura, peso, cpf, rg from atleta where id = ?");
         setConsultaApagar("delete from atleta where id = ?");
-        setConsultaInserir("insert into atleta(posicao, lado, categoria, naturalidade,idade, altura, peso, cpf, rg, nome)"
+        setConsultaInserir("insert into atleta(nome,posicao, lado, categoria, naturalidade,idade, altura, peso, cpf, rg)"
                 + " values(?,?,?,?,?,?,?,?,?)");
         setConsultaAlterar("update  set posicao = ?, lado = ?, categoria = ?"
                 + " naturalidade = ?, idade = ?, altura = ?, peso = ?, cpf = ?, rg = ?, nome = ? where id = ?");
