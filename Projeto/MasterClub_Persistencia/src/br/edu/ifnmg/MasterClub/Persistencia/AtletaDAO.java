@@ -18,16 +18,18 @@ import java.util.logging.Logger;
  * @author Igor Pereira
  */
 public class AtletaDAO extends DAOGenerico<Atleta> implements AtletaRepositorio{
+    private ClubeDAO clube;
     public AtletaDAO(){
         setConsultaAbrir("select id, nome, posicao, lado, categoria, naturalidade"
-                + " idade, altura, peso, cpf, rg from atleta where id = ?");
+                + " idade, altura, peso, cpf, rg, clube from atleta where id = ?");
         setConsultaApagar("delete from atleta where id = ?");
-        setConsultaInserir("insert into atleta(nome,posicao, lado, categoria, naturalidade,idade, altura, peso, cpf, rg)"
+        setConsultaInserir("insert into atleta(nome,posicao, lado, categoria, naturalidade,idade, altura, peso, cpf, rg, clube)"
                 + " values(?,?,?,?,?,?,?,?,?)");
         setConsultaAlterar("update  set posicao = ?, lado = ?, categoria = ?"
-                + " naturalidade = ?, idade = ?, altura = ?, peso = ?, cpf = ?, rg = ?, nome = ? where id = ?");
+                + " naturalidade = ?, idade = ?, altura = ?, peso = ?, cpf = ?, rg = ?, nome = ?, clube = ? where id = ?");
         setConsultaBusca("select id, posicao, lado, categoria, naturalidade"
-                + " idade, altura, peso, cpf, rg, nome from atleta ");
+                + " idade, altura, peso, cpf, rg, nome, clube from atleta ");
+        clube = new ClubeDAO();
     }
 
     @Override
@@ -45,6 +47,7 @@ public class AtletaDAO extends DAOGenerico<Atleta> implements AtletaRepositorio{
             tmp.setCpf(resultado.getString(9));
             tmp.setRg(resultado.getString(10));
             tmp.setNome(resultado.getString(10));
+            tmp.setClube(clube.Abrir(resultado.getInt(11)));
             return tmp;
         } catch (SQLException ex) {
             Logger.getLogger(AtletaDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,7 +68,8 @@ public class AtletaDAO extends DAOGenerico<Atleta> implements AtletaRepositorio{
             sql.setString(8, obj.getCpf());
             sql.setString(9, obj.getRg());
             sql.setString(10, obj.getNome());
-            if(obj.getId() > 0) sql.setInt(11, obj.getId());
+            sql.setInt(11, obj.getClube().getId());
+            if(obj.getId() > 0) sql.setInt(12, obj.getId());
         } catch (SQLException ex) {
             Logger.getLogger(AtletaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -83,6 +87,7 @@ public class AtletaDAO extends DAOGenerico<Atleta> implements AtletaRepositorio{
         if(filtro.getCpf()!= null) adicionarFiltro("cpf", " = ");
         if(filtro.getRg()!= null) adicionarFiltro("rg", " = ");
         if(filtro.getNome()!= null) adicionarFiltro("nome", " = ");
+        if(filtro.getClube().getId() > 0) adicionarFiltro("clube", " = ");
     }
 
     @Override
@@ -98,6 +103,7 @@ public class AtletaDAO extends DAOGenerico<Atleta> implements AtletaRepositorio{
         if(filtro.getCpf()!= null) { sql.setString(cont, filtro.getCpf()); cont++;  }
         if(filtro.getRg()!= null) { sql.setString(cont, filtro.getRg()); cont++;  }
         if(filtro.getNome()!= null) { sql.setString(cont, filtro.getNome()); cont++;  }
+        if(filtro.getClube().getId()> 0) { sql.setInt(cont, filtro.getClube().getId()); cont++;  }
         }
         catch(Exception ex) {}
     }

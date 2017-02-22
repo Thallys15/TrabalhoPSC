@@ -23,11 +23,11 @@ public class Atleta implements Entidade{
     private String cpf;
     private String rg;
     private String nome;
-    
+    private Clube clube;
     public Atleta() {
     }
 
-    public Atleta(int id, String posicao, String lado, String categoria, String naturalidade, int idade, double altura, double peso, String cpf, String rg, String nome) {
+    public Atleta(int id, String posicao, String lado, String categoria, String naturalidade, int idade, double altura, double peso, String cpf, String rg, String nome, Clube clube) {
         this.id = id;
         this.posicao = posicao;
         this.lado = lado;
@@ -39,6 +39,7 @@ public class Atleta implements Entidade{
         this.cpf = cpf;
         this.rg = rg;
         this.nome = nome;
+        this.clube = clube;
     }
 
     public int getId() {
@@ -129,20 +130,29 @@ public class Atleta implements Entidade{
         this.nome = nome;
     }
 
+    public Clube getClube() {
+        return clube;
+    }
+
+    public void setClube(Clube clube) {
+        this.clube = clube;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 11 * hash + this.id;
-        hash = 11 * hash + Objects.hashCode(this.posicao);
-        hash = 11 * hash + Objects.hashCode(this.lado);
-        hash = 11 * hash + Objects.hashCode(this.categoria);
-        hash = 11 * hash + Objects.hashCode(this.naturalidade);
-        hash = 11 * hash + this.idade;
-        hash = 11 * hash + (int) (Double.doubleToLongBits(this.altura) ^ (Double.doubleToLongBits(this.altura) >>> 32));
-        hash = 11 * hash + (int) (Double.doubleToLongBits(this.peso) ^ (Double.doubleToLongBits(this.peso) >>> 32));
-        hash = 11 * hash + Objects.hashCode(this.cpf);
-        hash = 11 * hash + Objects.hashCode(this.rg);
-        hash = 11 * hash + Objects.hashCode(this.nome);
+        hash = 89 * hash + this.id;
+        hash = 89 * hash + Objects.hashCode(this.posicao);
+        hash = 89 * hash + Objects.hashCode(this.lado);
+        hash = 89 * hash + Objects.hashCode(this.categoria);
+        hash = 89 * hash + Objects.hashCode(this.naturalidade);
+        hash = 89 * hash + this.idade;
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.altura) ^ (Double.doubleToLongBits(this.altura) >>> 32));
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.peso) ^ (Double.doubleToLongBits(this.peso) >>> 32));
+        hash = 89 * hash + Objects.hashCode(this.cpf);
+        hash = 89 * hash + Objects.hashCode(this.rg);
+        hash = 89 * hash + Objects.hashCode(this.nome);
+        hash = 89 * hash + Objects.hashCode(this.clube);
         return hash;
     }
 
@@ -191,13 +201,15 @@ public class Atleta implements Entidade{
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
+        if (!Objects.equals(this.clube, other.clube)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Atleta{" + "id=" + id + ", posicao=" + posicao + ", lado=" + lado + ", categoria=" + categoria + ", naturalidade=" + naturalidade + ", idade=" + idade + ", altura=" + altura + ", peso=" + peso + ", cpf=" + cpf + ", rg=" + rg + ", nome=" + nome + '}';
+        return "Atleta{" + "id=" + id + ", posicao=" + posicao + ", lado=" + lado + ", categoria=" + categoria + ", naturalidade=" + naturalidade + ", idade=" + idade + ", altura=" + altura + ", peso=" + peso + ", cpf=" + cpf + ", rg=" + rg + ", nome=" + nome + ", clube=" + clube + '}';
     }
-    
-    
+      
 }
