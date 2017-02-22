@@ -499,7 +499,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/prototipotela/icone/1474361761_Football_2-61.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cadastro de Jogadores - Contrata&#xe7;&#xf5;es"/>
+            <Property name="text" type="java.lang.String" value="Cadastro de atleta - Contrata&#xe7;&#xf5;es"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">

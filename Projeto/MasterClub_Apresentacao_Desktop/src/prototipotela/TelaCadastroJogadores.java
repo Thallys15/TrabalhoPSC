@@ -153,7 +153,7 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474361761_Football_2-61.png"))); // NOI18N
-        jLabel17.setText("Cadastro de Jogadores - Contratações");
+        jLabel17.setText("Cadastro de atleta - Contratações");
 
         jLabel18.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel18.setText("Data de Término");
