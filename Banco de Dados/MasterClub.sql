@@ -27,6 +27,7 @@ use MasterClub;
 	);
     create table funcionario(
 		id int primary key auto_increment,
+        nome varchar(50),
 		cpf char(11),
         rg char(10),
         cargo varchar(30),
@@ -116,4 +117,4 @@ use MasterClub;
         dataaluguel date,
         valorTotalAluguel float
     );
-    select * from funcionario;
+select * from funcionario;
