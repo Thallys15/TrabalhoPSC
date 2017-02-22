@@ -41,10 +41,9 @@ UsuarioRepositorio dao = GerenciarFuncionamento
         BotaoSairLogin = new javax.swing.JButton();
         UsuarioTextoNome = new javax.swing.JLabel();
         SenhaTextoNome = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        CampoInserirLogin = new javax.swing.JTextPane();
         IconePessoaLogin = new javax.swing.JLabel();
         CampoInserirSenha = new javax.swing.JPasswordField();
+        CampoInserirLogin = new javax.swing.JFormattedTextField();
 
         jInternalFrame1.setVisible(true);
 
@@ -109,14 +108,17 @@ UsuarioRepositorio dao = GerenciarFuncionamento
         SenhaTextoNome.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         SenhaTextoNome.setText("Senha");
 
-        jScrollPane1.setViewportView(CampoInserirLogin);
-
         IconePessoaLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722844_group2.png"))); // NOI18N
         IconePessoaLogin.setText("jLabel1");
 
         CampoInserirSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoInserirSenhaActionPerformed(evt);
+            }
+        });
+        CampoInserirSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CampoInserirSenhaKeyPressed(evt);
             }
         });
 
@@ -139,10 +141,14 @@ UsuarioRepositorio dao = GerenciarFuncionamento
                         .addComponent(BotaoSairLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PlanodeFundo1Layout.createSequentialGroup()
                         .addComponent(UsuarioTextoNome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addGroup(PlanodeFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IconePessoaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(PlanodeFundo1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                                .addComponent(IconePessoaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50))
+                            .addGroup(PlanodeFundo1Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(CampoInserirLogin)))))
                 .addGap(30, 30, 30))
         );
         PlanodeFundo1Layout.setVerticalGroup(
@@ -156,13 +162,13 @@ UsuarioRepositorio dao = GerenciarFuncionamento
                         .addGap(30, 30, 30)
                         .addComponent(IconePessoaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(PlanodeFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(UsuarioTextoNome)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(PlanodeFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SenhaTextoNome)
-                            .addComponent(CampoInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PlanodeFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(UsuarioTextoNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CampoInserirLogin))
+                        .addGap(19, 19, 19)
+                        .addGroup(PlanodeFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(SenhaTextoNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CampoInserirSenha))
                         .addGap(26, 26, 26)
                         .addGroup(PlanodeFundo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BotaoEntraLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,6 +206,13 @@ UsuarioRepositorio dao = GerenciarFuncionamento
     private void CampoInserirSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoInserirSenhaActionPerformed
+
+    private void CampoInserirSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirSenhaKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER){ 
+            BotaoEntraLoginActionPerformed(null);
+                    
+        }
+    }//GEN-LAST:event_CampoInserirSenhaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -239,7 +252,7 @@ UsuarioRepositorio dao = GerenciarFuncionamento
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoEntraLogin;
     private javax.swing.JButton BotaoSairLogin;
-    private javax.swing.JTextPane CampoInserirLogin;
+    private javax.swing.JFormattedTextField CampoInserirLogin;
     private javax.swing.JPasswordField CampoInserirSenha;
     private javax.swing.JLabel IconePessoaLogin;
     private javax.swing.JLabel LogoMaster;
@@ -248,7 +261,6 @@ UsuarioRepositorio dao = GerenciarFuncionamento
     private javax.swing.JLabel UsuarioTextoNome;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
   private void recuperaCampos() {
        String login = CampoInserirLogin.getText().trim();

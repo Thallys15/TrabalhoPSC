@@ -97,10 +97,16 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="UsuarioTextoNome" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="37" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="IconePessoaLogin" min="-2" pref="119" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="169" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace pref="37" max="32767" attributes="0"/>
+                                  <Component id="IconePessoaLogin" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="CampoInserirLogin" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -120,14 +126,14 @@
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="IconePessoaLogin" min="-2" pref="77" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="UsuarioTextoNome" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="UsuarioTextoNome" max="32767" attributes="0"/>
+                              <Component id="CampoInserirLogin" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="SenhaTextoNome" min="-2" max="-2" attributes="0"/>
-                              <Component id="CampoInserirSenha" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="SenhaTextoNome" max="32767" attributes="0"/>
+                              <Component id="CampoInserirSenha" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -197,17 +203,6 @@
             <Property name="text" type="java.lang.String" value="Senha"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextPane" name="CampoInserirLogin">
-            </Component>
-          </SubComponents>
-        </Container>
         <Component class="javax.swing.JLabel" name="IconePessoaLogin">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -219,7 +214,10 @@
         <Component class="javax.swing.JPasswordField" name="CampoInserirSenha">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CampoInserirSenhaActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CampoInserirSenhaKeyPressed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="CampoInserirLogin">
         </Component>
       </SubComponents>
     </Container>
