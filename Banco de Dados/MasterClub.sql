@@ -28,8 +28,8 @@ use MasterClub;
     create table funcionario(
 		id int primary key auto_increment,
         nome varchar(50),
-		cpf char(11),
-        rg char(10),
+		cpf char(14),
+        rg char(12),
         cargo varchar(30),
         idade int
     );
@@ -116,5 +116,4 @@ use MasterClub;
         foreign key (dependencia) references dependencia(id),
         dataaluguel date,
         valorTotalAluguel float
-    );
-select * from funcionario;
+	);
