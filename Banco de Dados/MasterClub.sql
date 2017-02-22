@@ -116,3 +116,5 @@ use MasterClub;
         dataaluguel date,
         valorTotalAluguel float
     );
+    insert into usuario (login,senha) values ('admin','admin');
+    
