@@ -16,7 +16,7 @@ import java.util.Objects;
  * @author tls15
  */
 public class Funcionario implements Entidade{
-    private int idfuncionario;
+    private int id;
     private String cpf;
     private String rg;
     private String cargo;
@@ -29,8 +29,8 @@ public class Funcionario implements Entidade{
         modalidades = new ArrayList<>();
     }
 
-    public Funcionario(int idfuncionario, String cpf, String rg, String cargo, String nome, int idade) {
-        this.idfuncionario = idfuncionario;
+    public Funcionario(int id, String cpf, String rg, String cargo, String nome, int idade) {
+        this.id = id;
         this.cpf = cpf;
         this.rg = rg;
         this.cargo = cargo;
@@ -73,12 +73,14 @@ public class Funcionario implements Entidade{
         this.modalidades = modalidades;
     }
 
-    public int getIdfuncionario() {
-        return idfuncionario;
+    @Override
+    public int getId() {
+        return id;
     }
 
-    public void setIdfuncionario(int idfuncionario) {
-        this.idfuncionario = idfuncionario;
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCpf() {
@@ -122,19 +124,9 @@ public class Funcionario implements Entidade{
     }
 
     @Override
-    public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public int hashCode() {
         int hash = 5;
-        hash = 59 * hash + this.idfuncionario;
+        hash = 59 * hash + this.id;
         hash = 59 * hash + Objects.hashCode(this.cpf);
         hash = 59 * hash + Objects.hashCode(this.rg);
         hash = 59 * hash + Objects.hashCode(this.cargo);
@@ -157,7 +149,7 @@ public class Funcionario implements Entidade{
             return false;
         }
         final Funcionario other = (Funcionario) obj;
-        if (this.idfuncionario != other.idfuncionario) {
+        if (this.id != other.id) {
             return false;
         }
         if (this.idade != other.idade) {
@@ -186,7 +178,7 @@ public class Funcionario implements Entidade{
 
     @Override
     public String toString() {
-        return "Funcionario{" + "idfuncionario=" + idfuncionario + ", cpf=" + cpf + ", rg=" + rg + ", cargo=" + cargo + ", nome=" + nome + ", idade=" + idade + ", qtdmodalidades=" + qtdmodalidades + ", modalidades=" + modalidades + '}';
+        return "Funcionario{" + "id=" + id + ", cpf=" + cpf + ", rg=" + rg + ", cargo=" + cargo + ", nome=" + nome + ", idade=" + idade + ", qtdmodalidades=" + qtdmodalidades + ", modalidades=" + modalidades + '}';
     }
     
 }
