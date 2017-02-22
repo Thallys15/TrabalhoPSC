@@ -341,8 +341,7 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoSairJogaadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairJogaadoresActionPerformed
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
+
         dispose();
     }//GEN-LAST:event_BotaoSairJogaadoresActionPerformed
 

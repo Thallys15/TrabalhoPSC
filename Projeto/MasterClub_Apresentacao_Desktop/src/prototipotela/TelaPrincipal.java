@@ -57,14 +57,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuSobre = new javax.swing.JMenu();
         BarraMenuSair = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setExtendedState(6);
         getContentPane().setLayout(null);
 
         javax.swing.GroupLayout FundoTelaLayout = new javax.swing.GroupLayout(FundoTela);
         FundoTela.setLayout(FundoTelaLayout);
         FundoTelaLayout.setHorizontalGroup(
             FundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1010, Short.MAX_VALUE)
+            .addGap(0, 1006, Short.MAX_VALUE)
         );
         FundoTelaLayout.setVerticalGroup(
             FundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,7 +73,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         getContentPane().add(FundoTela);
-        FundoTela.setBounds(0, 0, 1010, 510);
+        FundoTela.setBounds(0, 0, 1006, 510);
 
         BarraMenuTelaPrincipal.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 
@@ -238,7 +239,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void ItemCadJogadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadJogadoresActionPerformed
         TelaCadastroJogadores tela = new TelaCadastroJogadores();
         tela.setVisible(true);
-        dispose();
+        //dispose();
     }//GEN-LAST:event_ItemCadJogadoresActionPerformed
 
     private void ItemCadJogadoresAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ItemCadJogadoresAncestorMoved
@@ -246,7 +247,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemCadJogadoresAncestorMoved
 
     private void BarraMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraMenuSairActionPerformed
-        
+       System.exit(1);
     }//GEN-LAST:event_BarraMenuSairActionPerformed
 
     private void BarraMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraMenuSairMouseClicked
@@ -262,7 +263,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void ItemCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadFuncionarioActionPerformed
         TelaCadastroFuncionario tela = new TelaCadastroFuncionario();
         tela.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_ItemCadFuncionarioActionPerformed
 
     private void ItemCadPatrocinadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadPatrocinadoresActionPerformed
