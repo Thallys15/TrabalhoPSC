@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author tls15
  */
 public class Patrocinio implements Entidade{
-    private int codigo;
+    private int id;
     private String nome;
     private BigDecimal valorPatrocinio;
 
@@ -25,14 +25,6 @@ public class Patrocinio implements Entidade{
         this.valorPatrocinio = valorPatrocinio;
     }
     
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -44,15 +36,15 @@ public class Patrocinio implements Entidade{
     public Patrocinio() {
     }
 
-    public Patrocinio(int codigo, String nome) {
-        this.codigo = codigo;
+    public Patrocinio(int id, String nome) {
+        this.id = id;
         this.nome = nome;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 19 * hash + this.codigo;
+        hash = 19 * hash + this.id;
         hash = 19 * hash + Objects.hashCode(this.nome);
         hash = 19 * hash + Objects.hashCode(this.valorPatrocinio);
         return hash;
@@ -70,7 +62,7 @@ public class Patrocinio implements Entidade{
             return false;
         }
         final Patrocinio other = (Patrocinio) obj;
-        if (this.codigo != other.codigo) {
+        if (this.id != other.id) {
             return false;
         }
         if (!Objects.equals(this.nome, other.nome)) {
@@ -84,19 +76,16 @@ public class Patrocinio implements Entidade{
 
     @Override
     public String toString() {
-        return "Patrocinio{" + "codigo=" + codigo + ", nome=" + nome + ", valorPatrocinio=" + valorPatrocinio + '}';
+        return "Patrocinio{" + "id=" + id + ", nome=" + nome + ", valorPatrocinio=" + valorPatrocinio + '}';
     }
 
-  
-    @Override
     public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return id;
     }
 
-    @Override
     public void setId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        this.id = id;
+    }      
     
     
 }

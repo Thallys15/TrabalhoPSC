@@ -99,7 +99,8 @@ use MasterClub;
     );
     create table patrocinio(
 		codigo int primary key auto_increment,
-        nome varchar(50)
+        nome varchar(50),
+        valor double
     );
 	create table patrocinar(
 		id int primary key auto_increment,
@@ -118,4 +119,4 @@ use MasterClub;
         dataaluguel date,
         valorTotalAluguel float
 	);
-    select * from atleta;
+    

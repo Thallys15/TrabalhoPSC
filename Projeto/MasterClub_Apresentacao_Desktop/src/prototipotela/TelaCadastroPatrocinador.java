@@ -5,11 +5,25 @@
  */
 package prototipotela;
 
+import br.edu.ifnmg.MasterClub.Entidades.Patrocinio;
+import br.edu.ifnmg.MasterClub.Entidades.PatrocinioRepositorio;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import masterclub_apresentacao.MasterClub_Apresentacao;
+
 /**
  *
  * @author thallys
  */
 public class TelaCadastroPatrocinador extends javax.swing.JFrame {
+    Patrocinio patrocinador = new Patrocinio();
+    MasterClub_Apresentacao master = new MasterClub_Apresentacao();
+    PatrocinioRepositorio bd = new GerenciarFuncionamento().getPatrocinio();
 
     /**
      * Creates new form TelaCadastroPatrocinador
@@ -33,7 +47,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         BotaoLimparFunc = new javax.swing.JButton();
@@ -55,9 +69,14 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/CBF_patrocinadores.jpg"))); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
-        jButton1.setText("Salvar");
+        btnSalvar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360844_Exit.png"))); // NOI18N
@@ -105,7 +124,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(BotaoLimparFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -137,7 +156,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnSalvar)
                     .addComponent(jButton2)
                     .addComponent(BotaoLimparFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
@@ -176,6 +195,27 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
         //limparCampos();
     }//GEN-LAST:event_BotaoLimparFuncActionPerformed
 
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        try {
+            
+            this.recuperarCampos();
+            int codigo = patrocinador.getId();
+            if (codigo==0) {
+            master.criarPatrocinio(patrocinador);
+            this.limparCampos();
+            JOptionPane.showMessageDialog(this, "patrocinador Cadastrado com sucesso");
+            } else {
+                bd.Alterar(patrocinador);
+                JOptionPane.showMessageDialog(this, "Sucesso!!! O patrocinador foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+            this.limparCampos();
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -213,7 +253,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoLimparFunc;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -224,4 +264,29 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JFormattedTextField txtValorPatrocinio;
     // End of variables declaration//GEN-END:variables
+    private void limparCampos() {
+        
+        txtNome.setText("");        
+        
+    }
+    private void recuperarCampos() throws ParseException {
+        
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+        String nome = txtNome.getText().trim();
+        if(!nome.equals("")){
+            patrocinador.setNome(nome);
+        }
+        
+        BigDecimal valor = BigDecimal.valueOf(txtValorPatrocinio.getText().trim());
+        if (valor != null) {
+            patrocinador.setValorPatrocinio(valor);
+        }
+    }
+    private void preencherCampos() {
+        String valor = String.valueOf(patrocinador.getValorPatrocinio());
+        txtNome.setText(patrocinador.getNome());
+        txtValorPatrocinio.setText(valor);
+        
+    }
 }

@@ -21,11 +21,11 @@ import java.util.logging.Logger;
 public class PatrocinioDAO extends DAOGenerico<Patrocinio> implements PatrocinioRepositorio{
     
     public PatrocinioDAO(){
-        setConsultaAbrir("select id, codigo, nome from patrocinio where id = ?");
+        setConsultaAbrir("select id, nome, valor from patrocinio where id = ?");
         setConsultaApagar("delete from patrocinio where id = ?");
-        setConsultaInserir("insert into patrocinio(codigo, nome) values(?,?)");
-        setConsultaAlterar("update patrocinio set codigo = ?, nome = ? where id = ?");
-        setConsultaBusca("select id, codigo, nome from patrocinio ");
+        setConsultaInserir("insert into patrocinio(nome,valor) values(?,?)");
+        setConsultaAlterar("update patrocinio set nome = ?, valor = ? where id = ?");
+        setConsultaBusca("select id, nome, valor from patrocinio ");
     
     
     }
@@ -35,9 +35,8 @@ public class PatrocinioDAO extends DAOGenerico<Patrocinio> implements Patrocinio
         try {
             Patrocinio tmp = new Patrocinio();
             tmp.setId(resultado.getInt(1));
-            tmp.setCodigo(resultado.getInt(2));
-            tmp.setNome(resultado.getString(3));
-            
+            tmp.setNome(resultado.getString(2));
+            tmp.setValorPatrocinio(resultado.getBigDecimal(3));
             return tmp;
         } catch (SQLException ex) {
             Logger.getLogger(PatrocinioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,8 +47,8 @@ public class PatrocinioDAO extends DAOGenerico<Patrocinio> implements Patrocinio
     @Override
     protected void preencheConsulta(PreparedStatement sql, Patrocinio obj) {
         try {
-            sql.setInt(1, obj.getCodigo());
-            sql.setString(2, obj.getNome());
+            sql.setString(1, obj.getNome());
+            sql.setBigDecimal(2, obj.getValorPatrocinio());
             if(obj.getId() > 0) sql.setInt(3, obj.getId());
         } catch (SQLException ex) {
             Logger.getLogger(PatrocinioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,8 +58,8 @@ public class PatrocinioDAO extends DAOGenerico<Patrocinio> implements Patrocinio
     @Override
     protected void preencheFiltros(Patrocinio filtro) {
         if(filtro.getId()> 0 ) adicionarFiltro("id", "=");
-        if(filtro.getCodigo()> 0) adicionarFiltro("codigo", " like ");
         if(filtro.getNome()!= null) adicionarFiltro("nome", " like ");
+        if(filtro.getValorPatrocinio() != null) adicionarFiltro("valor", " like ");
     }
 
     @Override
@@ -68,8 +67,8 @@ public class PatrocinioDAO extends DAOGenerico<Patrocinio> implements Patrocinio
         try {
             int cont = 1;
             if(filtro.getId()> 0){ sql.setInt(cont, filtro.getId()); cont++; }
-            if(filtro.getCodigo()> 0 ){ sql.setInt(cont, filtro.getCodigo()); cont++; }
             if(filtro.getNome()!= null ){ sql.setString(cont, filtro.getNome()); cont++; }
+            if(filtro.getValorPatrocinio() != null ){ sql.setBigDecimal(cont, filtro.getValorPatrocinio()); cont++; }
                  
         } catch (SQLException ex) {
             Logger.getLogger(PatrocinioDAO.class.getName()).log(Level.SEVERE, null, ex);

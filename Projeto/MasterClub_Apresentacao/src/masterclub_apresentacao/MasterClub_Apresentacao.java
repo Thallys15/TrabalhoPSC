@@ -105,4 +105,11 @@ public class MasterClub_Apresentacao {
         
     }
     
+    public static void criarPatrocinio(Patrocinio patrocinio) throws SQLException, ClassNotFoundException {
+        
+        PatrocinioRepositorio bd_patrocinio = new PatrocinioDAO();
+        bd_patrocinio.Salvar(patrocinio);
+        
+    }
+    
 }
