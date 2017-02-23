@@ -290,7 +290,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void ItemInfraestruturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemInfraestruturaActionPerformed
         // TODO add your handling code here:
-        TelaInfraEstrutura entrar = new TelaInfraEstrutura();
+        TelaCadastroDependencias entrar = new TelaCadastroDependencias();
         entrar.setVisible(true);
         dispose();
     }//GEN-LAST:event_ItemInfraestruturaActionPerformed
