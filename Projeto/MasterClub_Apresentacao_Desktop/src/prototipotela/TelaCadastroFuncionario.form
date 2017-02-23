@@ -95,7 +95,7 @@
                           </Group>
                           <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtCpf" min="-2" pref="102" max="-2" attributes="0"/>
+                              <Component id="txtCpf" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
                               <Component id="txtRg" alignment="1" min="-2" pref="102" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -126,29 +126,29 @@
                               <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblCpf" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtCpf" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblRg" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtRg" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtRg" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblRg" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblCargo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtCargo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtCargo" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblCargo" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtIdade" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblIdade" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="120" max="32767" attributes="0"/>
+                                  <EmptySpace pref="143" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jButton2" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>

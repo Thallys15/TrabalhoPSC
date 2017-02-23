@@ -35,9 +35,9 @@ public class ListarFuncionario extends javax.swing.JFrame {
         CampoCpfPesquisa = new javax.swing.JFormattedTextField();
         BotaoLimpar = new javax.swing.JButton();
         BotaoBuscar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        lblimagem = new javax.swing.JLabel();
+        BotaoSair = new javax.swing.JButton();
+        PainelTabela = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaResultado = new javax.swing.JTable();
         BotaoNovo = new javax.swing.JButton();
@@ -71,14 +71,14 @@ public class ListarFuncionario extends javax.swing.JFrame {
         BotaoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
         BotaoBuscar.setText("Buscar");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/1487815044_Notes.png"))); // NOI18N
+        lblimagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/1487815044_Notes.png"))); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
-        jButton1.setText("Sair");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BotaoSair.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        BotaoSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
+        BotaoSair.setText("Sair");
+        BotaoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BotaoSairActionPerformed(evt);
             }
         });
 
@@ -104,9 +104,9 @@ public class ListarFuncionario extends javax.swing.JFrame {
                         .addGap(4, 4, 4)
                         .addComponent(BotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BotaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         PainelFiltroLayout.setVerticalGroup(
@@ -127,15 +127,15 @@ public class ListarFuncionario extends javax.swing.JFrame {
                             .addComponent(BotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PainelFiltroLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BotaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(PainelFiltroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
+        PainelTabela.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 
         TabelaResultado.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         TabelaResultado.setModel(new javax.swing.table.DefaultTableModel(
@@ -151,14 +151,14 @@ public class ListarFuncionario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TabelaResultado);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PainelTabelaLayout = new javax.swing.GroupLayout(PainelTabela);
+        PainelTabela.setLayout(PainelTabelaLayout);
+        PainelTabelaLayout.setHorizontalGroup(
+            PainelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PainelTabelaLayout.setVerticalGroup(
+            PainelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
@@ -197,7 +197,7 @@ public class ListarFuncionario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PainelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PainelFiltro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PainelTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(PainelListarLayout.createSequentialGroup()
                 .addGap(72, 72, 72)
@@ -214,7 +214,7 @@ public class ListarFuncionario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(PainelFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PainelTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(PainelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -245,9 +245,9 @@ public class ListarFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoEditarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BotaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BotaoSairActionPerformed
 
     private void BotaoNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoActionPerformed
         
@@ -294,16 +294,16 @@ public class ListarFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton BotaoExcluir;
     private javax.swing.JButton BotaoLimpar;
     private javax.swing.JButton BotaoNovo;
+    private javax.swing.JButton BotaoSair;
     private javax.swing.JFormattedTextField CampoCpfPesquisa;
     private javax.swing.JTextField CampoNomePesquisa;
     private javax.swing.JPanel PainelFiltro;
     private javax.swing.JPanel PainelListar;
+    private javax.swing.JPanel PainelTabela;
     private javax.swing.JTable TabelaResultado;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblimagem;
     // End of variables declaration//GEN-END:variables
 }
