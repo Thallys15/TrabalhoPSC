@@ -23,11 +23,11 @@ public class Atleta implements Entidade{
     private String cpf;
     private String rg;
     private String nome;
-    private Clube clube;
+    private int clube;
     public Atleta() {
     }
 
-    public Atleta(int id, String posicao, String lado, String categoria, String naturalidade, int idade, double altura, double peso, String cpf, String rg, String nome, Clube clube) {
+    public Atleta(int id, String posicao, String lado, String categoria, String naturalidade, int idade, double altura, double peso, String cpf, String rg, String nome, int clube) {
         this.id = id;
         this.posicao = posicao;
         this.lado = lado;
@@ -130,11 +130,11 @@ public class Atleta implements Entidade{
         this.nome = nome;
     }
 
-    public Clube getClube() {
+    public int getClube() {
         return clube;
     }
 
-    public void setClube(Clube clube) {
+    public void setClube(int clube) {
         this.clube = clube;
     }
 

@@ -61,13 +61,14 @@ use MasterClub;
     );
 	create table atleta(
 		id int primary key auto_increment,
+        nome varchar(50),
 		posicao varchar(10),
         lado varchar(10),
         categoria varchar(10),
         naturalidade varchar(50),
         idade int,
-        altura float,
-        peso float,
+        altura double,
+        peso double,
         cpf char(11),
         rg char(10),
         clube int,
@@ -117,3 +118,4 @@ use MasterClub;
         dataaluguel date,
         valorTotalAluguel float
 	);
+    select * from atleta;
