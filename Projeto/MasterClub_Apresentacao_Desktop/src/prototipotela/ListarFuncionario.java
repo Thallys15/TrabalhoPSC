@@ -48,7 +48,7 @@ public class ListarFuncionario extends javax.swing.JFrame {
 
         PainelListar.setBackground(new java.awt.Color(255, 255, 255));
 
-        PainelFiltro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
+        PainelFiltro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar Funcionário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 
         lblNome.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         lblNome.setText("Nome");
@@ -250,7 +250,9 @@ public class ListarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoSairActionPerformed
 
     private void BotaoNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoActionPerformed
-        
+        TelaCadastroFuncionario abrir = new TelaCadastroFuncionario();
+        abrir.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BotaoNovoActionPerformed
 
     /**
