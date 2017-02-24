@@ -12,20 +12,29 @@ import java.util.Date;
  * @author tls15
  */
 public class Titulos implements Entidade {
-    private int codigotitulo;
+    private int id;
+    private String nomeTorneio;
     private Date datatitulo;
-
+  
     public Titulos() {
     }
 
-    public int getCodigotitulo() {
-        return codigotitulo;
+    public int getId() {
+        return id;
     }
 
-    public void setCodigotitulo(int codigotitulo) {
-        this.codigotitulo = codigotitulo;
+    public void setId(int id) {
+        this.id = id;
     }
 
+    public String getNomeTorneio() {
+        return nomeTorneio;
+    }
+
+    public void setNomeTorneio(String nomeTorneio) {
+        this.nomeTorneio = nomeTorneio;
+    }
+    
     public Date getDatatitulo() {
         return datatitulo;
     }
@@ -37,7 +46,7 @@ public class Titulos implements Entidade {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 37 * hash + this.codigotitulo;
+        hash = 37 * hash + this.id;
         return hash;
     }
 
@@ -53,7 +62,7 @@ public class Titulos implements Entidade {
             return false;
         }
         final Titulos other = (Titulos) obj;
-        if (this.codigotitulo != other.codigotitulo) {
+        if (this.id != other.id) {
             return false;
         }
         return true;
@@ -61,18 +70,8 @@ public class Titulos implements Entidade {
 
     @Override
     public String toString() {
-        return "Titulos{" + "codigotitulo=" + codigotitulo + ", datatitulo=" + datatitulo + '}';
+        return "Titulos{" + "id=" + id + ", datatitulo=" + datatitulo + '}';
     }
 
-    @Override
-    public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     
 }

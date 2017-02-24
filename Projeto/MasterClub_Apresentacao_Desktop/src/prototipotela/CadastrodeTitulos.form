@@ -64,35 +64,26 @@
                           <Component id="TabelaTemporadaListar" min="-2" pref="652" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="NomeTorneioLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="AnoLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="NomeModalidadeLabel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="NomeTorneioLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="BotaoBuscarTemporada" min="-2" pref="124" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="BotaoLimparTemporada" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="BotaoDeletarTemporada" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="btnSalvar" min="-2" pref="109" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="BotaoSairTemporada" min="-2" pref="113" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="CaixaNomeTorneio" max="32767" attributes="0"/>
-                                  <Component id="CaixaNomeModalidade" max="32767" attributes="0"/>
-                                  <Component id="CaixaAno" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtNomeTorneio" min="-2" pref="147" max="-2" attributes="0"/>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="AnoLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtData" min="-2" pref="148" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -109,22 +100,18 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="NomeTorneioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CaixaNomeTorneio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="CaixaNomeModalidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="NomeModalidadeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNomeTorneio" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="AnoLabel" min="-2" max="-2" attributes="0"/>
-                      <Component id="CaixaAno" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="AnoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtData" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="BotaoBuscarTemporada" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BotaoLimparTemporada" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="BotaoDeletarTemporada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BotaoSairTemporada" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="28" max="32767" attributes="0"/>
@@ -155,21 +142,12 @@
             <Property name="text" type="java.lang.String" value="Nome Torneio"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CaixaNomeTorneio">
-        </Component>
-        <Component class="javax.swing.JLabel" name="NomeModalidadeLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Modalidade"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="CaixaNomeModalidade">
+        <Component class="javax.swing.JTextField" name="txtNomeTorneio">
         </Component>
         <Component class="javax.swing.JLabel" name="AnoLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ano"/>
+            <Property name="text" type="java.lang.String" value="Temporada"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="CaixaAno">
         </Component>
         <Component class="javax.swing.JLabel" name="TextoExplicacao">
           <Properties>
@@ -192,13 +170,16 @@
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="BotaoDeletarTemporada">
+        <Component class="javax.swing.JButton" name="btnSalvar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/prototipotela/icone/1474449279_DeleteRed.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Deletar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BotaoSairTemporada">
           <Properties>
@@ -242,6 +223,13 @@
               <Image iconType="3" name="/prototipotela/img/guardiola-trofeus.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel6"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="txtData">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+              <Format subtype="2" type="1"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>

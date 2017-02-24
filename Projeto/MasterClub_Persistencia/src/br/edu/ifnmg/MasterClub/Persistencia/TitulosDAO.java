@@ -21,10 +21,10 @@ import java.util.logging.Logger;
 public class TitulosDAO extends DAOGenerico<Titulos> implements TitulosRepositorio{
     
     public TitulosDAO(){
-       setConsultaInserir("insert into titulos(codigo, data_titulo)values(?,?)");
-       setConsultaAlterar("update titulos set codigo = ?,data_titulo = ? where codigo = ?");
-       setConsultaApagar("delete from titulos where codigo = ?");
-       setConsultaAbrir("select codigo, data_titulo from titulos where codigo = ?");
+       setConsultaInserir("insert into titulos(nome, data_titulo)values(?,?)");
+       setConsultaAlterar("update titulos set id = ?, nome = ?,data_titulo = ? where id = ?");
+       setConsultaApagar("delete from titulos where id = ?");
+       setConsultaAbrir("select id, nome, data_titulo from titulos where id = ?");
     } 
 
     @Override
@@ -32,8 +32,8 @@ public class TitulosDAO extends DAOGenerico<Titulos> implements TitulosRepositor
         try{
             Titulos tmp = new Titulos();
             tmp.setId(resultado.getInt(1));
-            tmp.setCodigotitulo(resultado.getInt(2));
-            tmp.setDatatitulo(resultado.getDate(2));
+            tmp.setNomeTorneio(resultado.getString(2));
+            tmp.setDatatitulo(resultado.getDate(3));
             return tmp;
         } catch(SQLException ex){
             System.out.println(ex);
@@ -44,7 +44,7 @@ public class TitulosDAO extends DAOGenerico<Titulos> implements TitulosRepositor
     @Override
     protected void preencheConsulta(PreparedStatement sql, Titulos obj) {
         try {
-            sql.setInt(1, obj.getCodigotitulo());
+            sql.setString(1, obj.getNomeTorneio());
             sql.setDate(2, new java.sql.Date(obj.getDatatitulo().getTime()));
             
             if(obj.getId() > 0) sql.setInt(3,obj.getId());
@@ -57,7 +57,7 @@ public class TitulosDAO extends DAOGenerico<Titulos> implements TitulosRepositor
     @Override
     protected void preencheFiltros(Titulos filtro) {
         if(filtro.getId() > 0) adicionarFiltro("id", "=");
-        if(filtro.getCodigotitulo() > 0) adicionarFiltro("codigo_titulo", " like ");
+        if(filtro.getNomeTorneio() != null) adicionarFiltro("nome", " like ");
         if(filtro.getDatatitulo()!= null) adicionarFiltro("data_titulo", "=");
     }
 
@@ -66,7 +66,7 @@ public class TitulosDAO extends DAOGenerico<Titulos> implements TitulosRepositor
          try {
             int cont = 1;
             if(filtro.getId() > 0){ sql.setInt(cont, filtro.getId()); cont++; }
-            if(filtro.getCodigotitulo() > 0 ){ sql.setInt(cont, filtro.getCodigotitulo()); cont++; }            
+            if(filtro.getNomeTorneio() != null){ sql.setString(cont, filtro.getNomeTorneio()); cont++; }            
             if(filtro.getDatatitulo()!= null) { sql.setDate(cont, (Date) filtro.getDatatitulo()); cont++;  }
         
         } catch (SQLException ex) {

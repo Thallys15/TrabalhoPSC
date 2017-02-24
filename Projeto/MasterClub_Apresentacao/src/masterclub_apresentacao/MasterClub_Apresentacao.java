@@ -25,6 +25,7 @@ import br.edu.ifnmg.MasterClub.Entidades.Patrocinio;
 import br.edu.ifnmg.MasterClub.Entidades.PatrocinioRepositorio;
 import br.edu.ifnmg.MasterClub.Entidades.Pessoa;
 import br.edu.ifnmg.MasterClub.Entidades.PessoaRepositorio;
+import br.edu.ifnmg.MasterClub.Entidades.Titulos;
 import br.edu.ifnmg.MasterClub.Persistencia.AluguelDAO;
 import br.edu.ifnmg.MasterClub.Persistencia.AtletaDAO;
 import br.edu.ifnmg.MasterClub.Persistencia.ChefeDAO;
@@ -35,6 +36,8 @@ import br.edu.ifnmg.MasterClub.Persistencia.FuncionarioDAO;
 import br.edu.ifnmg.MasterClub.Persistencia.ModalidadeDAO;
 import br.edu.ifnmg.MasterClub.Persistencia.PatrocinioDAO;
 import br.edu.ifnmg.MasterClub.Persistencia.PessoaDAO;
+import br.edu.ifnmg.MasterClub.Persistencia.TitulosDAO;
+import br.edu.ifnmg.MasterClub.Entidades.TitulosRepositorio;
 import java.sql.SQLException;
 
 /**
@@ -109,6 +112,13 @@ public class MasterClub_Apresentacao {
         
         PatrocinioRepositorio bd_patrocinio = new PatrocinioDAO();
         bd_patrocinio.Salvar(patrocinio);
+        
+    }
+    
+    public static void criarTitulo(Titulos titulo) throws SQLException, ClassNotFoundException {
+        
+        TitulosRepositorio bd_titulo = new TitulosDAO();
+        bd_titulo.Salvar(titulo);
         
     }
     

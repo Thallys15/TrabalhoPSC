@@ -5,11 +5,25 @@
  */
 package prototipotela;
 
+import br.edu.ifnmg.MasterClub.Entidades.FuncionarioRepositorio;
+import br.edu.ifnmg.MasterClub.Entidades.Titulos;
+import br.edu.ifnmg.MasterClub.Entidades.TitulosRepositorio;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import masterclub_apresentacao.MasterClub_Apresentacao;
+
 /**
  *
  * @author thallys
  */
 public class CadastrodeTitulos extends javax.swing.JFrame {
+    Titulos titulo = new Titulos();
+    MasterClub_Apresentacao master = new MasterClub_Apresentacao();
+    TitulosRepositorio bd = new GerenciarFuncionamento().getTitulo();
 
     /**
      * Creates new form CadastrodeTitulos
@@ -30,19 +44,17 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
         FunndoCadastroTitulos = new javax.swing.JPanel();
         LogoTemporada = new javax.swing.JLabel();
         NomeTorneioLabel = new javax.swing.JLabel();
-        CaixaNomeTorneio = new javax.swing.JTextField();
-        NomeModalidadeLabel = new javax.swing.JLabel();
-        CaixaNomeModalidade = new javax.swing.JTextField();
+        txtNomeTorneio = new javax.swing.JTextField();
         AnoLabel = new javax.swing.JLabel();
-        CaixaAno = new javax.swing.JTextField();
         TextoExplicacao = new javax.swing.JLabel();
         BotaoBuscarTemporada = new javax.swing.JButton();
         BotaoLimparTemporada = new javax.swing.JButton();
-        BotaoDeletarTemporada = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
         BotaoSairTemporada = new javax.swing.JButton();
         TabelaTemporadaListar = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
+        txtData = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,9 +66,7 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
 
         NomeTorneioLabel.setText("Nome Torneio");
 
-        NomeModalidadeLabel.setText("Modalidade");
-
-        AnoLabel.setText("Ano");
+        AnoLabel.setText("Temporada");
 
         TextoExplicacao.setText("Realizar a busca preenchendo qualquer campo desejado!!");
 
@@ -66,8 +76,13 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
         BotaoLimparTemporada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474449106_leaf_cleaning_stick.png"))); // NOI18N
         BotaoLimparTemporada.setText("Limpar");
 
-        BotaoDeletarTemporada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474449279_DeleteRed.png"))); // NOI18N
-        BotaoDeletarTemporada.setText("Deletar");
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474449279_DeleteRed.png"))); // NOI18N
+        btnSalvar.setText("Deletar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         BotaoSairTemporada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474061346_Shutdown_Box_Red.png"))); // NOI18N
         BotaoSairTemporada.setText("Sair");
@@ -93,6 +108,8 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/guardiola-trofeus.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
 
+        txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
+
         javax.swing.GroupLayout FunndoCadastroTitulosLayout = new javax.swing.GroupLayout(FunndoCadastroTitulos);
         FunndoCadastroTitulos.setLayout(FunndoCadastroTitulosLayout);
         FunndoCadastroTitulosLayout.setHorizontalGroup(
@@ -109,28 +126,23 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(TabelaTemporadaListar, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                        .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                                .addComponent(NomeTorneioLabel)
-                                .addGap(3, 3, 3))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FunndoCadastroTitulosLayout.createSequentialGroup()
-                                .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(AnoLabel)
-                                    .addComponent(NomeModalidadeLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(NomeTorneioLabel)
+                        .addGap(3, 3, 3)
                         .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
                                 .addComponent(BotaoBuscarTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BotaoLimparTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BotaoDeletarTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BotaoSairTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(CaixaNomeTorneio)
-                                .addComponent(CaixaNomeModalidade)
-                                .addComponent(CaixaAno, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(txtNomeTorneio, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(AnoLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -143,19 +155,16 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NomeTorneioLabel)
-                    .addComponent(CaixaNomeTorneio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CaixaNomeModalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NomeModalidadeLabel))
+                    .addComponent(txtNomeTorneio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AnoLabel)
-                    .addComponent(CaixaAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66)
                 .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoBuscarTemporada)
                     .addComponent(BotaoLimparTemporada)
-                    .addComponent(BotaoDeletarTemporada)
+                    .addComponent(btnSalvar)
                     .addComponent(BotaoSairTemporada))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(TabelaTemporadaListar, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,6 +197,27 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
         entrar.setVisible(true);
         dispose();
     }//GEN-LAST:event_BotaoSairTemporadaActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        try {
+            
+            this.recuperarCampos();
+            int codigo = titulo.getId();            
+            if (codigo==0) {
+            master.criarTitulo(titulo);
+            this.limparCampos();
+            JOptionPane.showMessageDialog(this, "titulo cadastrado!!!Parabéns pela conquista");
+            } else {
+                bd.Alterar(titulo);
+                JOptionPane.showMessageDialog(this, "Sucesso!!! O titulo foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+            this.limparCampos();
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,19 +257,48 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AnoLabel;
     private javax.swing.JButton BotaoBuscarTemporada;
-    private javax.swing.JButton BotaoDeletarTemporada;
     private javax.swing.JButton BotaoLimparTemporada;
     private javax.swing.JButton BotaoSairTemporada;
-    private javax.swing.JTextField CaixaAno;
-    private javax.swing.JTextField CaixaNomeModalidade;
-    private javax.swing.JTextField CaixaNomeTorneio;
     private javax.swing.JPanel FunndoCadastroTitulos;
     private javax.swing.JLabel LogoTemporada;
-    private javax.swing.JLabel NomeModalidadeLabel;
     private javax.swing.JLabel NomeTorneioLabel;
     private javax.swing.JScrollPane TabelaTemporadaListar;
     private javax.swing.JLabel TextoExplicacao;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTable jTable2;
+    private javax.swing.JFormattedTextField txtData;
+    private javax.swing.JTextField txtNomeTorneio;
     // End of variables declaration//GEN-END:variables
+    private void limparCampos() {
+        
+        txtNomeTorneio.setText("");
+        txtData.setText("");
+        
+    }
+    public void recuperarCampos() throws ParseException{
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+
+        String nome = new String(txtNomeTorneio.getText().trim());
+        if (!nome.equals("")){
+            titulo.setNomeTorneio(nome);
+        }
+        Date temporada = new Date( formatador.parse(txtData.getText().trim()).getTime());
+          /*String dia = txtData.getText().substring(0,2);
+            String mes = txtData.getText().substring(3,5);
+            String ano = txtData.getText().substring(6);
+            String dataParaMysql = ano+""+mes+""+dia;   
+            dataParaMysql =new String(txtData.getText().trim());*/
+        if (!temporada.equals("")) {
+            titulo.setDatatitulo(temporada);
+        }
+
+    }
+    private void preencherCampos() {
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        String temporada= formatador.format(titulo.getDatatitulo());
+        txtNomeTorneio.setText(titulo.getNomeTorneio());
+        txtData.setText(temporada);
+        
+    }
 }
