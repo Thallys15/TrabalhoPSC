@@ -13,26 +13,18 @@ import java.util.Objects;
  * @author tls15
  */
 public class Dependencia implements Entidade{
-    private int codigo;
+    private int id;
     private String nome;
     private BigDecimal capacidade;
 
     public Dependencia() {
     }
 
-    public Dependencia(int codigo, String nome, BigDecimal capacidade) {
-        this.codigo = codigo;
+    public Dependencia(int id, String nome, BigDecimal capacidade) {
+        this.id = id;
         this.nome = nome;
         this.capacidade = capacidade;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
+    }    
 
     public String getNome() {
         return nome;
@@ -49,21 +41,19 @@ public class Dependencia implements Entidade{
     public void setCapacidade(BigDecimal capacidade) {
         this.capacidade = capacidade;
     }
-    
-    @Override
+
     public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return id;
     }
 
-    @Override
     public void setId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.id = id;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + this.codigo;
+        hash = 29 * hash + this.id;
         hash = 29 * hash + Objects.hashCode(this.nome);
         hash = 29 * hash + Objects.hashCode(this.capacidade);
         return hash;
@@ -81,7 +71,7 @@ public class Dependencia implements Entidade{
             return false;
         }
         final Dependencia other = (Dependencia) obj;
-        if (this.codigo != other.codigo) {
+        if (this.id != other.id) {
             return false;
         }
         if (!Objects.equals(this.nome, other.nome)) {
@@ -95,7 +85,7 @@ public class Dependencia implements Entidade{
 
     @Override
     public String toString() {
-        return "Dependencia{" + "codigo=" + codigo + ", nome=" + nome + ", capacidade=" + capacidade + '}';
+        return "Dependencia{" + "id=" + id + ", nome=" + nome + ", capacidade=" + capacidade + '}';
     }
     
     
