@@ -116,8 +116,8 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNome)
-                    .addComponent(txtValorPatrocinio, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(txtValorPatrocinio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -186,7 +186,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         ListarJogadores abrir = new ListarJogadores();
+         ListarPatrocinadores abrir = new ListarPatrocinadores();
          abrir.setVisible(true);
          dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -267,20 +267,20 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
     private void limparCampos() {
         
         txtNome.setText("");        
+        txtValorPatrocinio.setText("");
         
     }
     private void recuperarCampos() throws ParseException {
-        
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
 
         String nome = txtNome.getText().trim();
         if(!nome.equals("")){
             patrocinador.setNome(nome);
         }
         
-        BigDecimal valor = BigDecimal.valueOf(txtValorPatrocinio.getText().trim());
-        if (valor != null) {
-            patrocinador.setValorPatrocinio(valor);
+        double valor = Double.parseDouble(txtValorPatrocinio.getText().trim());
+        if (valor != 0) {
+            patrocinador.setValorPatrocinio(BigDecimal.valueOf(valor));
         }
     }
     private void preencherCampos() {

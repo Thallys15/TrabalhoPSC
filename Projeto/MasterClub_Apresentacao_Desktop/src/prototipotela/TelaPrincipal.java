@@ -259,8 +259,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BarraMenuSairMouseClicked
 
     private void ItemCadComTecnicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadComTecnicaActionPerformed
-        TelaCadastroComissao tela = new TelaCadastroComissao();
-        tela.setVisible(true);
+       // TelaCadastroComissao tela = new TelaCadastroComissao();
+        //tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_ItemCadComTecnicaActionPerformed
 
