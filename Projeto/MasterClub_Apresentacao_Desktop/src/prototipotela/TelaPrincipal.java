@@ -155,7 +155,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuDepartamentos.add(ItemDepMedico);
 
         ItemInfraestrutura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066748_Football_2-17.png"))); // NOI18N
-        ItemInfraestrutura.setText("Infraestrutura");
+        ItemInfraestrutura.setText("Dependencias");
         ItemInfraestrutura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItemInfraestruturaActionPerformed(evt);
