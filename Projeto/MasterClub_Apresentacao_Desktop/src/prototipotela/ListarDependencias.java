@@ -28,33 +28,33 @@ public class ListarDependencias extends javax.swing.JFrame {
     private void initComponents() {
 
         lblimagem = new javax.swing.JLabel();
-        BotaoExcluirPat = new javax.swing.JButton();
-        PainelTabelaPat = new javax.swing.JPanel();
+        BotaoExcluirDep = new javax.swing.JButton();
+        PainelTabelaDep = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaResultado = new javax.swing.JTable();
-        BotaoNovoPat = new javax.swing.JButton();
-        BotaoEditarPat = new javax.swing.JButton();
+        BotaoNovoDep = new javax.swing.JButton();
+        BotaoEditarDep = new javax.swing.JButton();
         PainelFiltroPatrocinador = new javax.swing.JPanel();
         lblNomePatrocinador = new javax.swing.JLabel();
-        CampoNomePesquisaPat = new javax.swing.JTextField();
-        BotaoLimparPat = new javax.swing.JButton();
-        BotaoBuscarPat = new javax.swing.JButton();
-        BotaoSairPat = new javax.swing.JButton();
+        CampoNomePesquisaDep = new javax.swing.JTextField();
+        BotaoLimparDep = new javax.swing.JButton();
+        BotaoBuscarDep = new javax.swing.JButton();
+        BotaoSairDep = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblimagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/stadium-29484.jpg"))); // NOI18N
 
-        BotaoExcluirPat.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoExcluirPat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/delete.png"))); // NOI18N
-        BotaoExcluirPat.setText("Excluir");
-        BotaoExcluirPat.addActionListener(new java.awt.event.ActionListener() {
+        BotaoExcluirDep.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        BotaoExcluirDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/delete.png"))); // NOI18N
+        BotaoExcluirDep.setText("Excluir");
+        BotaoExcluirDep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoExcluirPatActionPerformed(evt);
+                BotaoExcluirDepActionPerformed(evt);
             }
         });
 
-        PainelTabelaPat.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
+        PainelTabelaDep.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 
         TabelaResultado.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         TabelaResultado.setModel(new javax.swing.table.DefaultTableModel(
@@ -78,36 +78,36 @@ public class ListarDependencias extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TabelaResultado);
 
-        javax.swing.GroupLayout PainelTabelaPatLayout = new javax.swing.GroupLayout(PainelTabelaPat);
-        PainelTabelaPat.setLayout(PainelTabelaPatLayout);
-        PainelTabelaPatLayout.setHorizontalGroup(
-            PainelTabelaPatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelTabelaPatLayout.createSequentialGroup()
+        javax.swing.GroupLayout PainelTabelaDepLayout = new javax.swing.GroupLayout(PainelTabelaDep);
+        PainelTabelaDep.setLayout(PainelTabelaDepLayout);
+        PainelTabelaDepLayout.setHorizontalGroup(
+            PainelTabelaDepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelTabelaDepLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 53, Short.MAX_VALUE))
         );
-        PainelTabelaPatLayout.setVerticalGroup(
-            PainelTabelaPatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelTabelaPatLayout.createSequentialGroup()
+        PainelTabelaDepLayout.setVerticalGroup(
+            PainelTabelaDepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelTabelaDepLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        BotaoNovoPat.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoNovoPat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/Novo.png"))); // NOI18N
-        BotaoNovoPat.setText("Novo");
-        BotaoNovoPat.addActionListener(new java.awt.event.ActionListener() {
+        BotaoNovoDep.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        BotaoNovoDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/Novo.png"))); // NOI18N
+        BotaoNovoDep.setText("Novo");
+        BotaoNovoDep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoNovoPatActionPerformed(evt);
+                BotaoNovoDepActionPerformed(evt);
             }
         });
 
-        BotaoEditarPat.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoEditarPat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/edit.png"))); // NOI18N
-        BotaoEditarPat.setText("Editar");
-        BotaoEditarPat.addActionListener(new java.awt.event.ActionListener() {
+        BotaoEditarDep.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        BotaoEditarDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/edit.png"))); // NOI18N
+        BotaoEditarDep.setText("Editar");
+        BotaoEditarDep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoEditarPatActionPerformed(evt);
+                BotaoEditarDepActionPerformed(evt);
             }
         });
 
@@ -116,26 +116,26 @@ public class ListarDependencias extends javax.swing.JFrame {
         lblNomePatrocinador.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         lblNomePatrocinador.setText("Nome");
 
-        BotaoLimparPat.setBackground(new java.awt.Color(255, 255, 255));
-        BotaoLimparPat.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoLimparPat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/limpar.png"))); // NOI18N
-        BotaoLimparPat.setText("Limpar");
-        BotaoLimparPat.addActionListener(new java.awt.event.ActionListener() {
+        BotaoLimparDep.setBackground(new java.awt.Color(255, 255, 255));
+        BotaoLimparDep.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        BotaoLimparDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/limpar.png"))); // NOI18N
+        BotaoLimparDep.setText("Limpar");
+        BotaoLimparDep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoLimparPatActionPerformed(evt);
+                BotaoLimparDepActionPerformed(evt);
             }
         });
 
-        BotaoBuscarPat.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoBuscarPat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
-        BotaoBuscarPat.setText("Buscar");
+        BotaoBuscarDep.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        BotaoBuscarDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
+        BotaoBuscarDep.setText("Buscar");
 
-        BotaoSairPat.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        BotaoSairPat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
-        BotaoSairPat.setText("Sair");
-        BotaoSairPat.addActionListener(new java.awt.event.ActionListener() {
+        BotaoSairDep.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        BotaoSairDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
+        BotaoSairDep.setText("Sair");
+        BotaoSairDep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoSairPatActionPerformed(evt);
+                BotaoSairDepActionPerformed(evt);
             }
         });
 
@@ -149,14 +149,14 @@ public class ListarDependencias extends javax.swing.JFrame {
                         .addGap(105, 105, 105)
                         .addComponent(lblNomePatrocinador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CampoNomePesquisaPat, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(CampoNomePesquisaDep, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PainelFiltroPatrocinadorLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(BotaoLimparPat)
+                        .addComponent(BotaoLimparDep)
                         .addGap(18, 18, 18)
-                        .addComponent(BotaoBuscarPat, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BotaoBuscarDep, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(BotaoSairPat, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BotaoSairDep, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         PainelFiltroPatrocinadorLayout.setVerticalGroup(
@@ -164,13 +164,13 @@ public class ListarDependencias extends javax.swing.JFrame {
             .addGroup(PainelFiltroPatrocinadorLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(PainelFiltroPatrocinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoNomePesquisaPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CampoNomePesquisaDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNomePatrocinador))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(PainelFiltroPatrocinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotaoLimparPat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoBuscarPat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoSairPat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BotaoLimparDep, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoBuscarDep, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoSairDep, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63))
         );
 
@@ -179,22 +179,21 @@ public class ListarDependencias extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PainelFiltroPatrocinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(BotaoNovoPat, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BotaoNovoDep, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BotaoEditarPat)
+                                .addComponent(BotaoEditarDep)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BotaoExcluirPat))
-                            .addComponent(PainelTabelaPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(BotaoExcluirDep))
+                            .addComponent(PainelTabelaDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,40 +203,40 @@ public class ListarDependencias extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(PainelFiltroPatrocinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PainelTabelaPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(PainelTabelaDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotaoEditarPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotaoExcluirPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotaoNovoPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BotaoEditarDep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotaoExcluirDep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotaoNovoDep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotaoExcluirPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExcluirPatActionPerformed
+    private void BotaoExcluirDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExcluirDepActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoExcluirPatActionPerformed
+    }//GEN-LAST:event_BotaoExcluirDepActionPerformed
 
-    private void BotaoNovoPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoPatActionPerformed
+    private void BotaoNovoDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoDepActionPerformed
         TelaCadastroDependencias abrir = new TelaCadastroDependencias();
         abrir.setVisible(true);
         dispose();
-    }//GEN-LAST:event_BotaoNovoPatActionPerformed
+    }//GEN-LAST:event_BotaoNovoDepActionPerformed
 
-    private void BotaoEditarPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEditarPatActionPerformed
+    private void BotaoEditarDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEditarDepActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoEditarPatActionPerformed
+    }//GEN-LAST:event_BotaoEditarDepActionPerformed
 
-    private void BotaoLimparPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparPatActionPerformed
+    private void BotaoLimparDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparDepActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoLimparPatActionPerformed
+    }//GEN-LAST:event_BotaoLimparDepActionPerformed
 
-    private void BotaoSairPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairPatActionPerformed
+    private void BotaoSairDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairDepActionPerformed
         dispose();
-    }//GEN-LAST:event_BotaoSairPatActionPerformed
+    }//GEN-LAST:event_BotaoSairDepActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,15 +274,15 @@ public class ListarDependencias extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoBuscarPat;
-    private javax.swing.JButton BotaoEditarPat;
-    private javax.swing.JButton BotaoExcluirPat;
-    private javax.swing.JButton BotaoLimparPat;
-    private javax.swing.JButton BotaoNovoPat;
-    private javax.swing.JButton BotaoSairPat;
-    private javax.swing.JTextField CampoNomePesquisaPat;
+    private javax.swing.JButton BotaoBuscarDep;
+    private javax.swing.JButton BotaoEditarDep;
+    private javax.swing.JButton BotaoExcluirDep;
+    private javax.swing.JButton BotaoLimparDep;
+    private javax.swing.JButton BotaoNovoDep;
+    private javax.swing.JButton BotaoSairDep;
+    private javax.swing.JTextField CampoNomePesquisaDep;
     private javax.swing.JPanel PainelFiltroPatrocinador;
-    private javax.swing.JPanel PainelTabelaPat;
+    private javax.swing.JPanel PainelTabelaDep;
     private javax.swing.JTable TabelaResultado;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNomePatrocinador;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -24,26 +24,25 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="PainelFiltroPatrocinador" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Component id="BotaoNovoPat" min="-2" pref="114" max="-2" attributes="0"/>
+                              <Component id="BotaoNovoDep" min="-2" pref="114" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="BotaoEditarPat" min="-2" max="-2" attributes="0"/>
+                              <Component id="BotaoEditarDep" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="BotaoExcluirPat" min="-2" max="-2" attributes="0"/>
+                              <Component id="BotaoExcluirDep" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="PainelTabelaPat" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="PainelTabelaDep" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblimagem" min="-2" pref="265" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,15 +54,15 @@
                   <Group type="102" attributes="0">
                       <Component id="PainelFiltroPatrocinador" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="PainelTabelaPat" min="-2" max="-2" attributes="0"/>
+                      <Component id="PainelTabelaDep" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="lblimagem" min="-2" pref="179" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="BotaoEditarPat" alignment="3" max="32767" attributes="0"/>
-                  <Component id="BotaoExcluirPat" alignment="3" max="32767" attributes="0"/>
-                  <Component id="BotaoNovoPat" alignment="3" max="32767" attributes="0"/>
+                  <Component id="BotaoEditarDep" alignment="3" max="32767" attributes="0"/>
+                  <Component id="BotaoExcluirDep" alignment="3" max="32767" attributes="0"/>
+                  <Component id="BotaoNovoDep" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -78,7 +77,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="BotaoExcluirPat">
+    <Component class="javax.swing.JButton" name="BotaoExcluirDep">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Narrow" size="16" style="1"/>
@@ -89,10 +88,10 @@
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoExcluirPatActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoExcluirDepActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JPanel" name="PainelTabelaPat">
+    <Container class="javax.swing.JPanel" name="PainelTabelaDep">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -163,7 +162,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="BotaoNovoPat">
+    <Component class="javax.swing.JButton" name="BotaoNovoDep">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Narrow" size="16" style="1"/>
@@ -174,10 +173,10 @@
         <Property name="text" type="java.lang.String" value="Novo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoNovoPatActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoNovoDepActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="BotaoEditarPat">
+    <Component class="javax.swing.JButton" name="BotaoEditarDep">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Narrow" size="16" style="1"/>
@@ -188,7 +187,7 @@
         <Property name="text" type="java.lang.String" value="Editar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoEditarPatActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoEditarDepActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="PainelFiltroPatrocinador">
@@ -211,15 +210,15 @@
                           <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
                           <Component id="lblNomePatrocinador" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="CampoNomePesquisaPat" min="-2" pref="341" max="-2" attributes="0"/>
+                          <Component id="CampoNomePesquisaDep" min="-2" pref="341" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="BotaoLimparPat" min="-2" max="-2" attributes="0"/>
+                          <Component id="BotaoLimparDep" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="BotaoBuscarPat" min="-2" pref="122" max="-2" attributes="0"/>
+                          <Component id="BotaoBuscarDep" min="-2" pref="122" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="BotaoSairPat" min="-2" pref="113" max="-2" attributes="0"/>
+                          <Component id="BotaoSairDep" min="-2" pref="113" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
@@ -231,14 +230,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="CampoNomePesquisaPat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CampoNomePesquisaDep" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblNomePatrocinador" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="44" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="BotaoLimparPat" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="BotaoBuscarPat" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="BotaoSairPat" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="BotaoLimparDep" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="BotaoBuscarDep" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="BotaoSairDep" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
               </Group>
@@ -254,9 +253,9 @@
             <Property name="text" type="java.lang.String" value="Nome"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CampoNomePesquisaPat">
+        <Component class="javax.swing.JTextField" name="CampoNomePesquisaDep">
         </Component>
-        <Component class="javax.swing.JButton" name="BotaoLimparPat">
+        <Component class="javax.swing.JButton" name="BotaoLimparDep">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -270,10 +269,10 @@
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoLimparPatActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoLimparDepActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="BotaoBuscarPat">
+        <Component class="javax.swing.JButton" name="BotaoBuscarDep">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Narrow" size="16" style="1"/>
@@ -284,7 +283,7 @@
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="BotaoSairPat">
+        <Component class="javax.swing.JButton" name="BotaoSairDep">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Narrow" size="14" style="1"/>
@@ -295,7 +294,7 @@
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoSairPatActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoSairDepActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
