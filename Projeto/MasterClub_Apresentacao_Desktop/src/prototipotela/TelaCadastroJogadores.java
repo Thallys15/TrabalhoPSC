@@ -347,9 +347,9 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoLimparFuncActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //ListarJogadores abrir = new ListarJogadores();
-        //abrir.setVisible(true);
-        //dispose();
+        ListarJogadores abrir = new ListarJogadores();
+        abrir.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

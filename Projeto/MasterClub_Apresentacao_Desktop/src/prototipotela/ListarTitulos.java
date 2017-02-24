@@ -28,27 +28,27 @@ public class ListarTitulos extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        PainelTabelaDep = new javax.swing.JPanel();
+        PainelTabelaTit = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TabelaResultado = new javax.swing.JTable();
-        BotaoNovoDep = new javax.swing.JButton();
-        BotaoEditarDep = new javax.swing.JButton();
-        PainelFiltroPatrocinador = new javax.swing.JPanel();
+        TabelaResultadoTit = new javax.swing.JTable();
+        BotaoNovoTit = new javax.swing.JButton();
+        BotaoEditarTit = new javax.swing.JButton();
+        PainelFiltroTit = new javax.swing.JPanel();
         lblNomePatrocinador = new javax.swing.JLabel();
         CampoNomePesquisaDep = new javax.swing.JTextField();
         BotaoLimparDep = new javax.swing.JButton();
         BotaoBuscarDep = new javax.swing.JButton();
         BotaoSairDep = new javax.swing.JButton();
         lblimagem = new javax.swing.JLabel();
-        BotaoExcluirDep = new javax.swing.JButton();
+        BotaoExcluirTit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        PainelTabelaDep.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
+        PainelTabelaTit.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 
-        TabelaResultado.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        TabelaResultado.setModel(new javax.swing.table.DefaultTableModel(
+        TabelaResultadoTit.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        TabelaResultadoTit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -56,7 +56,7 @@ public class ListarTitulos extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Nome", "Capacidade"
+                "Nome", "Temporada"
             }
         ) {
             Class[] types = new Class [] {
@@ -67,44 +67,44 @@ public class ListarTitulos extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(TabelaResultado);
+        jScrollPane1.setViewportView(TabelaResultadoTit);
 
-        javax.swing.GroupLayout PainelTabelaDepLayout = new javax.swing.GroupLayout(PainelTabelaDep);
-        PainelTabelaDep.setLayout(PainelTabelaDepLayout);
-        PainelTabelaDepLayout.setHorizontalGroup(
-            PainelTabelaDepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelTabelaDepLayout.createSequentialGroup()
+        javax.swing.GroupLayout PainelTabelaTitLayout = new javax.swing.GroupLayout(PainelTabelaTit);
+        PainelTabelaTit.setLayout(PainelTabelaTitLayout);
+        PainelTabelaTitLayout.setHorizontalGroup(
+            PainelTabelaTitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelTabelaTitLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
-        PainelTabelaDepLayout.setVerticalGroup(
-            PainelTabelaDepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelTabelaDepLayout.createSequentialGroup()
+        PainelTabelaTitLayout.setVerticalGroup(
+            PainelTabelaTitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelTabelaTitLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        BotaoNovoDep.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoNovoDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/Novo.png"))); // NOI18N
-        BotaoNovoDep.setText("Novo");
-        BotaoNovoDep.addActionListener(new java.awt.event.ActionListener() {
+        BotaoNovoTit.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        BotaoNovoTit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/Novo.png"))); // NOI18N
+        BotaoNovoTit.setText("Novo");
+        BotaoNovoTit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoNovoDepActionPerformed(evt);
+                BotaoNovoTitActionPerformed(evt);
             }
         });
 
-        BotaoEditarDep.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoEditarDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/edit.png"))); // NOI18N
-        BotaoEditarDep.setText("Editar");
-        BotaoEditarDep.addActionListener(new java.awt.event.ActionListener() {
+        BotaoEditarTit.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        BotaoEditarTit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/edit.png"))); // NOI18N
+        BotaoEditarTit.setText("Editar");
+        BotaoEditarTit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoEditarDepActionPerformed(evt);
+                BotaoEditarTitActionPerformed(evt);
             }
         });
 
-        PainelFiltroPatrocinador.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar Títulos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
+        PainelFiltroTit.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar Títulos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 
         lblNomePatrocinador.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         lblNomePatrocinador.setText("Nome");
@@ -132,18 +132,18 @@ public class ListarTitulos extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout PainelFiltroPatrocinadorLayout = new javax.swing.GroupLayout(PainelFiltroPatrocinador);
-        PainelFiltroPatrocinador.setLayout(PainelFiltroPatrocinadorLayout);
-        PainelFiltroPatrocinadorLayout.setHorizontalGroup(
-            PainelFiltroPatrocinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelFiltroPatrocinadorLayout.createSequentialGroup()
-                .addGroup(PainelFiltroPatrocinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelFiltroPatrocinadorLayout.createSequentialGroup()
+        javax.swing.GroupLayout PainelFiltroTitLayout = new javax.swing.GroupLayout(PainelFiltroTit);
+        PainelFiltroTit.setLayout(PainelFiltroTitLayout);
+        PainelFiltroTitLayout.setHorizontalGroup(
+            PainelFiltroTitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelFiltroTitLayout.createSequentialGroup()
+                .addGroup(PainelFiltroTitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelFiltroTitLayout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addComponent(lblNomePatrocinador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CampoNomePesquisaDep, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PainelFiltroPatrocinadorLayout.createSequentialGroup()
+                    .addGroup(PainelFiltroTitLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addComponent(BotaoLimparDep)
                         .addGap(18, 18, 18)
@@ -152,15 +152,15 @@ public class ListarTitulos extends javax.swing.JFrame {
                         .addComponent(BotaoSairDep, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
-        PainelFiltroPatrocinadorLayout.setVerticalGroup(
-            PainelFiltroPatrocinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelFiltroPatrocinadorLayout.createSequentialGroup()
+        PainelFiltroTitLayout.setVerticalGroup(
+            PainelFiltroTitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelFiltroTitLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(PainelFiltroPatrocinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelFiltroTitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CampoNomePesquisaDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNomePatrocinador))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addGroup(PainelFiltroPatrocinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelFiltroTitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoLimparDep, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoBuscarDep, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoSairDep, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -169,12 +169,12 @@ public class ListarTitulos extends javax.swing.JFrame {
 
         lblimagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/0000000362021_img.png"))); // NOI18N
 
-        BotaoExcluirDep.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoExcluirDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/delete.png"))); // NOI18N
-        BotaoExcluirDep.setText("Excluir");
-        BotaoExcluirDep.addActionListener(new java.awt.event.ActionListener() {
+        BotaoExcluirTit.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        BotaoExcluirTit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/delete.png"))); // NOI18N
+        BotaoExcluirTit.setText("Excluir");
+        BotaoExcluirTit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoExcluirDepActionPerformed(evt);
+                BotaoExcluirTitActionPerformed(evt);
             }
         });
 
@@ -187,21 +187,21 @@ public class ListarTitulos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PainelFiltroPatrocinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PainelFiltroTit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(BotaoNovoDep, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BotaoNovoTit, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BotaoEditarDep)
+                                .addComponent(BotaoEditarTit)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BotaoExcluirDep))
+                                .addComponent(BotaoExcluirTit))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(PainelTabelaDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(PainelTabelaTit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblimagem)))
                 .addGap(16, 16, 16))
@@ -211,18 +211,18 @@ public class ListarTitulos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PainelFiltroPatrocinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PainelFiltroTit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 7, Short.MAX_VALUE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PainelTabelaDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PainelTabelaTit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BotaoEditarDep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotaoExcluirDep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotaoNovoDep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(BotaoEditarTit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BotaoExcluirTit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BotaoNovoTit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblimagem)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -231,15 +231,15 @@ public class ListarTitulos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotaoNovoDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoDepActionPerformed
+    private void BotaoNovoTitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoTitActionPerformed
         CadastrodeTitulos abrir = new CadastrodeTitulos();
         abrir.setVisible(true);
         dispose();
-    }//GEN-LAST:event_BotaoNovoDepActionPerformed
+    }//GEN-LAST:event_BotaoNovoTitActionPerformed
 
-    private void BotaoEditarDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEditarDepActionPerformed
+    private void BotaoEditarTitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEditarTitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoEditarDepActionPerformed
+    }//GEN-LAST:event_BotaoEditarTitActionPerformed
 
     private void BotaoLimparDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparDepActionPerformed
         // TODO add your handling code here:
@@ -249,9 +249,9 @@ public class ListarTitulos extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BotaoSairDepActionPerformed
 
-    private void BotaoExcluirDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExcluirDepActionPerformed
+    private void BotaoExcluirTitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExcluirTitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoExcluirDepActionPerformed
+    }//GEN-LAST:event_BotaoExcluirTitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,15 +291,15 @@ public class ListarTitulos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoBuscarDep;
-    private javax.swing.JButton BotaoEditarDep;
-    private javax.swing.JButton BotaoExcluirDep;
+    private javax.swing.JButton BotaoEditarTit;
+    private javax.swing.JButton BotaoExcluirTit;
     private javax.swing.JButton BotaoLimparDep;
-    private javax.swing.JButton BotaoNovoDep;
+    private javax.swing.JButton BotaoNovoTit;
     private javax.swing.JButton BotaoSairDep;
     private javax.swing.JTextField CampoNomePesquisaDep;
-    private javax.swing.JPanel PainelFiltroPatrocinador;
-    private javax.swing.JPanel PainelTabelaDep;
-    private javax.swing.JTable TabelaResultado;
+    private javax.swing.JPanel PainelFiltroTit;
+    private javax.swing.JPanel PainelTabelaTit;
+    private javax.swing.JTable TabelaResultadoTit;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

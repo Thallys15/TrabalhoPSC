@@ -27,13 +27,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        try {
-            FundoTela =(javax.swing.JPanel)java.beans.Beans.instantiate(getClass().getClassLoader(), "prototipotela.TelaPrincipal_jPanel2");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (java.io.IOException e) {
-            e.printStackTrace();
-        }
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         BarraMenuTelaPrincipal = new javax.swing.JMenuBar();
         BarraMenuCadastro = new javax.swing.JMenu();
         ItemCadJogadores = new javax.swing.JMenuItem();
@@ -58,22 +53,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setExtendedState(6);
         getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout FundoTelaLayout = new javax.swing.GroupLayout(FundoTela);
-        FundoTela.setLayout(FundoTelaLayout);
-        FundoTelaLayout.setHorizontalGroup(
-            FundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1006, Short.MAX_VALUE)
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/MasteClubLogo.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(607, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(593, 593, 593))
         );
-        FundoTelaLayout.setVerticalGroup(
-            FundoTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(299, Short.MAX_VALUE))
         );
 
-        getContentPane().add(FundoTela);
-        FundoTela.setBounds(0, 0, 1006, 510);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(-50, 0, 1500, 730);
 
         BarraMenuTelaPrincipal.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 
@@ -273,7 +279,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void ItemCadPatrocinadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadPatrocinadoresActionPerformed
         TelaCadastroPatrocinador tela = new TelaCadastroPatrocinador();
         tela.setVisible(true);
-        dispose();
+       
     }//GEN-LAST:event_ItemCadPatrocinadoresActionPerformed
 
     private void ItemDepartamentoFutebolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemDepartamentoFutebolActionPerformed
@@ -345,7 +351,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu BarraMenuSair;
     private javax.swing.JMenu BarraMenuSobre;
     private javax.swing.JMenuBar BarraMenuTelaPrincipal;
-    private javax.swing.JPanel FundoTela;
     private javax.swing.JMenuItem ItemCadComTecnica;
     private javax.swing.JMenuItem ItemCadFuncionario;
     private javax.swing.JMenuItem ItemCadJogadores;
@@ -361,5 +366,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem ItemTemporada;
     private javax.swing.JMenuItem ItemTitulos;
     private javax.swing.JMenuItem ItemVendas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
