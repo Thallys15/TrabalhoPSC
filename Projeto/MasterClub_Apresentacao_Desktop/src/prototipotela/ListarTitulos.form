@@ -27,224 +27,99 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="808" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="PainelFiltroPatrocinador" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel1" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Component id="BotaoNovoDep" min="-2" pref="114" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="BotaoEditarDep" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="BotaoExcluirDep" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="PainelTabelaDep" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblimagem" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="PainelFiltroPatrocinador" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="PainelTabelaDep" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="BotaoEditarDep" alignment="3" max="32767" attributes="0"/>
+                          <Component id="BotaoExcluirDep" alignment="3" max="32767" attributes="0"/>
+                          <Component id="BotaoNovoDep" alignment="3" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblimagem" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="PainelTabelaDep">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="fe" green="fe" red="fe" type="rgb"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Resultado">
+              <Font PropertyName="font" name="Arial Narrow" size="18" style="1"/>
+            </TitledBorder>
+          </Border>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="315" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane1" alignment="0" min="-2" pref="483" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jTextField1" max="32767" attributes="0"/>
-                                              <Component id="jTextField2" max="32767" attributes="0"/>
-                                              <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jTextField4" alignment="0" pref="132" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="117" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="117" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel11" min="-2" pref="260" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel10" min="-2" pref="114" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel8" min="-2" pref="122" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" pref="122" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="330" max="-2" attributes="0"/>
+                  <EmptySpace pref="31" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField4" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="127" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                          <Component id="jLabel8" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" min="-2" pref="52" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="140" max="-2" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="18" style="1"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/prototipotela/icone/1474479197_trophy.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Campeonatos"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="15" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Nome do Torneio"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="15" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Modalidade"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="15" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Data de In&#xed;cio"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="15" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Data de T&#xe9;rmino"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="15" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
-          </Properties>
-        </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -252,96 +127,190 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea1">
+            <Component class="javax.swing.JTable" name="TabelaResultado">
               <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="rows" type="int" value="5"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial Narrow" size="14" style="1"/>
+                </Property>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="2" rowCount="4">
+                    <Column editable="true" title="Nome" type="java.lang.String"/>
+                    <Column editable="true" title="Capacidade" type="java.lang.Integer"/>
+                  </Table>
+                </Property>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="BotaoNovoDep">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Narrow" size="16" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/prototipotela/icone/Novo.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoNovoDepActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="BotaoEditarDep">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Narrow" size="16" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/prototipotela/icone/edit.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Editar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoEditarDepActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JPanel" name="PainelFiltroPatrocinador">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Pesquisar T&#xed;tulos">
+              <Font PropertyName="font" name="Arial Narrow" size="18" style="1"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                          <Component id="lblNomePatrocinador" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="CampoNomePesquisaDep" min="-2" pref="341" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                          <Component id="BotaoLimparDep" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="BotaoBuscarDep" min="-2" pref="122" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="BotaoSairDep" min="-2" pref="113" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="CampoNomePesquisaDep" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNomePatrocinador" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="BotaoLimparDep" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="BotaoBuscarDep" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="BotaoSairDep" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblNomePatrocinador">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="15" style="1"/>
+              <Font name="Arial Narrow" size="18" style="1"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/prototipotela/icone/1474360786_floppy.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Salvar"/>
+            <Property name="text" type="java.lang.String" value="Nome"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JTextField" name="CampoNomePesquisaDep">
+        </Component>
+        <Component class="javax.swing.JButton" name="BotaoLimparDep">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="15" style="1"/>
+              <Font name="Arial Narrow" size="16" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/prototipotela/icone/1474360844_Exit.png"/>
+              <Image iconType="3" name="/prototipotela/icone/limpar.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Limpar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoLimparDepActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="BotaoBuscarDep">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Narrow" size="16" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/prototipotela/icone/1474448538_magnifyingglass.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Buscar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="BotaoSairDep">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial Narrow" size="14" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/prototipotela/icone/1473722394_No.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoSairDepActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel11">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/prototipotela/img/0000000362021_img.png"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/prototipotela/img/UEFA CUP (2).jpg"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jLabel7"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/prototipotela/img/MUFCBR_Premier League.png"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel9">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="15" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Conquistou "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="15" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Sim"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="15" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="15" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Em Andamento"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="lblimagem">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/prototipotela/img/0000000362021_img.png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="BotaoExcluirDep">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Narrow" size="16" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/prototipotela/icone/delete.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Excluir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoExcluirDepActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/prototipotela/img/MUFCBR_Premier League.png"/>
+        </Property>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
