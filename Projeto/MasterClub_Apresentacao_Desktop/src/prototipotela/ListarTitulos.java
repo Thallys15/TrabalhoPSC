@@ -234,6 +234,7 @@ public class ListarTitulos extends javax.swing.JFrame {
     private void BotaoNovoTitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoTitActionPerformed
         TelaCadastrodeTitulos abrir = new TelaCadastrodeTitulos();
         abrir.setVisible(true);
+        abrir.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_BotaoNovoTitActionPerformed
 

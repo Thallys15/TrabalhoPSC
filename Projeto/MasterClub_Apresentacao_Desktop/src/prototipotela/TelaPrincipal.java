@@ -235,7 +235,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void ItemCadJogadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadJogadoresActionPerformed
         TelaCadastroJogadores tela = new TelaCadastroJogadores();
         tela.setVisible(true);
-        //dispose();
+        tela.setLocationRelativeTo(null);
     }//GEN-LAST:event_ItemCadJogadoresActionPerformed
 
     private void ItemCadJogadoresAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ItemCadJogadoresAncestorMoved
@@ -250,20 +250,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void BarraMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraMenuSairMouseClicked
       TelaLogin sair = new TelaLogin();
-        sair.setVisible(true);
-        dispose();
+      sair.setVisible(true);
+      dispose();
     }//GEN-LAST:event_BarraMenuSairMouseClicked
 
     private void ItemCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadFuncionarioActionPerformed
         TelaCadastroFuncionario tela = new TelaCadastroFuncionario();
         tela.setVisible(true);
+        tela.setLocationRelativeTo(null);
         
     }//GEN-LAST:event_ItemCadFuncionarioActionPerformed
 
     private void ItemCadPatrocinadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadPatrocinadoresActionPerformed
         TelaCadastroPatrocinador tela = new TelaCadastroPatrocinador();
         tela.setVisible(true);
-       
+        tela.setLocationRelativeTo(null);
     }//GEN-LAST:event_ItemCadPatrocinadoresActionPerformed
 
     private void ItemDepartamentoFutebolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemDepartamentoFutebolActionPerformed
@@ -278,13 +279,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         TelaCadastroDependencias entrar = new TelaCadastroDependencias();
         entrar.setVisible(true);
-        dispose();
+        entrar.setLocationRelativeTo(null);
     }//GEN-LAST:event_ItemInfraestruturaActionPerformed
 
     private void ItemContratacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemContratacoesActionPerformed
         Contratacoes entrar = new Contratacoes();
         entrar.setVisible(true);
-        dispose();
+        entrar.setLocationRelativeTo(null);
+   
     }//GEN-LAST:event_ItemContratacoesActionPerformed
 
     /**

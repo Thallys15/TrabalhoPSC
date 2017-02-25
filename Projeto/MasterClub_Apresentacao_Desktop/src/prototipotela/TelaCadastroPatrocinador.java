@@ -182,17 +182,19 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         TelaPrincipal entrar = new TelaPrincipal();
         entrar.setVisible(true);
+        entrar.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
          ListarPatrocinadores abrir = new ListarPatrocinadores();
          abrir.setVisible(true);
+         abrir.setLocationRelativeTo(null);
          dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void BotaoLimparFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparFuncActionPerformed
-        //limparCampos();
+        limparCampos();
     }//GEN-LAST:event_BotaoLimparFuncActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed

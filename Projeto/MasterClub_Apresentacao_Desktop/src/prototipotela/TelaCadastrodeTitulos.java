@@ -192,10 +192,10 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
             if (codigo==0) {
             master.criarTitulo(titulo);
             this.limparCampos();
-            JOptionPane.showMessageDialog(this, "titulo cadastrado!!!Parabéns pela conquista");
+            JOptionPane.showMessageDialog(this, "Titulo cadastrado!!!Parabéns pela conquista");
             } else {
                 bd.Alterar(titulo);
-                JOptionPane.showMessageDialog(this, "Sucesso!!! O titulo foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Sucesso!!! O título foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
             }
             
         } catch (Exception e) {
@@ -218,6 +218,7 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         TelaPrincipal abrir = new TelaPrincipal();
         abrir.setVisible(true);
+        abrir.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

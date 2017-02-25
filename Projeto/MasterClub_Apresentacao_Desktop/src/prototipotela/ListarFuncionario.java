@@ -300,6 +300,7 @@ public class ListarFuncionario extends javax.swing.JFrame {
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         TelaCadastroFuncionario abrir = new TelaCadastroFuncionario();
         abrir.setVisible(true);
+        abrir.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 

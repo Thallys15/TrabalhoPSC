@@ -223,6 +223,7 @@ public class ListarDependencias extends javax.swing.JFrame {
     private void BotaoNovoDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoDepActionPerformed
         TelaCadastroDependencias abrir = new TelaCadastroDependencias();
         abrir.setVisible(true);
+        abrir.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_BotaoNovoDepActionPerformed
 
