@@ -24,11 +24,18 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     Funcionario funcionario = new Funcionario();
     MasterClub_Apresentacao master = new MasterClub_Apresentacao();
     FuncionarioRepositorio bd = new GerenciarFuncionamento().getFuncionario();
+    ListarFuncionario listarFuncionario = new ListarFuncionario();
     /**
      * Creates new form TelaCadastroFuncionario
      */
     public TelaCadastroFuncionario() {
         initComponents();
+    }
+
+    TelaCadastroFuncionario(Funcionario funcionario, ListarFuncionario listarFuncionario) {
+        initComponents();
+        preencherCampos(funcionario);
+        this.listarFuncionario = listarFuncionario;
     }
 
     /**
@@ -370,7 +377,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         }
            
     }
-    private void preencherCampos() {
+    private void preencherCampos(Funcionario funcionario) {
         
         txtNome.setText(funcionario.getNome());
         txtCargo.setText(funcionario.getCargo());

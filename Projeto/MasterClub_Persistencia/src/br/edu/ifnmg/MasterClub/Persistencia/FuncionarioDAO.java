@@ -22,11 +22,11 @@ import java.util.logging.Logger;
 public class FuncionarioDAO extends DAOGenerico<Funcionario> implements FuncionarioRepositorio{
     
     public FuncionarioDAO(){
-        setConsultaAbrir("select id, cpf, rg, cargo, idade, nome from funcionario where id = ?");
+        setConsultaAbrir("select id, nome, cpf, rg, cargo, idade from funcionario where id = ?");
         setConsultaApagar("delete from funcionario where id = ?");
-        setConsultaInserir("insert into funcionario(cpf, rg, cargo, idade,nome) values(?,?,?,?,?)");
+        setConsultaInserir("insert into funcionario(nome, cpf, rg, cargo, idade) values(?,?,?,?,?)");
         setConsultaAlterar("update funcionario set nome = ?, cpf = ?, rg = ?, cargo = ?, idade = ? where id = ?");
-        setConsultaBusca("select id, cpf, rg, cargo, idade, nome from funcionario ");
+        setConsultaBusca("select id, nome, cpf, rg, cargo, idade from funcionario ");
     
     }
 
@@ -50,11 +50,11 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
     @Override
     protected void preencheConsulta(PreparedStatement sql, Funcionario obj) {
         try {
-            sql.setString(1, obj.getCpf());
-            sql.setString(2, obj.getRg());
-            sql.setString(3, obj.getCargo());
-            sql.setInt(4, obj.getIdade());
-            sql.setString(5, obj.getNome());
+            sql.setString(1, obj.getNome());
+            sql.setString(2, obj.getCpf());
+            sql.setString(3, obj.getRg());
+            sql.setString(4, obj.getCargo());
+            sql.setInt(5, obj.getIdade());            
             if(obj.getId() > 0) sql.setInt(6, obj.getId());
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -63,11 +63,11 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
 
     @Override
     protected void preencheFiltros(Funcionario filtro) {
+        if(filtro.getNome() != null) adicionarFiltro("nome", "=");
         if(filtro.getCpf()!= null) adicionarFiltro("cpf", " like ");
         if(filtro.getRg()!= null) adicionarFiltro("rg", " like ");
         if(filtro.getCargo()!= null) adicionarFiltro("cargo", " like ");
         if(filtro.getIdade() > 0) adicionarFiltro("idade", " = ");
-        if(filtro.getNome() != null) adicionarFiltro("nome", "=");
     }
 
     @Override
@@ -83,19 +83,6 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @Override
-    public Funcionario Abrir(String cpf) {
-        try{
-          PreparedStatement sql = conn.prepareStatement("SELECT id, cpf, rg, cargo, idade FROM Funcionario WHERE cpf = ?");
-          sql.setString(1, cpf);
-          ResultSet resultado = sql.executeQuery();
-          if(resultado.next()) return preencheObjeto(resultado);
-        } catch (SQLException ex){
-            System.out.println(ex);
-        }
-        return null;
     }
 
     @Override
@@ -119,7 +106,7 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
                     }
                 } else {
                     try {
-                        String consulta = "update vendasitens set modalidade = ?, funcionario = ?,coordenador = ? where id = ?";
+                        String consulta = "update responsavel_modalidade set modalidade = ?, funcionario = ?,coordenador = ? where id = ?";
                         PreparedStatement sql = conn.prepareStatement(consulta);
                         sql.setInt(1, obj.getId());
                         sql.setInt(2, item.getModalidade().getId());
@@ -135,6 +122,36 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
         }
         
         return true;
+    }
+
+    @Override
+    public Funcionario Abrir(String nome, String cpf) throws SQLException {
+        try{
+          PreparedStatement sql = conn.prepareStatement("SELECT id,nome,cpf,rg,cargo,idade FROM funcionarios WHERE cpf = ?");
+          sql.setString(1, cpf);
+          ResultSet resultado = sql.executeQuery();
+          if(resultado.next()) return preencheObjeto(resultado);
+        } catch (SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean validarFuncionario(int id, String nome) {
+         try {
+            PreparedStatement sql = conn.prepareStatement("SELECT ID FROM funcionario WHERE id = ? AND nome = ?");
+            sql.setInt(1,id);
+            sql.setString(2, nome);
+            ResultSet resultado = sql.executeQuery();
+            if(resultado.next()){
+                return true ;
+            }else
+                return false;
+        } catch (SQLException ex) {
+            System.out.println(ex+" funcionario validado!");
+        }
+        return false;
     }
     
     
