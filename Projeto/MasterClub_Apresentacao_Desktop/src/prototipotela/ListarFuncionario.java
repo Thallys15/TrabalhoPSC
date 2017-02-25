@@ -56,6 +56,7 @@ public class ListarFuncionario extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         PainelListar.setBackground(new java.awt.Color(255, 255, 255));
 

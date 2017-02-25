@@ -67,6 +67,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 70));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
         jPanel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N

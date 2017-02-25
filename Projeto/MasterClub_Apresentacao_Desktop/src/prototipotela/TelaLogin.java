@@ -71,6 +71,7 @@ UsuarioRepositorio dao = GerenciarFuncionamento
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(1, 1, 1));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         PlanodeFundo1.setBackground(new java.awt.Color(254, 254, 254));

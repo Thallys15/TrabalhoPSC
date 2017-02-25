@@ -35,13 +35,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ItemCadFuncionario = new javax.swing.JMenuItem();
         ItemCadPatrocinadores = new javax.swing.JMenuItem();
         BarraMenuDepartamentos = new javax.swing.JMenu();
-        ItemDepartamentoFutebol = new javax.swing.JMenuItem();
-        ItemDepartamentoMarketing = new javax.swing.JMenuItem();
-        ItemDepMedico = new javax.swing.JMenuItem();
         ItemInfraestrutura = new javax.swing.JMenuItem();
         BarraMenuCampeonato = new javax.swing.JMenu();
         ItemInserirTorneio = new javax.swing.JMenuItem();
-        ItemTemporada = new javax.swing.JMenuItem();
         ItemTitulos = new javax.swing.JMenuItem();
         BarraMenuFinanceiro = new javax.swing.JMenu();
         ItemContratacoes = new javax.swing.JMenuItem();
@@ -128,28 +124,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuDepartamentos.setText("Departamentos");
         BarraMenuDepartamentos.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 
-        ItemDepartamentoFutebol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066799_Football_2-09.png"))); // NOI18N
-        ItemDepartamentoFutebol.setText("Departamento de Futebol");
-        ItemDepartamentoFutebol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemDepartamentoFutebolActionPerformed(evt);
-            }
-        });
-        BarraMenuDepartamentos.add(ItemDepartamentoFutebol);
-
-        ItemDepartamentoMarketing.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067021_vector_65_10.png"))); // NOI18N
-        ItemDepartamentoMarketing.setText("Departamento de Marketing");
-        BarraMenuDepartamentos.add(ItemDepartamentoMarketing);
-
-        ItemDepMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066900_cross_1.png"))); // NOI18N
-        ItemDepMedico.setText("Departamento Médico");
-        ItemDepMedico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemDepMedicoActionPerformed(evt);
-            }
-        });
-        BarraMenuDepartamentos.add(ItemDepMedico);
-
         ItemInfraestrutura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474066748_Football_2-17.png"))); // NOI18N
         ItemInfraestrutura.setText("Dependencias");
         ItemInfraestrutura.addActionListener(new java.awt.event.ActionListener() {
@@ -167,14 +141,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         ItemInserirTorneio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067356_compose.png"))); // NOI18N
         ItemInserirTorneio.setText("Inserir Torneio");
+        ItemInserirTorneio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemInserirTorneioActionPerformed(evt);
+            }
+        });
         BarraMenuCampeonato.add(ItemInserirTorneio);
-
-        ItemTemporada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067408_calendar.png"))); // NOI18N
-        ItemTemporada.setText("Temporada");
-        BarraMenuCampeonato.add(ItemTemporada);
 
         ItemTitulos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067531_trophy.png"))); // NOI18N
         ItemTitulos.setText("Títulos");
+        ItemTitulos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemTitulosActionPerformed(evt);
+            }
+        });
         BarraMenuCampeonato.add(ItemTitulos);
 
         BarraMenuTelaPrincipal.add(BarraMenuCampeonato);
@@ -267,13 +247,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setLocationRelativeTo(null);
     }//GEN-LAST:event_ItemCadPatrocinadoresActionPerformed
 
-    private void ItemDepartamentoFutebolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemDepartamentoFutebolActionPerformed
-        
-    }//GEN-LAST:event_ItemDepartamentoFutebolActionPerformed
+    private void ItemContratacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemContratacoesActionPerformed
+        Contratacoes entrar = new Contratacoes();
+        entrar.setVisible(true);
+        entrar.setLocationRelativeTo(null);
+   
+    }//GEN-LAST:event_ItemContratacoesActionPerformed
 
-    private void ItemDepMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemDepMedicoActionPerformed
-        
-    }//GEN-LAST:event_ItemDepMedicoActionPerformed
+    private void ItemInserirTorneioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemInserirTorneioActionPerformed
+        TelaCadastrodeTitulos entrar = new TelaCadastrodeTitulos();
+        entrar.setVisible(true);
+        entrar.setLocationRelativeTo(null);
+    }//GEN-LAST:event_ItemInserirTorneioActionPerformed
+
+    private void ItemTitulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemTitulosActionPerformed
+        ListarTitulos entrar = new ListarTitulos();
+        entrar.setVisible(true);
+        entrar.setLocationRelativeTo(null);
+    }//GEN-LAST:event_ItemTitulosActionPerformed
 
     private void ItemInfraestruturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemInfraestruturaActionPerformed
         // TODO add your handling code here:
@@ -281,13 +272,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         entrar.setVisible(true);
         entrar.setLocationRelativeTo(null);
     }//GEN-LAST:event_ItemInfraestruturaActionPerformed
-
-    private void ItemContratacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemContratacoesActionPerformed
-        Contratacoes entrar = new Contratacoes();
-        entrar.setVisible(true);
-        entrar.setLocationRelativeTo(null);
-   
-    }//GEN-LAST:event_ItemContratacoesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,14 +321,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem ItemCadJogadores;
     private javax.swing.JMenuItem ItemCadPatrocinadores;
     private javax.swing.JMenuItem ItemContratacoes;
-    private javax.swing.JMenuItem ItemDepMedico;
-    private javax.swing.JMenuItem ItemDepartamentoFutebol;
-    private javax.swing.JMenuItem ItemDepartamentoMarketing;
     private javax.swing.JMenuItem ItemEmprestimos;
     private javax.swing.JMenuItem ItemInfraestrutura;
     private javax.swing.JMenuItem ItemInserirTorneio;
     private javax.swing.JMenuItem ItemPatrocinadores;
-    private javax.swing.JMenuItem ItemTemporada;
     private javax.swing.JMenuItem ItemTitulos;
     private javax.swing.JMenuItem ItemVendas;
     private javax.swing.JLabel jLabel1;

@@ -42,6 +42,7 @@ public class ListarJogadores extends javax.swing.JFrame {
         TabelaResultado = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         PainelFiltroJogadores.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar Jogadores", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 

@@ -54,6 +54,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
         txtValorPatrocinio = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -180,9 +181,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoSairCadPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairCadPatActionPerformed
-        TelaPrincipal entrar = new TelaPrincipal();
-        entrar.setVisible(true);
-        entrar.setLocationRelativeTo(null);
+
         dispose();
     }//GEN-LAST:event_BotaoSairCadPatActionPerformed
 

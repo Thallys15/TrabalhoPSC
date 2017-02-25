@@ -54,6 +54,7 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         FunndoCadastroTitulos.setBackground(new java.awt.Color(254, 254, 254));
 
@@ -67,7 +68,7 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
         AnoLabel.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         AnoLabel.setText("Temporada");
 
-        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474449279_DeleteRed.png"))); // NOI18N
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,14 +212,13 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ListarTitulos abrir = new ListarTitulos();
+        abrir.setLocationRelativeTo(null);
         abrir.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        TelaPrincipal abrir = new TelaPrincipal();
-        abrir.setVisible(true);
-        abrir.setLocationRelativeTo(null);
+
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

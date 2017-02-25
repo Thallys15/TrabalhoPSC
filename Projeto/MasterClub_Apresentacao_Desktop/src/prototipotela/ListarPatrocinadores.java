@@ -42,6 +42,7 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
         lblimagem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         PainelFiltroPatrocinador.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar Patrocinadores", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 
