@@ -162,13 +162,13 @@ public class ListarFuncionario extends javax.swing.JFrame {
         tblResultado.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         tblResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "id", "Nome", "CPF", "RG", "Cargo", "Idade"
+                "id", "Nome", "CPF", "RG", "Cargo", "Idade", "salario"
             }
         ));
         jScrollPane1.setViewportView(tblResultado);
@@ -380,7 +380,7 @@ private void limparCampos() {
 
     private void buscar(String nome, String cpf) {
 
-        Funcionario filtro = new Funcionario(0,nome,cpf,null,null,0);
+        Funcionario filtro = new Funcionario(0,nome,cpf,null,null,0,null);
         efetuarBusca = (ArrayList<Funcionario>) bd_dao.Buscar(filtro);
         preenchimentodaTabela(efetuarBusca);
         
@@ -391,10 +391,11 @@ private void limparCampos() {
         
         coluna.addColumn("id");
         coluna.addColumn("nome");
-        coluna.addColumn("Cpf");
+        coluna.addColumn("cpf");
         coluna.addColumn("rg");
         coluna.addColumn("cargo");
         coluna.addColumn("idade");
+        coluna.addColumn("salario");
        
         for(Funcionario BF:efetuarBusca){
             Vector linha = new Vector();
@@ -404,6 +405,7 @@ private void limparCampos() {
             linha.add(BF.getRg());
             linha.add(BF.getCargo());
             linha.add(BF.getIdade());
+            linha.add(BF.getSalario());
             
             coluna.addRow(linha);
            

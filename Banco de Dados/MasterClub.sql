@@ -31,7 +31,8 @@ use MasterClub;
 		cpf char(14),
         rg char(12),
         cargo varchar(30),
-        idade int
+        idade int,
+        salario double
     );
     create table modalidade(
 		codigo int primary key auto_increment,
@@ -39,7 +40,8 @@ use MasterClub;
         descricao varchar(255)
     );
     create table titulos(
-		codigo int primary key auto_increment,
+		id int primary key auto_increment,
+        nome varchar(50),
         data_titulo date
     );
     create table chefe(
@@ -57,7 +59,7 @@ use MasterClub;
 		nome varchar(30),
 		quantidade_atletas int,
 		titulo int,
-		foreign key (titulo) references titulos(codigo)
+		foreign key (titulo) references titulos(id)
     );
 	create table atleta(
 		id int primary key auto_increment,
@@ -119,4 +121,5 @@ use MasterClub;
         dataaluguel date,
         valorTotalAluguel float
 	);
+    insert into usuario(login,senha) values ('igor','123');
     

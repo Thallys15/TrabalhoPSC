@@ -17,60 +17,32 @@ import java.util.Objects;
  */
 public class Funcionario implements Entidade{
     private int id;
+    private String nome;
     private String cpf;
     private String rg;
     private String cargo;
-    private String nome;
     private int idade;
-    private BigDecimal qtdmodalidades;
-    private List<ResponsavelModalidade>modalidades;
+    private BigDecimal salario;
 
     public Funcionario() {
-        modalidades = new ArrayList<>();
+        
     }
-
-    public Funcionario(int id, String cpf, String rg, String cargo, String nome, int idade) {
+    public Funcionario(int id, String nome, String cpf, String rg, String cargo, int idade,BigDecimal salario) {
         this.id = id;
+        this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
         this.cargo = cargo;
-        this.idade = idade;
-        this.nome = nome;
-        this.qtdmodalidades = qtdmodalidades;
-        modalidades = new ArrayList<>();
-    }
-     public void addItem(ResponsavelModalidade modalidade){
-        if(!modalidades.contains(modalidade)) {
-            modalidades.add(modalidade);
-            this.qtdmodalidades = this.qtdmodalidades.add( 
-                    modalidade.getModalidade().getValorPagoModalidade().multiply
-                        (  new BigDecimal( modalidade.getQtdModalidades())   )  );
-        }
-    }
-    
-     public void removeItem(ResponsavelModalidade modalidade){
-        if(modalidades.contains(modalidade)){
-            modalidades.remove(modalidade);
-        this.qtdmodalidades = this.qtdmodalidades.subtract(
-                    modalidade.getModalidade().getValorPagoModalidade().multiply
-                        (  new BigDecimal( modalidade.getQtdModalidades())   )  );
-        }
+        this.idade = idade;        
+        this.salario = salario;
     }
 
-    public BigDecimal getQtdmodalidades() {
-        return qtdmodalidades;
+    public BigDecimal salario() {
+        return salario;
     }
 
-    public void setQtdmodalidades(BigDecimal qtdmodalidades) {
-        this.qtdmodalidades = qtdmodalidades;
-    }
-
-    public List<ResponsavelModalidade> getModalidades() {
-        return modalidades;
-    }
-
-    public void setModalidades(List<ResponsavelModalidade> modalidades) {
-        this.modalidades = modalidades;
+    public void salario(BigDecimal salario) {
+        this.salario = salario;
     }
 
     @Override
@@ -123,6 +95,15 @@ public class Funcionario implements Entidade{
         this.nome = nome;
     }
 
+    public BigDecimal getSalario() {
+        return salario;
+    }
+
+    public void setSalario(BigDecimal salario) {
+        this.salario = salario;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 5;
@@ -132,8 +113,7 @@ public class Funcionario implements Entidade{
         hash = 59 * hash + Objects.hashCode(this.cargo);
         hash = 59 * hash + Objects.hashCode(this.nome);
         hash = 59 * hash + this.idade;
-        hash = 59 * hash + Objects.hashCode(this.qtdmodalidades);
-        hash = 59 * hash + Objects.hashCode(this.modalidades);
+        hash = 59 * hash + Objects.hashCode(this.salario);        
         return hash;
     }
 
@@ -167,10 +147,7 @@ public class Funcionario implements Entidade{
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
-        if (!Objects.equals(this.qtdmodalidades, other.qtdmodalidades)) {
-            return false;
-        }
-        if (!Objects.equals(this.modalidades, other.modalidades)) {
+        if (!Objects.equals(this.salario, other.salario)) {
             return false;
         }
         return true;
@@ -178,7 +155,7 @@ public class Funcionario implements Entidade{
 
     @Override
     public String toString() {
-        return "Funcionario{" + "id=" + id + ", cpf=" + cpf + ", rg=" + rg + ", cargo=" + cargo + ", nome=" + nome + ", idade=" + idade + ", qtdmodalidades=" + qtdmodalidades + ", modalidades=" + modalidades + '}';
+        return "Funcionario{" + "id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", cargo=" + cargo +  ", idade=" + idade + ", salario=" + salario + '}';
     }
     
 }

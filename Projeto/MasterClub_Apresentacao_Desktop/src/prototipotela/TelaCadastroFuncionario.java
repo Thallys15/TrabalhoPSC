@@ -8,6 +8,7 @@ package prototipotela;
 import br.edu.ifnmg.MasterClub.Entidades.Funcionario;
 import br.edu.ifnmg.MasterClub.Entidades.FuncionarioRepositorio;
 import com.sun.javafx.tk.quantum.MasterTimer;
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -64,6 +65,8 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         txtRg = new javax.swing.JFormattedTextField();
         BotaoLimparFunc = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        lblIdade1 = new javax.swing.JLabel();
+        txtSalario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 70));
@@ -142,6 +145,9 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
+        lblIdade1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        lblIdade1.setText("Salario");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -152,18 +158,6 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                 .addGap(202, 202, 202))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(lblIdade))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblCargo)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,7 +178,22 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtRg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblIdade1)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(17, 17, 17)
+                                    .addComponent(lblIdade))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(lblCargo))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,7 +233,11 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblIdade))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblIdade1)
+                                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnSalvar)
                                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -332,6 +345,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel lblCargo;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblIdade;
+    private javax.swing.JLabel lblIdade1;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblRg;
     private javax.swing.JTextField txtCargo;
@@ -339,6 +353,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdade;
     private javax.swing.JTextField txtNome;
     private javax.swing.JFormattedTextField txtRg;
+    private javax.swing.JTextField txtSalario;
     // End of variables declaration//GEN-END:variables
     private void limparCampos() {
         
@@ -347,6 +362,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         txtCargo.setText("");
         txtRg.setText("");
         txtIdade.setText("");
+        txtSalario.setText("");
         
     }
     private void recuperarCampos() throws ParseException {
@@ -377,6 +393,10 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         if(idade > 0){
             funcionario.setIdade(idade);
         }
+        double salario = Double.parseDouble(txtSalario.getText().trim());
+        if (salario != 0) {
+            funcionario.setSalario(BigDecimal.valueOf(salario));
+        }
            
     }
     private void preencherCampos(Funcionario funcionario) {
@@ -386,6 +406,8 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         txtCpf.setText(funcionario.getCpf());
         txtRg.setText(funcionario.getRg());
         txtIdade.setText(Integer.toString(funcionario.getIdade()));
+        String salario = String.valueOf(funcionario.getSalario());
+        txtSalario.setText(salario);
         
     }
 }

@@ -7,8 +7,7 @@ package br.edu.ifnmg.MasterClub.Persistencia;
 
 import br.edu.ifnmg.MasterClub.Entidades.Funcionario;
 import br.edu.ifnmg.MasterClub.Entidades.FuncionarioRepositorio;
-import br.edu.ifnmg.MasterClub.Entidades.Modalidade;
-import br.edu.ifnmg.MasterClub.Entidades.ResponsavelModalidade;
+import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,11 +21,11 @@ import java.util.logging.Logger;
 public class FuncionarioDAO extends DAOGenerico<Funcionario> implements FuncionarioRepositorio{
     
     public FuncionarioDAO(){
-        setConsultaAbrir("select id, nome, cpf, rg, cargo, idade from funcionario where id = ?");
+        setConsultaAbrir("select id, nome, cpf, rg, cargo, idade,salario from funcionario where id = ?");
         setConsultaApagar("delete from funcionario where id = ?");
-        setConsultaInserir("insert into funcionario(nome, cpf, rg, cargo, idade) values(?,?,?,?,?)");
-        setConsultaAlterar("update funcionario set nome = ?, cpf = ?, rg = ?, cargo = ?, idade = ? where id = ?");
-        setConsultaBusca("select id, nome, cpf, rg, cargo, idade from funcionario ");
+        setConsultaInserir("insert into funcionario(nome, cpf, rg, cargo, idade,salario) values(?,?,?,?,?,?)");
+        setConsultaAlterar("update funcionario set nome = ?, cpf = ?, rg = ?, cargo = ?, idade = ?, salario = ? where id = ?");
+        setConsultaBusca("select nome, cpf, rg, cargo, idade, salario from funcionario ");
     
     }
 
@@ -39,6 +38,7 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
             tmp.setRg(resultado.getString(3));
             tmp.setCargo(resultado.getString(4));
             tmp.setIdade(resultado.getInt(5));
+            tmp.setSalario(resultado.getBigDecimal(6));
             
             return tmp;
         } catch (SQLException ex) {
@@ -54,8 +54,9 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
             sql.setString(2, obj.getCpf());
             sql.setString(3, obj.getRg());
             sql.setString(4, obj.getCargo());
-            sql.setInt(5, obj.getIdade());            
-            if(obj.getId() > 0) sql.setInt(6, obj.getId());
+            sql.setInt(5, obj.getIdade());   
+            sql.setBigDecimal(6, obj.getSalario());
+            if(obj.getId() > 0) sql.setInt(7, obj.getId());
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -68,6 +69,7 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
         if(filtro.getRg()!= null) adicionarFiltro("rg", " like ");
         if(filtro.getCargo()!= null) adicionarFiltro("cargo", " like ");
         if(filtro.getIdade() > 0) adicionarFiltro("idade", " = ");
+        if(filtro.getSalario() != null) adicionarFiltro("salario", "like");
     }
 
     @Override
@@ -79,6 +81,7 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
             if(filtro.getRg()!= null ){ sql.setString(cont, filtro.getRg()); cont++; }
             if(filtro.getCargo()!= null ){ sql.setString(cont, filtro.getCargo()); cont++; }
             if(filtro.getIdade()  > 0 ){ sql.setInt(cont, filtro.getIdade()); cont++; }
+            if(filtro.getSalario() != null){sql.setBigDecimal(cont, filtro.getSalario());cont++;}
                  
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,49 +89,11 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
     }
 
     @Override
-    public boolean Salvar(Funcionario obj) {
-         if(!super.Salvar(obj)) 
-            return false;
-        
-        if(obj.getId() > 0 ){
-            for(ResponsavelModalidade item : obj.getModalidades()){
-                if(item.getId() == 0){
-                    try {
-                        String consulta = "insert into responsavel_modalidades(modalidade, funcionario, coordenador) values(?,?,?)";
-                        PreparedStatement sql = conn.prepareStatement(consulta);
-                        sql.setInt(1, obj.getId());
-                        sql.setInt(2, item.getModalidade().getId());
-                        sql.setString(3, item.getCoordenador());
-                        sql.executeUpdate();
-                    } catch (SQLException ex) {
-                        Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-                        return false;
-                    }
-                } else {
-                    try {
-                        String consulta = "update responsavel_modalidade set modalidade = ?, funcionario = ?,coordenador = ? where id = ?";
-                        PreparedStatement sql = conn.prepareStatement(consulta);
-                        sql.setInt(1, obj.getId());
-                        sql.setInt(2, item.getModalidade().getId());
-                        sql.setString(3, item.getCoordenador());
-                        sql.setInt(4, item.getId());
-                        sql.executeUpdate();
-                    } catch (SQLException ex) {
-                        Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-                        return false;
-                    }
-                }
-            }
-        }
-        
-        return true;
-    }
-
-    @Override
     public Funcionario Abrir(String nome, String cpf) throws SQLException {
         try{
-          PreparedStatement sql = conn.prepareStatement("SELECT id,nome,cpf,rg,cargo,idade FROM funcionarios WHERE cpf = ?");
-          sql.setString(1, cpf);
+          PreparedStatement sql = conn.prepareStatement("SELECT * FROM funcionarios WHERE cpf = ?");
+          sql.setString(1, nome);
+          sql.setString(2, cpf);       
           ResultSet resultado = sql.executeQuery();
           if(resultado.next()) return preencheObjeto(resultado);
         } catch (SQLException ex){
@@ -140,7 +105,7 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
     @Override
     public boolean validarFuncionario(int id, String nome) {
          try {
-            PreparedStatement sql = conn.prepareStatement("SELECT ID FROM funcionario WHERE id = ? AND nome = ?");
+            PreparedStatement sql = conn.prepareStatement("SELECT id FROM funcionario WHERE id = ? AND nome = ?");
             sql.setInt(1,id);
             sql.setString(2, nome);
             ResultSet resultado = sql.executeQuery();
