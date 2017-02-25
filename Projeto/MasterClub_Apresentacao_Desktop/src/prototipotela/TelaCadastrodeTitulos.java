@@ -20,7 +20,7 @@ import masterclub_apresentacao.MasterClub_Apresentacao;
  *
  * @author thallys
  */
-public class CadastrodeTitulos extends javax.swing.JFrame {
+public class TelaCadastrodeTitulos extends javax.swing.JFrame {
     Titulos titulo = new Titulos();
     MasterClub_Apresentacao master = new MasterClub_Apresentacao();
     TitulosRepositorio bd = new GerenciarFuncionamento().getTitulo();
@@ -28,7 +28,7 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
     /**
      * Creates new form CadastrodeTitulos
      */
-    public CadastrodeTitulos() {
+    public TelaCadastrodeTitulos() {
         initComponents();
     }
 
@@ -46,15 +46,12 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
         NomeTorneioLabel = new javax.swing.JLabel();
         txtNomeTorneio = new javax.swing.JTextField();
         AnoLabel = new javax.swing.JLabel();
-        TextoExplicacao = new javax.swing.JLabel();
-        BotaoBuscarTemporada = new javax.swing.JButton();
-        BotaoLimparTemporada = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
-        BotaoSairTemporada = new javax.swing.JButton();
-        TabelaTemporadaListar = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
         txtData = new javax.swing.JFormattedTextField();
+        BotaoLimparFunc = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,53 +59,52 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
 
         LogoTemporada.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         LogoTemporada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474479197_trophy.png"))); // NOI18N
-        LogoTemporada.setText("Temporada");
+        LogoTemporada.setText("Torneios");
 
-        NomeTorneioLabel.setText("Nome Torneio");
+        NomeTorneioLabel.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        NomeTorneioLabel.setText("Nome do Torneio");
 
+        AnoLabel.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         AnoLabel.setText("Temporada");
 
-        TextoExplicacao.setText("Realizar a busca preenchendo qualquer campo desejado!!");
-
-        BotaoBuscarTemporada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
-        BotaoBuscarTemporada.setText("Buscar");
-
-        BotaoLimparTemporada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474449106_leaf_cleaning_stick.png"))); // NOI18N
-        BotaoLimparTemporada.setText("Limpar");
-
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474449279_DeleteRed.png"))); // NOI18N
-        btnSalvar.setText("Deletar");
+        btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
             }
         });
 
-        BotaoSairTemporada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474061346_Shutdown_Box_Red.png"))); // NOI18N
-        BotaoSairTemporada.setText("Sair");
-        BotaoSairTemporada.addActionListener(new java.awt.event.ActionListener() {
+        txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
+
+        BotaoLimparFunc.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        BotaoLimparFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/limpar.png"))); // NOI18N
+        BotaoLimparFunc.setText("Limpar");
+        BotaoLimparFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoSairTemporadaActionPerformed(evt);
+                BotaoLimparFuncActionPerformed(evt);
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+        jButton1.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/Listar.png"))); // NOI18N
+        jButton1.setText("Listar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
-        ));
-        TabelaTemporadaListar.setViewportView(jTable2);
+        });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/guardiola-trofeus.jpg"))); // NOI18N
-        jLabel6.setText("jLabel6");
+        jButton2.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360844_Exit.png"))); // NOI18N
+        jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/LIBERTA.png"))); // NOI18N
 
         javax.swing.GroupLayout FunndoCadastroTitulosLayout = new javax.swing.GroupLayout(FunndoCadastroTitulos);
         FunndoCadastroTitulos.setLayout(FunndoCadastroTitulosLayout);
@@ -117,84 +113,76 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
             .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
                 .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                        .addGap(324, 324, 324)
-                        .addComponent(LogoTemporada))
-                    .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(TextoExplicacao))
-                    .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(TabelaTemporadaListar, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                        .addComponent(NomeTorneioLabel)
-                        .addGap(3, 3, 3)
                         .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                                .addComponent(BotaoBuscarTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BotaoLimparTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
+                                        .addGap(209, 209, 209)
+                                        .addComponent(LogoTemporada))
+                                    .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
+                                        .addGap(42, 42, 42)
+                                        .addComponent(AnoLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FunndoCadastroTitulosLayout.createSequentialGroup()
+                                .addComponent(NomeTorneioLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BotaoSairTemporada, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtNomeTorneio, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtNomeTorneio, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54)))
+                        .addComponent(jLabel1))
                     .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(AnoLabel)
+                        .addGap(12, 12, 12)
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotaoLimparFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         FunndoCadastroTitulosLayout.setVerticalGroup(
             FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                .addComponent(LogoTemporada)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextoExplicacao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
+                        .addComponent(LogoTemporada)
+                        .addGap(55, 55, 55)
+                        .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNomeTorneio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NomeTorneioLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AnoLabel)
+                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
+                .addGap(31, 31, 31)
                 .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NomeTorneioLabel)
-                    .addComponent(txtNomeTorneio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AnoLabel)
-                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(66, 66, 66)
-                .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotaoBuscarTemporada)
-                    .addComponent(BotaoLimparTemporada)
-                    .addComponent(btnSalvar)
-                    .addComponent(BotaoSairTemporada))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(TabelaTemporadaListar, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
-            .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoLimparFunc)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FunndoCadastroTitulos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FunndoCadastroTitulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(FunndoCadastroTitulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(FunndoCadastroTitulos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(3, 3, 3))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BotaoSairTemporadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairTemporadaActionPerformed
-        TelaPrincipal entrar = new TelaPrincipal();
-        entrar.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_BotaoSairTemporadaActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         try {
@@ -217,6 +205,22 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
+    private void BotaoLimparFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparFuncActionPerformed
+        limparCampos();
+    }//GEN-LAST:event_BotaoLimparFuncActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ListarTitulos abrir = new ListarTitulos();
+        abrir.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        TelaPrincipal abrir = new TelaPrincipal();
+        abrir.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -234,37 +238,35 @@ public class CadastrodeTitulos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrodeTitulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastrodeTitulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrodeTitulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastrodeTitulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrodeTitulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastrodeTitulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrodeTitulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastrodeTitulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastrodeTitulos().setVisible(true);
+                new TelaCadastrodeTitulos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AnoLabel;
-    private javax.swing.JButton BotaoBuscarTemporada;
-    private javax.swing.JButton BotaoLimparTemporada;
-    private javax.swing.JButton BotaoSairTemporada;
+    private javax.swing.JButton BotaoLimparFunc;
     private javax.swing.JPanel FunndoCadastroTitulos;
     private javax.swing.JLabel LogoTemporada;
     private javax.swing.JLabel NomeTorneioLabel;
-    private javax.swing.JScrollPane TabelaTemporadaListar;
-    private javax.swing.JLabel TextoExplicacao;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JFormattedTextField txtData;
     private javax.swing.JTextField txtNomeTorneio;
     // End of variables declaration//GEN-END:variables

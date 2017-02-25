@@ -263,7 +263,7 @@ public class ListarFuncionario extends javax.swing.JFrame {
         
         if(posicaoVetor >=0){
             Funcionario funcionario = efetuarBusca.get(posicaoVetor);
-            String mensagem = "Deseja realmente excluir esse Funcionário?";
+            String mensagem = "Deseja realmente excluir esse funcionário?";
             int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Mensagem de confirmação", JOptionPane.YES_NO_OPTION);
            
             if(opcao == JOptionPane.YES_OPTION){
@@ -271,7 +271,7 @@ public class ListarFuncionario extends javax.swing.JFrame {
                 buscarTodos();
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Escolha o campo a ser excluido!");
+            JOptionPane.showMessageDialog(this, "Escolha o campo a ser excluído!");
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -280,14 +280,14 @@ public class ListarFuncionario extends javax.swing.JFrame {
         
         if(posicao >= 0){
             Funcionario funcionario = efetuarBusca.get(posicao);
-            String mensagem = "está quase pronto, deseja mesmo editar o funcionario?";
-            int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Mensagem de confirmação", JOptionPane.YES_NO_OPTION);
+            String mensagem = "Quase pronto, deseja editar o funcionario?";
+            int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Mensagem de Confirmação", JOptionPane.YES_NO_OPTION);
             
             if(opcao == JOptionPane.YES_OPTION ){
                 TelaCadastroFuncionario telaCadastrarFuncionario = new TelaCadastroFuncionario(funcionario,this);
                 telaCadastrarFuncionario.setVisible(true);
             }else{
-                JOptionPane.showMessageDialog(rootPane, "escolha o campo na tabela a ser modificado");
+                JOptionPane.showMessageDialog(rootPane, "Escolha o campo na tabela a ser modificado");
             }
             
         }

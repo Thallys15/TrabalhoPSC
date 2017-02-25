@@ -232,7 +232,7 @@ public class ListarTitulos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoNovoTitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoTitActionPerformed
-        CadastrodeTitulos abrir = new CadastrodeTitulos();
+        TelaCadastrodeTitulos abrir = new TelaCadastrodeTitulos();
         abrir.setVisible(true);
         dispose();
     }//GEN-LAST:event_BotaoNovoTitActionPerformed
