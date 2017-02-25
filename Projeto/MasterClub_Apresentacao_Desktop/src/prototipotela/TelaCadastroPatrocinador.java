@@ -48,7 +48,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
         txtNome = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         btnSalvar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BotaoSairCadPat = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         BotaoLimparFunc = new javax.swing.JButton();
         txtValorPatrocinio = new javax.swing.JFormattedTextField();
@@ -78,12 +78,12 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360844_Exit.png"))); // NOI18N
-        jButton2.setText("Sair");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BotaoSairCadPat.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        BotaoSairCadPat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360844_Exit.png"))); // NOI18N
+        BotaoSairCadPat.setText("Sair");
+        BotaoSairCadPat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BotaoSairCadPatActionPerformed(evt);
             }
         });
 
@@ -130,7 +130,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BotaoSairCadPat, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(228, 228, 228)
                         .addComponent(jLabel1)))
@@ -157,7 +157,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
-                    .addComponent(jButton2)
+                    .addComponent(BotaoSairCadPat)
                     .addComponent(BotaoLimparFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
                 .addGap(57, 57, 57))
@@ -179,12 +179,12 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BotaoSairCadPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairCadPatActionPerformed
         TelaPrincipal entrar = new TelaPrincipal();
         entrar.setVisible(true);
         entrar.setLocationRelativeTo(null);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BotaoSairCadPatActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
          ListarPatrocinadores abrir = new ListarPatrocinadores();
@@ -255,8 +255,8 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoLimparFunc;
+    private javax.swing.JButton BotaoSairCadPat;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
