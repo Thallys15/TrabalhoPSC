@@ -234,6 +234,7 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
     private void BotaoNovoPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoPatActionPerformed
         TelaCadastroPatrocinador abrir = new TelaCadastroPatrocinador();
         abrir.setVisible(true);
+        abrir.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_BotaoNovoPatActionPerformed
 

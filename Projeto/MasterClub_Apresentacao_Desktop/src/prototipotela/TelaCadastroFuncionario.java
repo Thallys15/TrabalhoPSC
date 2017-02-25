@@ -269,7 +269,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
             if (codigo==0) {
             master.criarFuncionario(funcionario);
             this.limparCampos();
-            JOptionPane.showMessageDialog(this, "Funcionario Cadastrado com sucesso");
+            JOptionPane.showMessageDialog(this, "Funcionario cadastrado com sucesso");
             } else {
                 bd.Alterar(funcionario);
                 JOptionPane.showMessageDialog(this, "Sucesso!!! O funcionario foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
@@ -294,6 +294,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ListarFuncionario abrir = new ListarFuncionario();
         abrir.setVisible(true);
+        abrir.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

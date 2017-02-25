@@ -221,6 +221,7 @@ public class ListarJogadores extends javax.swing.JFrame {
     private void BotaoNovoJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoJogadorActionPerformed
         TelaCadastroJogadores abrir = new TelaCadastroJogadores();
         abrir.setVisible(true);
+        abrir.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_BotaoNovoJogadorActionPerformed
 
