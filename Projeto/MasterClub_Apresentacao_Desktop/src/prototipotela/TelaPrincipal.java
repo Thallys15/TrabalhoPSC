@@ -32,7 +32,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuTelaPrincipal = new javax.swing.JMenuBar();
         BarraMenuCadastro = new javax.swing.JMenu();
         ItemCadJogadores = new javax.swing.JMenuItem();
-        ItemCadComTecnica = new javax.swing.JMenuItem();
         ItemCadFuncionario = new javax.swing.JMenuItem();
         ItemCadPatrocinadores = new javax.swing.JMenuItem();
         BarraMenuDepartamentos = new javax.swing.JMenu();
@@ -90,12 +89,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ItemCadJogadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474063085_football.png"))); // NOI18N
         ItemCadJogadores.setText("Jogadores");
         ItemCadJogadores.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                ItemCadJogadoresAncestorMoved(evt);
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+                ItemCadJogadoresAncestorMoved(evt);
             }
         });
         ItemCadJogadores.addActionListener(new java.awt.event.ActionListener() {
@@ -104,15 +103,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         BarraMenuCadastro.add(ItemCadJogadores);
-
-        ItemCadComTecnica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474063520_person_4.png"))); // NOI18N
-        ItemCadComTecnica.setText("Comissão Técnica");
-        ItemCadComTecnica.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ItemCadComTecnicaActionPerformed(evt);
-            }
-        });
-        BarraMenuCadastro.add(ItemCadComTecnica);
 
         ItemCadFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474063801_icon-person.png"))); // NOI18N
         ItemCadFuncionario.setText("Funcionários");
@@ -264,12 +254,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BarraMenuSairMouseClicked
 
-    private void ItemCadComTecnicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadComTecnicaActionPerformed
-       // TelaCadastroComissao tela = new TelaCadastroComissao();
-        //tela.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_ItemCadComTecnicaActionPerformed
-
     private void ItemCadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCadFuncionarioActionPerformed
         TelaCadastroFuncionario tela = new TelaCadastroFuncionario();
         tela.setVisible(true);
@@ -283,15 +267,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemCadPatrocinadoresActionPerformed
 
     private void ItemDepartamentoFutebolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemDepartamentoFutebolActionPerformed
-        TelaDepFutebol entrar = new TelaDepFutebol();
-        entrar.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_ItemDepartamentoFutebolActionPerformed
 
     private void ItemDepMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemDepMedicoActionPerformed
-        TelaDepMedico entrar = new TelaDepMedico();
-        entrar.setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_ItemDepMedicoActionPerformed
 
     private void ItemInfraestruturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemInfraestruturaActionPerformed
@@ -351,7 +331,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu BarraMenuSair;
     private javax.swing.JMenu BarraMenuSobre;
     private javax.swing.JMenuBar BarraMenuTelaPrincipal;
-    private javax.swing.JMenuItem ItemCadComTecnica;
     private javax.swing.JMenuItem ItemCadFuncionario;
     private javax.swing.JMenuItem ItemCadJogadores;
     private javax.swing.JMenuItem ItemCadPatrocinadores;
