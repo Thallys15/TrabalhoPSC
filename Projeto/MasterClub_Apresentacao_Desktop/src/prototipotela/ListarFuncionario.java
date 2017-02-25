@@ -54,6 +54,7 @@ public class ListarFuncionario extends javax.swing.JFrame {
         btnNovo = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        btnMostrarTodos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -211,6 +212,15 @@ public class ListarFuncionario extends javax.swing.JFrame {
             }
         });
 
+        btnMostrarTodos.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnMostrarTodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
+        btnMostrarTodos.setText("Buscar");
+        btnMostrarTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarTodosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelListarLayout = new javax.swing.GroupLayout(PainelListar);
         PainelListar.setLayout(PainelListarLayout);
         PainelListarLayout.setHorizontalGroup(
@@ -228,6 +238,8 @@ public class ListarFuncionario extends javax.swing.JFrame {
                 .addComponent(btnEditar)
                 .addGap(18, 18, 18)
                 .addComponent(btnExcluir)
+                .addGap(18, 18, 18)
+                .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PainelListarLayout.setVerticalGroup(
@@ -241,7 +253,8 @@ public class ListarFuncionario extends javax.swing.JFrame {
                 .addGroup(PainelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -310,8 +323,12 @@ public class ListarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        buscar(txtNome.getText(),txtCpf.getText());
+        buscar(txtNome.getText(),txtCpf.getText());        
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnMostrarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTodosActionPerformed
+       buscarTodos();
+    }//GEN-LAST:event_btnMostrarTodosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -356,6 +373,7 @@ public class ListarFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnMostrarTodos;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSair;
     private javax.swing.JScrollPane jScrollPane1;
@@ -379,7 +397,7 @@ private void limparCampos() {
     }
 
     private void buscar(String nome, String cpf) {
-
+        
         Funcionario filtro = new Funcionario(0,nome,cpf,null,null,0,null);
         efetuarBusca = (ArrayList<Funcionario>) bd_dao.Buscar(filtro);
         preenchimentodaTabela(efetuarBusca);
@@ -391,8 +409,8 @@ private void limparCampos() {
         
         coluna.addColumn("id");
         coluna.addColumn("nome");
-        coluna.addColumn("cpf");
-        coluna.addColumn("rg");
+        coluna.addColumn("CPF");
+        coluna.addColumn("RG");
         coluna.addColumn("cargo");
         coluna.addColumn("idade");
         coluna.addColumn("salario");
@@ -408,7 +426,7 @@ private void limparCampos() {
             linha.add(BF.getSalario());
             
             coluna.addRow(linha);
-           
+            
         }
         
         tblResultado.setModel(coluna);

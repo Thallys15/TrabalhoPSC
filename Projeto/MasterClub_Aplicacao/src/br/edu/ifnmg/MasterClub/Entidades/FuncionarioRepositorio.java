@@ -12,6 +12,6 @@ import java.sql.SQLException;
  * @author Igor Pereira
  */
 public interface FuncionarioRepositorio extends Repositorio<Funcionario>{
-    public Funcionario Abrir(String nome, String cpf) throws SQLException;
+    public Funcionario Abrir(String cpf) throws SQLException;
     public boolean validarFuncionario(int id, String nome);
 }

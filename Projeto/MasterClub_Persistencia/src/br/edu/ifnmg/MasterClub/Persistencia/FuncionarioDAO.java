@@ -25,7 +25,7 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
         setConsultaApagar("delete from funcionario where id = ?");
         setConsultaInserir("insert into funcionario(nome, cpf, rg, cargo, idade,salario) values(?,?,?,?,?,?)");
         setConsultaAlterar("update funcionario set nome = ?, cpf = ?, rg = ?, cargo = ?, idade = ?, salario = ? where id = ?");
-        setConsultaBusca("select nome, cpf, rg, cargo, idade, salario from funcionario ");
+        setConsultaBusca("select id, nome, cpf, rg, cargo, idade, salario from funcionario ");
     
     }
 
@@ -33,12 +33,13 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
     protected Funcionario preencheObjeto(ResultSet resultado) {
         try {
             Funcionario tmp = new Funcionario();
-            tmp.setNome(resultado.getString(1));
-            tmp.setCpf(resultado.getString(2));
-            tmp.setRg(resultado.getString(3));
-            tmp.setCargo(resultado.getString(4));
-            tmp.setIdade(resultado.getInt(5));
-            tmp.setSalario(resultado.getBigDecimal(6));
+            tmp.setId(resultado.getInt(1));
+            tmp.setNome(resultado.getString(2));
+            tmp.setCpf(resultado.getString(3));
+            tmp.setRg(resultado.getString(4));
+            tmp.setCargo(resultado.getString(5));
+            tmp.setIdade(resultado.getInt(6));
+            tmp.setSalario(resultado.getBigDecimal(7));
             
             return tmp;
         } catch (SQLException ex) {
@@ -64,6 +65,7 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
 
     @Override
     protected void preencheFiltros(Funcionario filtro) {
+        if(filtro.getId() > 0) adicionarFiltro("id", "=");
         if(filtro.getNome() != null) adicionarFiltro("nome", "=");
         if(filtro.getCpf()!= null) adicionarFiltro("cpf", " like ");
         if(filtro.getRg()!= null) adicionarFiltro("rg", " like ");
@@ -76,6 +78,7 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
     protected void preencheParametros(PreparedStatement sql, Funcionario filtro) {
         try {
             int cont = 1;
+            if(filtro.getId()  > 0 ){ sql.setInt(cont, filtro.getId()); cont++; }
             if(filtro.getNome() != null){ sql.setString(cont, filtro.getNome()); cont++; }
             if(filtro.getCpf()!= null ){ sql.setString(cont, filtro.getCpf()); cont++; }
             if(filtro.getRg()!= null ){ sql.setString(cont, filtro.getRg()); cont++; }
@@ -89,11 +92,10 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
     }
 
     @Override
-    public Funcionario Abrir(String nome, String cpf) throws SQLException {
+    public Funcionario Abrir(String cpf) throws SQLException {
         try{
-          PreparedStatement sql = conn.prepareStatement("SELECT * FROM funcionarios WHERE cpf = ?");
-          sql.setString(1, nome);
-          sql.setString(2, cpf);       
+          PreparedStatement sql = conn.prepareStatement("SELECT id,nome,cpf,rg,cargo,idade,salario FROM funcionario WHERE cpf = ?");
+          sql.setString(1, cpf);       
           ResultSet resultado = sql.executeQuery();
           if(resultado.next()) return preencheObjeto(resultado);
         } catch (SQLException ex){

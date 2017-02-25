@@ -122,4 +122,5 @@ use MasterClub;
         valorTotalAluguel float
 	);
     insert into usuario(login,senha) values ('igor','123');
-    
+    select * from funcionario;
+    select id,nome, cpf, rg, cargo, idade, salario from funcionario; 
