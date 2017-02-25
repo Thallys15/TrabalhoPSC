@@ -189,6 +189,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474061215_19.png"))); // NOI18N
         BarraMenuSobre.setText("Sobre");
         BarraMenuSobre.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        BarraMenuSobre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BarraMenuSobreMouseClicked(evt);
+            }
+        });
+        BarraMenuSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BarraMenuSobreActionPerformed(evt);
+            }
+        });
         BarraMenuTelaPrincipal.add(BarraMenuSobre);
 
         BarraMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474061346_Shutdown_Box_Red.png"))); // NOI18N
@@ -272,6 +282,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         entrar.setVisible(true);
         entrar.setLocationRelativeTo(null);
     }//GEN-LAST:event_ItemInfraestruturaActionPerformed
+
+    private void BarraMenuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarraMenuSobreActionPerformed
+      
+    }//GEN-LAST:event_BarraMenuSobreActionPerformed
+
+    private void BarraMenuSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BarraMenuSobreMouseClicked
+          Sobre entrar = new Sobre();
+        entrar.setVisible(true);
+        entrar.setLocationRelativeTo(null);
+    }//GEN-LAST:event_BarraMenuSobreMouseClicked
 
     /**
      * @param args the command line arguments

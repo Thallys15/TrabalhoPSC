@@ -173,6 +173,10 @@
               <Font name="Ubuntu" size="15" style="1"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BarraMenuSobreMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BarraMenuSobreActionPerformed"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="BarraMenuSair">
           <Properties>
