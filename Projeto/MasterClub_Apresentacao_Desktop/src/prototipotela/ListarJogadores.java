@@ -5,11 +5,21 @@
  */
 package prototipotela;
 
+import br.edu.ifnmg.MasterClub.Entidades.Atleta;
+import br.edu.ifnmg.MasterClub.Entidades.AtletaRepositorio;
+import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author tls15
  */
 public class ListarJogadores extends javax.swing.JFrame {
+    AtletaRepositorio bd_dao;
+    Atleta atleta = new Atleta();
+    ArrayList<Atleta> efetuarBusca = new ArrayList<>();
 
     /**
      * Creates new form ListarJogadores
@@ -29,17 +39,18 @@ public class ListarJogadores extends javax.swing.JFrame {
 
         PainelFiltroJogadores = new javax.swing.JPanel();
         lblNomeJogador = new javax.swing.JLabel();
-        CampoNomePesquisaJogador = new javax.swing.JTextField();
-        BotaoLimparJogador = new javax.swing.JButton();
-        BotaoBuscarJogador = new javax.swing.JButton();
+        txtNome = new javax.swing.JTextField();
+        btnLimpar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         lblimagem = new javax.swing.JLabel();
-        BotaoSairJogador = new javax.swing.JButton();
-        BotaoNovoJogador = new javax.swing.JButton();
-        BotaoEditarJogador = new javax.swing.JButton();
-        BotaoExcluirJogador = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
+        btnNovo = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
         PainelTabela = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TabelaResultado = new javax.swing.JTable();
+        tblResultado = new javax.swing.JTable();
+        btnMostrarTodos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -49,28 +60,33 @@ public class ListarJogadores extends javax.swing.JFrame {
         lblNomeJogador.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         lblNomeJogador.setText("Nome");
 
-        BotaoLimparJogador.setBackground(new java.awt.Color(255, 255, 255));
-        BotaoLimparJogador.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoLimparJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/limpar.png"))); // NOI18N
-        BotaoLimparJogador.setText("Limpar");
-        BotaoLimparJogador.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpar.setBackground(new java.awt.Color(255, 255, 255));
+        btnLimpar.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/limpar.png"))); // NOI18N
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoLimparJogadorActionPerformed(evt);
+                btnLimparActionPerformed(evt);
             }
         });
 
-        BotaoBuscarJogador.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoBuscarJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
-        BotaoBuscarJogador.setText("Buscar");
+        btnBuscar.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         lblimagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/Bartenov-Theo-Walcott-207x300.png"))); // NOI18N
 
-        BotaoSairJogador.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        BotaoSairJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
-        BotaoSairJogador.setText("Sair");
-        BotaoSairJogador.addActionListener(new java.awt.event.ActionListener() {
+        btnSair.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoSairJogadorActionPerformed(evt);
+                btnSairActionPerformed(evt);
             }
         });
 
@@ -84,14 +100,14 @@ public class ListarJogadores extends javax.swing.JFrame {
                         .addGap(105, 105, 105)
                         .addComponent(lblNomeJogador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CampoNomePesquisaJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PainelFiltroJogadoresLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(BotaoLimparJogador)
+                        .addComponent(btnLimpar)
                         .addGap(18, 18, 18)
-                        .addComponent(BotaoBuscarJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(BotaoSairJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -101,69 +117,69 @@ public class ListarJogadores extends javax.swing.JFrame {
             .addGroup(PainelFiltroJogadoresLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(PainelFiltroJogadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoNomePesquisaJogador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNomeJogador))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PainelFiltroJogadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotaoLimparJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoBuscarJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoSairJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelFiltroJogadoresLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        BotaoNovoJogador.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoNovoJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/Novo.png"))); // NOI18N
-        BotaoNovoJogador.setText("Novo");
-        BotaoNovoJogador.addActionListener(new java.awt.event.ActionListener() {
+        btnNovo.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/Novo.png"))); // NOI18N
+        btnNovo.setText("Novo");
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoNovoJogadorActionPerformed(evt);
+                btnNovoActionPerformed(evt);
             }
         });
 
-        BotaoEditarJogador.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoEditarJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/edit.png"))); // NOI18N
-        BotaoEditarJogador.setText("Editar");
-        BotaoEditarJogador.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/edit.png"))); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoEditarJogadorActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
 
-        BotaoExcluirJogador.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoExcluirJogador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/delete.png"))); // NOI18N
-        BotaoExcluirJogador.setText("Excluir");
-        BotaoExcluirJogador.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluir.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/delete.png"))); // NOI18N
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoExcluirJogadorActionPerformed(evt);
+                btnExcluirActionPerformed(evt);
             }
         });
 
         PainelTabela.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 
-        TabelaResultado.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        TabelaResultado.setModel(new javax.swing.table.DefaultTableModel(
+        tblResultado.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        tblResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Posição", "Lado", "Categoria", "Naturalidade", "Idade", "Altura", "Peso", "CPF", "RG", "Clube"
+                "Id", "Nome", "Posição", "Lado", "Categoria", "Naturalidade", "Idade", "Altura", "Peso", "CPF", "RG", "Clube"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(TabelaResultado);
+        jScrollPane1.setViewportView(tblResultado);
 
         javax.swing.GroupLayout PainelTabelaLayout = new javax.swing.GroupLayout(PainelTabela);
         PainelTabela.setLayout(PainelTabelaLayout);
@@ -178,6 +194,15 @@ public class ListarJogadores extends javax.swing.JFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
+        btnMostrarTodos.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnMostrarTodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
+        btnMostrarTodos.setText("Buscar");
+        btnMostrarTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarTodosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -189,12 +214,14 @@ public class ListarJogadores extends javax.swing.JFrame {
                     .addComponent(PainelTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(246, 246, 246)
-                .addComponent(BotaoNovoJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(149, 149, 149)
+                .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(BotaoEditarJogador)
+                .addComponent(btnEditar)
                 .addGap(26, 26, 26)
-                .addComponent(BotaoExcluirJogador)
+                .addComponent(btnExcluir)
+                .addGap(18, 18, 18)
+                .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -204,39 +231,75 @@ public class ListarJogadores extends javax.swing.JFrame {
                 .addComponent(PainelFiltroJogadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PainelTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotaoEditarJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotaoNovoJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotaoExcluirJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotaoSairJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairJogadorActionPerformed
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         dispose();
-    }//GEN-LAST:event_BotaoSairJogadorActionPerformed
+    }//GEN-LAST:event_btnSairActionPerformed
 
-    private void BotaoNovoJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoJogadorActionPerformed
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         TelaCadastroJogadores abrir = new TelaCadastroJogadores();
         abrir.setVisible(true);
         abrir.setLocationRelativeTo(null);
         dispose();
-    }//GEN-LAST:event_BotaoNovoJogadorActionPerformed
+    }//GEN-LAST:event_btnNovoActionPerformed
 
-    private void BotaoEditarJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEditarJogadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoEditarJogadorActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        int posicao = tblResultado.getSelectedRow();
+        
+        if(posicao >= 0){
+            Atleta atleta = efetuarBusca.get(posicao);
+            String mensagem = "Quase pronto, deseja editar o atleta?";
+            int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Mensagem de Confirmação", JOptionPane.YES_NO_OPTION);
+            
+            if(opcao == JOptionPane.YES_OPTION ){
+                TelaCadastroJogadores telaCadastrarJogador = new TelaCadastroJogadores(atleta,this);
+                telaCadastrarJogador.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Escolha o campo na tabela a ser modificado");
+            }
+            
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void BotaoExcluirJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExcluirJogadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoExcluirJogadorActionPerformed
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        int posicaoVetor = tblResultado.getSelectedRow();
+        
+        if(posicaoVetor >=0){
+            Atleta atleta = efetuarBusca.get(posicaoVetor);
+            String mensagem = "Deseja realmente excluir esse atleta?";
+            int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Mensagem de confirmação", JOptionPane.YES_NO_OPTION);
+           
+            if(opcao == JOptionPane.YES_OPTION){
+                bd_dao.Apagar(atleta);
+                buscarTodos();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Escolha o campo a ser excluído!");
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
-    private void BotaoLimparJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparJogadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoLimparJogadorActionPerformed
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        limparCampos();
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnMostrarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTodosActionPerformed
+        buscarTodos();
+    }//GEN-LAST:event_btnMostrarTodosActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        buscar(txtNome.getText());  
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,18 +337,76 @@ public class ListarJogadores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoBuscarJogador;
-    private javax.swing.JButton BotaoEditarJogador;
-    private javax.swing.JButton BotaoExcluirJogador;
-    private javax.swing.JButton BotaoLimparJogador;
-    private javax.swing.JButton BotaoNovoJogador;
-    private javax.swing.JButton BotaoSairJogador;
-    private javax.swing.JTextField CampoNomePesquisaJogador;
     private javax.swing.JPanel PainelFiltroJogadores;
     private javax.swing.JPanel PainelTabela;
-    private javax.swing.JTable TabelaResultado;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnMostrarTodos;
+    private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnSair;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNomeJogador;
     private javax.swing.JLabel lblimagem;
+    private javax.swing.JTable tblResultado;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
+    private void limparCampos() {
+        txtNome.setText("");
+    }
+
+    private void buscarTodos() {
+        
+        Atleta filtro = new Atleta(0, null, null, null, null, null, 0, 0, 0, null, null, 0);
+        efetuarBusca =(ArrayList<Atleta>) bd_dao.Buscar(filtro);
+        preenchimentodaTabela(efetuarBusca);
+        
+    }
+
+    private void buscar(String nome) {
+        
+        Atleta filtro = new Atleta(0, null, null, null, null, null, 0, 0, 0, null, null, 0);
+        efetuarBusca = (ArrayList<Atleta>) bd_dao.Buscar(filtro);
+        preenchimentodaTabela(efetuarBusca);
+        
+    }
+    private void preenchimentodaTabela(ArrayList<Atleta> efetuarBusca) {
+        
+        DefaultTableModel coluna = new DefaultTableModel();
+        
+        coluna.addColumn("id");
+        coluna.addColumn("Nome");
+        coluna.addColumn("posição");
+        coluna.addColumn("Lado");
+        coluna.addColumn("Categoria");
+        coluna.addColumn("Naturalidade");
+        coluna.addColumn("Idade");
+        coluna.addColumn("Altura");
+        coluna.addColumn("Peso");
+        coluna.addColumn("CPF");
+        coluna.addColumn("RG");        
+        coluna.addColumn("Clube");
+       
+        for(Atleta BA:efetuarBusca){
+            Vector linha = new Vector();
+            linha.add(BA.getId());
+            linha.add(BA.getNome());
+            linha.add(BA.getPosicao());
+            linha.add(BA.getLado());
+            linha.add(BA.getCategoria());
+            linha.add(BA.getNaturalidade());
+            linha.add(BA.getIdade());
+            linha.add(BA.getAltura());
+            linha.add(BA.getPeso());
+            linha.add(BA.getCpf());
+            linha.add(BA.getRg());
+            linha.add(BA.getClube());
+            
+            coluna.addRow(linha);
+            
+        }
+        
+        tblResultado.setModel(coluna);
+    }
 }

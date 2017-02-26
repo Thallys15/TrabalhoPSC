@@ -13,6 +13,7 @@ import java.util.Objects;
  */
 public class Atleta implements Entidade{
     private int id;
+    private String nome;
     private String posicao;
     private String lado;
     private String categoria;
@@ -22,13 +23,13 @@ public class Atleta implements Entidade{
     private double peso;
     private String cpf;
     private String rg;
-    private String nome;
     private int clube;
     public Atleta() {
     }
 
-    public Atleta(int id, String posicao, String lado, String categoria, String naturalidade, int idade, double altura, double peso, String cpf, String rg, String nome, int clube) {
+    public Atleta(int id, String nome, String posicao, String lado, String categoria, String naturalidade, int idade, double altura, double peso, String cpf, String rg, int clube) {
         this.id = id;
+        this.nome = nome;
         this.posicao = posicao;
         this.lado = lado;
         this.categoria = categoria;
@@ -37,8 +38,7 @@ public class Atleta implements Entidade{
         this.altura = altura;
         this.peso = peso;
         this.cpf = cpf;
-        this.rg = rg;
-        this.nome = nome;
+        this.rg = rg;       
         this.clube = clube;
     }
 

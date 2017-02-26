@@ -37,14 +37,15 @@ public class Funcionario implements Entidade{
         this.salario = salario;
     }
 
-    public BigDecimal salario() {
+    public BigDecimal getSalario() {
         return salario;
     }
 
-    public void salario(BigDecimal salario) {
+    public void setSalario(BigDecimal salario) {
         this.salario = salario;
     }
 
+    
     @Override
     public int getId() {
         return id;
@@ -93,14 +94,6 @@ public class Funcionario implements Entidade{
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public BigDecimal getSalario() {
-        return salario;
-    }
-
-    public void setSalario(BigDecimal salario) {
-        this.salario = salario;
     }
     
     

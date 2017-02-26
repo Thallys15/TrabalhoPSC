@@ -22,12 +22,19 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
     Atleta atleta = new Atleta();
     MasterClub_Apresentacao master = new MasterClub_Apresentacao();
     AtletaRepositorio bd = new GerenciarFuncionamento().getAtleta();
+    ListarJogadores listarJogador = new ListarJogadores();
 
     /**
      * Creates new form TelaCadastroJogadores
      */
     public TelaCadastroJogadores() {
         initComponents();
+    }
+
+    TelaCadastroJogadores(Atleta atleta, ListarJogadores listaJogador) {
+        initComponents();
+        preencherCampos(atleta);
+        this.listarJogador = listarJogador;
     }
 
     /**
@@ -495,7 +502,7 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
             atleta.setClube(clube);
         }
     }
-    private void preencherCampos() {
+    private void preencherCampos(Atleta atleta) {
         
         txtNome.setText(atleta.getNome());
         txtAltura.setText(Double.toString(atleta.getAltura()));

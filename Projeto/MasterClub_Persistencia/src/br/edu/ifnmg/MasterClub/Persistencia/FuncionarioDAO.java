@@ -94,8 +94,8 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
     @Override
     public Funcionario Abrir(String cpf) throws SQLException {
         try{
-          PreparedStatement sql = conn.prepareStatement("SELECT id,nome,cpf,rg,cargo,idade,salario FROM funcionario WHERE cpf = ?");
-          sql.setString(1, cpf);       
+          PreparedStatement sql = conn.prepareStatement("select id,nome,cpf,rg,cargo,idade,salario from funcionario where cpf = ?");
+          sql.setString(1, cpf);
           ResultSet resultado = sql.executeQuery();
           if(resultado.next()) return preencheObjeto(resultado);
         } catch (SQLException ex){
@@ -107,7 +107,7 @@ public class FuncionarioDAO extends DAOGenerico<Funcionario> implements Funciona
     @Override
     public boolean validarFuncionario(int id, String nome) {
          try {
-            PreparedStatement sql = conn.prepareStatement("SELECT id FROM funcionario WHERE id = ? AND nome = ?");
+            PreparedStatement sql = conn.prepareStatement("select id from funcionario where id = ? and nome = ?");
             sql.setInt(1,id);
             sql.setString(2, nome);
             ResultSet resultado = sql.executeQuery();
