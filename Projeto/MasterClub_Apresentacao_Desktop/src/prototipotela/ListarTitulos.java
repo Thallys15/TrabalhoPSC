@@ -5,17 +5,27 @@
  */
 package prototipotela;
 
+import br.edu.ifnmg.MasterClub.Entidades.Titulos;
+import br.edu.ifnmg.MasterClub.Entidades.TitulosRepositorio;
+import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author thallys
  */
 public class ListarTitulos extends javax.swing.JFrame {
+    TitulosRepositorio bd_dao;
+    Titulos titulos = new Titulos();
+    ArrayList<Titulos> efetuarBusca = new ArrayList<>();
 
     /**
      * Creates new form TelaCampeonatos
      */
     public ListarTitulos() {
         initComponents();
+        this.bd_dao = GerenciarFuncionamento.getTitulo();
     }
 
     /**
@@ -30,17 +40,17 @@ public class ListarTitulos extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         PainelTabelaTit = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TabelaResultadoTit = new javax.swing.JTable();
-        BotaoNovoTit = new javax.swing.JButton();
-        BotaoEditarTit = new javax.swing.JButton();
+        tblResultado = new javax.swing.JTable();
+        btnNovo = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         PainelFiltroTit = new javax.swing.JPanel();
         lblNomePatrocinador = new javax.swing.JLabel();
-        CampoNomePesquisaDep = new javax.swing.JTextField();
-        BotaoLimparDep = new javax.swing.JButton();
-        BotaoBuscarDep = new javax.swing.JButton();
-        BotaoSairDep = new javax.swing.JButton();
+        txtNome = new javax.swing.JTextField();
+        btnLimpar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         lblimagem = new javax.swing.JLabel();
-        BotaoExcluirTit = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,27 +58,34 @@ public class ListarTitulos extends javax.swing.JFrame {
 
         PainelTabelaTit.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 
-        TabelaResultadoTit.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        TabelaResultadoTit.setModel(new javax.swing.table.DefaultTableModel(
+        tblResultado.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        tblResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nome", "Temporada"
+                "Id", "Nome", "Temporada"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane1.setViewportView(TabelaResultadoTit);
+        jScrollPane1.setViewportView(tblResultado);
 
         javax.swing.GroupLayout PainelTabelaTitLayout = new javax.swing.GroupLayout(PainelTabelaTit);
         PainelTabelaTit.setLayout(PainelTabelaTitLayout);
@@ -87,21 +104,21 @@ public class ListarTitulos extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        BotaoNovoTit.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoNovoTit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/Novo.png"))); // NOI18N
-        BotaoNovoTit.setText("Novo");
-        BotaoNovoTit.addActionListener(new java.awt.event.ActionListener() {
+        btnNovo.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/Novo.png"))); // NOI18N
+        btnNovo.setText("Novo");
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoNovoTitActionPerformed(evt);
+                btnNovoActionPerformed(evt);
             }
         });
 
-        BotaoEditarTit.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoEditarTit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/edit.png"))); // NOI18N
-        BotaoEditarTit.setText("Editar");
-        BotaoEditarTit.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/edit.png"))); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoEditarTitActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
 
@@ -110,26 +127,26 @@ public class ListarTitulos extends javax.swing.JFrame {
         lblNomePatrocinador.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         lblNomePatrocinador.setText("Nome");
 
-        BotaoLimparDep.setBackground(new java.awt.Color(255, 255, 255));
-        BotaoLimparDep.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoLimparDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/limpar.png"))); // NOI18N
-        BotaoLimparDep.setText("Limpar");
-        BotaoLimparDep.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpar.setBackground(new java.awt.Color(255, 255, 255));
+        btnLimpar.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/limpar.png"))); // NOI18N
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoLimparDepActionPerformed(evt);
+                btnLimparActionPerformed(evt);
             }
         });
 
-        BotaoBuscarDep.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoBuscarDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
-        BotaoBuscarDep.setText("Buscar");
+        btnBuscar.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
+        btnBuscar.setText("Buscar");
 
-        BotaoSairDep.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        BotaoSairDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
-        BotaoSairDep.setText("Sair");
-        BotaoSairDep.addActionListener(new java.awt.event.ActionListener() {
+        btnSair.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoSairDepActionPerformed(evt);
+                btnSairActionPerformed(evt);
             }
         });
 
@@ -143,14 +160,14 @@ public class ListarTitulos extends javax.swing.JFrame {
                         .addGap(105, 105, 105)
                         .addComponent(lblNomePatrocinador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CampoNomePesquisaDep, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PainelFiltroTitLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(BotaoLimparDep)
+                        .addComponent(btnLimpar)
                         .addGap(18, 18, 18)
-                        .addComponent(BotaoBuscarDep, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(BotaoSairDep, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         PainelFiltroTitLayout.setVerticalGroup(
@@ -158,24 +175,24 @@ public class ListarTitulos extends javax.swing.JFrame {
             .addGroup(PainelFiltroTitLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(PainelFiltroTitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoNomePesquisaDep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNomePatrocinador))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(PainelFiltroTitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotaoLimparDep, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoBuscarDep, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotaoSairDep, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63))
         );
 
         lblimagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/0000000362021_img.png"))); // NOI18N
 
-        BotaoExcluirTit.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
-        BotaoExcluirTit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/delete.png"))); // NOI18N
-        BotaoExcluirTit.setText("Excluir");
-        BotaoExcluirTit.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluir.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/delete.png"))); // NOI18N
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoExcluirTitActionPerformed(evt);
+                btnExcluirActionPerformed(evt);
             }
         });
 
@@ -195,11 +212,11 @@ public class ListarTitulos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(BotaoNovoTit, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BotaoEditarTit)
+                                .addComponent(btnEditar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BotaoExcluirTit))
+                                .addComponent(btnExcluir))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(PainelTabelaTit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -221,9 +238,9 @@ public class ListarTitulos extends javax.swing.JFrame {
                         .addComponent(PainelTabelaTit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BotaoEditarTit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotaoExcluirTit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotaoNovoTit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblimagem)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -232,28 +249,28 @@ public class ListarTitulos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotaoNovoTitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoTitActionPerformed
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         TelaCadastrodeTitulos abrir = new TelaCadastrodeTitulos();
         abrir.setVisible(true);
         abrir.setLocationRelativeTo(null);
         dispose();
-    }//GEN-LAST:event_BotaoNovoTitActionPerformed
+    }//GEN-LAST:event_btnNovoActionPerformed
 
-    private void BotaoEditarTitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEditarTitActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoEditarTitActionPerformed
+    }//GEN-LAST:event_btnEditarActionPerformed
 
-    private void BotaoLimparDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparDepActionPerformed
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoLimparDepActionPerformed
+    }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void BotaoSairDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairDepActionPerformed
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         dispose();
-    }//GEN-LAST:event_BotaoSairDepActionPerformed
+    }//GEN-LAST:event_btnSairActionPerformed
 
-    private void BotaoExcluirTitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExcluirTitActionPerformed
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotaoExcluirTitActionPerformed
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,20 +309,57 @@ public class ListarTitulos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotaoBuscarDep;
-    private javax.swing.JButton BotaoEditarTit;
-    private javax.swing.JButton BotaoExcluirTit;
-    private javax.swing.JButton BotaoLimparDep;
-    private javax.swing.JButton BotaoNovoTit;
-    private javax.swing.JButton BotaoSairDep;
-    private javax.swing.JTextField CampoNomePesquisaDep;
     private javax.swing.JPanel PainelFiltroTit;
     private javax.swing.JPanel PainelTabelaTit;
-    private javax.swing.JTable TabelaResultadoTit;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnSair;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNomePatrocinador;
     private javax.swing.JLabel lblimagem;
+    private javax.swing.JTable tblResultado;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
+    private void limparCampos() {
+        txtNome.setText("");        
+    }
+    private void buscarTodos() {
+        
+        Titulos filtro = new Titulos(0,null,null);
+        efetuarBusca =(ArrayList<Titulos>) bd_dao.Buscar(filtro);
+        preenchimentodaTabela(efetuarBusca);
+        
+    }
+    private void buscar(String nome) {
+        
+        Titulos filtro = new Titulos(0,nome,null);
+        efetuarBusca = (ArrayList<Titulos>) bd_dao.Buscar(filtro);
+        preenchimentodaTabela(efetuarBusca);
+        
+    }
+    private void preenchimentodaTabela(ArrayList<Titulos> efetuarBusca) {
+        
+        DefaultTableModel coluna = new DefaultTableModel();
+        
+        coluna.addColumn("id");
+        coluna.addColumn("nome");
+        coluna.addColumn("DataTitulo");
+             
+        for(Titulos BT:efetuarBusca){
+            Vector linha = new Vector();
+            linha.add(BT.getId());
+            linha.add(BT.getNomeTorneio());
+            linha.add(BT.getDatatitulo());            
+            
+            coluna.addRow(linha);
+            
+        }
+        
+        tblResultado.setModel(coluna);
+    }
 }

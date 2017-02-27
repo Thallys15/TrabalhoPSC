@@ -19,6 +19,12 @@ public class Titulos implements Entidade {
     public Titulos() {
     }
 
+    public Titulos(int id, String nomeTorneio, Date datatitulo) {
+        this.id = id;
+        this.nomeTorneio = nomeTorneio;
+        this.datatitulo = datatitulo;
+    }    
+
     public int getId() {
         return id;
     }
