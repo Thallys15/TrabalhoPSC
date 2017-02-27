@@ -26,6 +26,7 @@ public class ListarJogadores extends javax.swing.JFrame {
      */
     public ListarJogadores() {
         initComponents();
+        this.bd_dao = GerenciarFuncionamento.getAtleta();
     }
 
     /**
@@ -366,7 +367,7 @@ public class ListarJogadores extends javax.swing.JFrame {
 
     private void buscar(String nome) {
         
-        Atleta filtro = new Atleta(0, null, null, null, null, null, 0, 0, 0, null, null, 0);
+        Atleta filtro = new Atleta(0, nome, null, null, null, null, 0, 0.0, 0.0, null, null, 0);
         efetuarBusca = (ArrayList<Atleta>) bd_dao.Buscar(filtro);
         preenchimentodaTabela(efetuarBusca);
         

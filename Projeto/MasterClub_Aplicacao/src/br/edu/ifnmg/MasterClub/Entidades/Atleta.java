@@ -42,10 +42,12 @@ public class Atleta implements Entidade{
         this.clube = clube;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }

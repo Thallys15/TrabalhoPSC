@@ -27,8 +27,7 @@ public class AtletaDAO extends DAOGenerico<Atleta> implements AtletaRepositorio{
                 + " values(?,?,?,?,?,?,?,?,?,?,?)");
         setConsultaAlterar("update  set  nome = ?, posicao = ?, lado = ?, categoria = ?"
                 + " naturalidade = ?, idade = ?, altura = ?, peso = ?, cpf = ?, rg = ?, clube = ? where id = ?");
-        setConsultaBusca("select id, nome, posicao, lado, categoria, naturalidade"
-                + " idade, altura, peso, cpf, rg, clube from atleta ");
+        setConsultaBusca("select id, nome, posicao, lado, categoria, naturalidade, idade, altura, peso, cpf, rg, clube from atleta ");
         clube = new ClubeDAO();
     }
 
@@ -79,6 +78,7 @@ public class AtletaDAO extends DAOGenerico<Atleta> implements AtletaRepositorio{
     protected void preencheFiltros(Atleta filtro) {
         if(filtro.getId() > 0 ) adicionarFiltro("id", "=");
         if(filtro.getNome()!= null) adicionarFiltro("nome", " = ");
+        if(filtro.getPosicao()!= null) adicionarFiltro("posicao", " like ");
         if(filtro.getLado()!= null) adicionarFiltro("lado", " like ");
         if(filtro.getCategoria()!= null) adicionarFiltro("categoria", " like ");
         if(filtro.getNaturalidade()!= null) adicionarFiltro("naturalidade", " like ");
@@ -99,6 +99,8 @@ public class AtletaDAO extends DAOGenerico<Atleta> implements AtletaRepositorio{
         if(filtro.getPosicao()!= null) { sql.setString(cont, filtro.getPosicao()); cont++;  }
         if(filtro.getLado()!= null) { sql.setString(cont, filtro.getLado()); cont++;  }
         if(filtro.getCategoria()!= null) { sql.setString(cont, filtro.getCategoria()); cont++;  }
+        if(filtro.getNaturalidade()!= null) { sql.setString(cont, filtro.getNaturalidade()); cont++;  }
+        if(filtro.getIdade()> 0) { sql.setInt(cont, filtro.getIdade()); cont++;  }
         if(filtro.getAltura() > 0) { sql.setDouble(cont, filtro.getAltura()); cont++;  }
         if(filtro.getPeso()> 0) { sql.setDouble(cont, filtro.getPeso()); cont++;  }
         if(filtro.getCpf()!= null) { sql.setString(cont, filtro.getCpf()); cont++;  }

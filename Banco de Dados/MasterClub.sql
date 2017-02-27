@@ -71,8 +71,8 @@ use MasterClub;
         idade int,
         altura double,
         peso double,
-        cpf char(11),
-        rg char(10),
+        cpf char(14),
+        rg char(11),
         clube int,
         foreign key (clube) references clube(id)
     );
@@ -121,6 +121,5 @@ use MasterClub;
         dataaluguel date,
         valorTotalAluguel float
 	);
-    insert into usuario(login,senha) values ('igor','123');
-    select * from funcionario;
-    select id,nome, cpf, rg, cargo, idade, salario from funcionario; 
+    insert into clube(cnpj,nome,quantidade_atletas,titulo) values ('111','sesc',10,1);
+    select * from ;
