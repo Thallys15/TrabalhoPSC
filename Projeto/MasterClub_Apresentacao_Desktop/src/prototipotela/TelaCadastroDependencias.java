@@ -22,12 +22,19 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
     Dependencia dependencia = new Dependencia();
     MasterClub_Apresentacao master = new MasterClub_Apresentacao();
     DependenciaRepositorio bd = new GerenciarFuncionamento().getDependencia();
+    ListarDependencias listarDependencias = new ListarDependencias();
 
     /**
      * Creates new form TelaCadastroDependencias
      */
     public TelaCadastroDependencias() {
         initComponents();
+    }
+
+    TelaCadastroDependencias(Dependencia dependencia, ListarDependencias listarDependencias) {
+        initComponents();
+        preencherCampos(dependencia);
+        this.listarDependencias = listarDependencias;
     }
 
     /**
@@ -268,7 +275,7 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
             dependencia.setCapacidade(BigDecimal.valueOf(capacidade));
         }
     }
-    private void preencherCampos() {
+    private void preencherCampos(Dependencia dependencia) {
         String capacidade = String.valueOf(dependencia.getCapacidade());
         txtNome.setText(dependencia.getNome());
         txtCapacidade.setText(capacidade);
