@@ -68,7 +68,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
         lblIdade1 = new javax.swing.JLabel();
         txtSalario = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocation(new java.awt.Point(200, 70));
         setResizable(false);
 

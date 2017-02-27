@@ -50,7 +50,7 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
         BotaoLimparFunc = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
         setSize(new java.awt.Dimension(250, 100));
 

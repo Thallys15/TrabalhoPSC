@@ -53,7 +53,7 @@ public class ListarJogadores extends javax.swing.JFrame {
         tblResultado = new javax.swing.JTable();
         btnMostrarTodos = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         PainelFiltroJogadores.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar Jogadores", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N

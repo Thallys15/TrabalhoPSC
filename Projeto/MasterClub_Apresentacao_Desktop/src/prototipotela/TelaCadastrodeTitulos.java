@@ -53,7 +53,7 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         FunndoCadastroTitulos.setBackground(new java.awt.Color(254, 254, 254));
