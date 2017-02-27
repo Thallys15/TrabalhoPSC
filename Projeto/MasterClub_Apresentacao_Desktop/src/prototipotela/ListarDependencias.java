@@ -52,7 +52,7 @@ public class ListarDependencias extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         btnMostrarTodos = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         lblimagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/stadium-29484.jpg"))); // NOI18N

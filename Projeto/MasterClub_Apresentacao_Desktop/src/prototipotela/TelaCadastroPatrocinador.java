@@ -59,7 +59,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
         BotaoLimparFunc = new javax.swing.JButton();
         txtValorPatrocinio = new javax.swing.JFormattedTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
