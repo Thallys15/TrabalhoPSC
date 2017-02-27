@@ -5,17 +5,28 @@
  */
 package prototipotela;
 
+import br.edu.ifnmg.MasterClub.Entidades.Patrocinio;
+import br.edu.ifnmg.MasterClub.Entidades.PatrocinioRepositorio;
+import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author tls15
  */
 public class ListarPatrocinadores extends javax.swing.JFrame {
+    PatrocinioRepositorio bd_dao;
+    Patrocinio patrocinador = new Patrocinio();
+    ArrayList<Patrocinio> efetuarBusca = new ArrayList<>();
 
     /**
      * Creates new form ListarPatrocinadores
      */
     public ListarPatrocinadores() {
         initComponents();
+        this.bd_dao = GerenciarFuncionamento.getPatrocinio();
     }
 
     /**
@@ -29,17 +40,18 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
 
         PainelFiltroPatrocinador = new javax.swing.JPanel();
         lblNomePatrocinador = new javax.swing.JLabel();
-        CampoNomePesquisaPat = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         BotaoLimparPat = new javax.swing.JButton();
         BotaoBuscarPat = new javax.swing.JButton();
         BotaoSairPat = new javax.swing.JButton();
         BotaoExcluirPat = new javax.swing.JButton();
         PainelTabelaPat = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TabelaResultado = new javax.swing.JTable();
+        tblResultado = new javax.swing.JTable();
         BotaoNovoPat = new javax.swing.JButton();
         BotaoEditarPat = new javax.swing.JButton();
         lblimagem = new javax.swing.JLabel();
+        btnMostrarTodos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -62,6 +74,11 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
         BotaoBuscarPat.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
         BotaoBuscarPat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
         BotaoBuscarPat.setText("Buscar");
+        BotaoBuscarPat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoBuscarPatActionPerformed(evt);
+            }
+        });
 
         BotaoSairPat.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         BotaoSairPat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
@@ -82,7 +99,7 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
                         .addGap(105, 105, 105)
                         .addComponent(lblNomePatrocinador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CampoNomePesquisaPat, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PainelFiltroPatrocinadorLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addComponent(BotaoLimparPat)
@@ -97,7 +114,7 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
             .addGroup(PainelFiltroPatrocinadorLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(PainelFiltroPatrocinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CampoNomePesquisaPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNomePatrocinador))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(PainelFiltroPatrocinadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -118,27 +135,27 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
 
         PainelTabelaPat.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18))); // NOI18N
 
-        TabelaResultado.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        TabelaResultado.setModel(new javax.swing.table.DefaultTableModel(
+        tblResultado.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        tblResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nome", "Valor"
+                "Id", "Nome", "Valor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(TabelaResultado);
+        jScrollPane1.setViewportView(tblResultado);
 
         javax.swing.GroupLayout PainelTabelaPatLayout = new javax.swing.GroupLayout(PainelTabelaPat);
         PainelTabelaPat.setLayout(PainelTabelaPatLayout);
@@ -175,6 +192,15 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
 
         lblimagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/item_heineken.png"))); // NOI18N
 
+        btnMostrarTodos.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnMostrarTodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
+        btnMostrarTodos.setText("Buscar");
+        btnMostrarTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarTodosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,15 +212,16 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
                                 .addComponent(BotaoNovoPat, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BotaoEditarPat)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotaoExcluirPat)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BotaoExcluirPat))
+                                .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(PainelTabelaPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 104, Short.MAX_VALUE)))
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
@@ -210,7 +237,8 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BotaoEditarPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BotaoExcluirPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotaoNovoPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(BotaoNovoPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -229,7 +257,20 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoSairPatActionPerformed
 
     private void BotaoExcluirPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoExcluirPatActionPerformed
-        // TODO add your handling code here:
+        int posicaoVetor = tblResultado.getSelectedRow();
+        
+        if(posicaoVetor >=0){
+            Patrocinio patrocinio = efetuarBusca.get(posicaoVetor);
+            String mensagem = "Deseja realmente excluir esse patrcinador?";
+            int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Mensagem de confirmação", JOptionPane.YES_NO_OPTION);
+           
+            if(opcao == JOptionPane.YES_OPTION){
+                bd_dao.Apagar(patrocinio);
+                buscarTodos();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Escolha o campo a ser excluído!");
+        }
     }//GEN-LAST:event_BotaoExcluirPatActionPerformed
 
     private void BotaoNovoPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoNovoPatActionPerformed
@@ -240,8 +281,30 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoNovoPatActionPerformed
 
     private void BotaoEditarPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEditarPatActionPerformed
-        // TODO add your handling code here:
+        int posicao = tblResultado.getSelectedRow();
+        
+        if(posicao >= 0){
+            Patrocinio patrocinador = efetuarBusca.get(posicao);
+            String mensagem = "Quase pronto, deseja editar este patrocinador?";
+            int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Mensagem de Confirmação", JOptionPane.YES_NO_OPTION);
+            
+            if(opcao == JOptionPane.YES_OPTION ){
+                TelaCadastroPatrocinador telaCadastrarPatrocinio = new TelaCadastroPatrocinador(patrocinador,this);
+                telaCadastrarPatrocinio.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Escolha o campo na tabela a ser modificado");
+            }
+            
+        }
     }//GEN-LAST:event_BotaoEditarPatActionPerformed
+
+    private void BotaoBuscarPatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoBuscarPatActionPerformed
+        buscar(txtNome.getText());
+    }//GEN-LAST:event_BotaoBuscarPatActionPerformed
+
+    private void btnMostrarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTodosActionPerformed
+        buscarTodos();
+    }//GEN-LAST:event_btnMostrarTodosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,12 +348,53 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
     private javax.swing.JButton BotaoLimparPat;
     private javax.swing.JButton BotaoNovoPat;
     private javax.swing.JButton BotaoSairPat;
-    private javax.swing.JTextField CampoNomePesquisaPat;
     private javax.swing.JPanel PainelFiltroPatrocinador;
     private javax.swing.JPanel PainelTabelaPat;
-    private javax.swing.JTable TabelaResultado;
+    private javax.swing.JButton btnMostrarTodos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNomePatrocinador;
     private javax.swing.JLabel lblimagem;
+    private javax.swing.JTable tblResultado;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
+
+    private void limparCampos() {
+        txtNome.setText("");        
+    }
+
+    private void buscarTodos() {
+        
+        Patrocinio filtro = new Patrocinio(0,null,null);
+        efetuarBusca =(ArrayList<Patrocinio>) bd_dao.Buscar(filtro);
+        preenchimentodaTabela(efetuarBusca);
+        
+    }
+
+    private void buscar(String nome) {
+        
+        Patrocinio filtro = new Patrocinio(0,nome,null);
+        efetuarBusca = (ArrayList<Patrocinio>) bd_dao.Buscar(filtro);
+        preenchimentodaTabela(efetuarBusca);
+        
+    }
+    private void preenchimentodaTabela(ArrayList<Patrocinio> efetuarBusca) {
+        
+        DefaultTableModel coluna = new DefaultTableModel();
+        
+        coluna.addColumn("id");
+        coluna.addColumn("nome");
+        coluna.addColumn("Valor");
+             
+        for(Patrocinio BP:efetuarBusca){
+            Vector linha = new Vector();
+            linha.add(BP.getId());
+            linha.add(BP.getNome());
+            linha.add(BP.getValorPatrocinio());            
+            
+            coluna.addRow(linha);
+            
+        }
+        
+        tblResultado.setModel(coluna);
+    }
 }

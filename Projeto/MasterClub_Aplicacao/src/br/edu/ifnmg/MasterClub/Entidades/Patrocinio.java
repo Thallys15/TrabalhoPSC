@@ -17,6 +17,12 @@ public class Patrocinio implements Entidade{
     private String nome;
     private BigDecimal valorPatrocinio;
 
+    public Patrocinio(int id, String nome, BigDecimal valorPatrocinio) {
+        this.id = id;
+        this.nome = nome;
+        this.valorPatrocinio = valorPatrocinio;
+    }
+
     public BigDecimal getValorPatrocinio() {
         return valorPatrocinio;
     }

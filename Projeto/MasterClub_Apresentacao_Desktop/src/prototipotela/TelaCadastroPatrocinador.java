@@ -21,15 +21,21 @@ import masterclub_apresentacao.MasterClub_Apresentacao;
  * @author thallys
  */
 public class TelaCadastroPatrocinador extends javax.swing.JFrame {
-    Patrocinio patrocinador = new Patrocinio();
+    Patrocinio patrocinio = new Patrocinio();
     MasterClub_Apresentacao master = new MasterClub_Apresentacao();
     PatrocinioRepositorio bd = new GerenciarFuncionamento().getPatrocinio();
-
+    ListarPatrocinadores listarPatrocinio = new ListarPatrocinadores();
     /**
      * Creates new form TelaCadastroPatrocinador
      */
     public TelaCadastroPatrocinador() {
         initComponents();
+    }
+
+    TelaCadastroPatrocinador(Patrocinio patrocinador, ListarPatrocinadores ListarPatrocinio) {
+        initComponents();
+        preencherCampos(patrocinio);
+        this.listarPatrocinio = ListarPatrocinio;
     }
 
     /**
@@ -200,13 +206,13 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
         try {
             
             this.recuperarCampos();
-            int codigo = patrocinador.getId();
+            int codigo = patrocinio.getId();
             if (codigo==0) {
-            master.criarPatrocinio(patrocinador);
+            master.criarPatrocinio(patrocinio);
             this.limparCampos();
             JOptionPane.showMessageDialog(this, "patrocinador Cadastrado com sucesso");
             } else {
-                bd.Alterar(patrocinador);
+                bd.Alterar(patrocinio);
                 JOptionPane.showMessageDialog(this, "Sucesso!!! O patrocinador foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
             }
             
@@ -276,17 +282,17 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
 
         String nome = txtNome.getText().trim();
         if(!nome.equals("")){
-            patrocinador.setNome(nome);
+            patrocinio.setNome(nome);
         }
         
         double valor = Double.parseDouble(txtValorPatrocinio.getText().trim());
         if (valor != 0) {
-            patrocinador.setValorPatrocinio(BigDecimal.valueOf(valor));
+            patrocinio.setValorPatrocinio(BigDecimal.valueOf(valor));
         }
     }
-    private void preencherCampos() {
-        String valor = String.valueOf(patrocinador.getValorPatrocinio());
-        txtNome.setText(patrocinador.getNome());
+    private void preencherCampos(Patrocinio patrocinio) {
+        String valor = String.valueOf(patrocinio.getValorPatrocinio());
+        txtNome.setText(patrocinio.getNome());
         txtValorPatrocinio.setText(valor);
         
     }

@@ -100,7 +100,7 @@ use MasterClub;
         foreign key (chefe) references chefe(id)
     );
     create table patrocinio(
-		codigo int primary key auto_increment,
+		id int primary key auto_increment,
         nome varchar(50),
         valor double
     );
@@ -110,7 +110,7 @@ use MasterClub;
         clube int,
         valorpatrocinio float,
         foreign key (clube) references clube(id),
-        foreign key (patrocinio) references patrocinio(codigo)
+        foreign key (patrocinio) references patrocinio(id)
     );
     create table aluguel(
 		id int primary key auto_increment,
@@ -122,4 +122,5 @@ use MasterClub;
         valorTotalAluguel float
 	);
     insert into clube(cnpj,nome,quantidade_atletas,titulo) values ('111','sesc',10,1);
-    select * from ;
+    select * from patrocinio;
+    drop table patrocinio;
