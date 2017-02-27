@@ -24,12 +24,19 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
     Titulos titulo = new Titulos();
     MasterClub_Apresentacao master = new MasterClub_Apresentacao();
     TitulosRepositorio bd = new GerenciarFuncionamento().getTitulo();
+    ListarTitulos listarTitulos = new ListarTitulos();
 
     /**
      * Creates new form CadastrodeTitulos
      */
     public TelaCadastrodeTitulos() {
         initComponents();
+    }
+
+    TelaCadastrodeTitulos(Titulos titulos, ListarTitulos listarTitulos) {
+        initComponents();
+        preencherCampos(titulos);
+        this.listarTitulos = listarTitulos;
     }
 
     /**
@@ -295,7 +302,7 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
         }
 
     }
-    private void preencherCampos() {
+    private void preencherCampos(Titulos titulos) {
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
         String temporada= formatador.format(titulo.getDatatitulo());
         txtNomeTorneio.setText(titulo.getNomeTorneio());

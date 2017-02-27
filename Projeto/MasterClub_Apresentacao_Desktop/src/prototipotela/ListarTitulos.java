@@ -9,6 +9,7 @@ import br.edu.ifnmg.MasterClub.Entidades.Titulos;
 import br.edu.ifnmg.MasterClub.Entidades.TitulosRepositorio;
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -52,6 +53,7 @@ public class ListarTitulos extends javax.swing.JFrame {
         lblimagem = new javax.swing.JLabel();
         btnExcluir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnMostrarTodos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -140,6 +142,11 @@ public class ListarTitulos extends javax.swing.JFrame {
         btnBuscar.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnSair.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1473722394_No.png"))); // NOI18N
@@ -198,6 +205,15 @@ public class ListarTitulos extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/MUFCBR_Premier League.png"))); // NOI18N
 
+        btnMostrarTodos.setFont(new java.awt.Font("Arial Narrow", 1, 16)); // NOI18N
+        btnMostrarTodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474448538_magnifyingglass.png"))); // NOI18N
+        btnMostrarTodos.setText("Buscar");
+        btnMostrarTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarTodosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -216,7 +232,9 @@ public class ListarTitulos extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnEditar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnExcluir))
+                                .addComponent(btnExcluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(PainelTabelaTit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -240,10 +258,10 @@ public class ListarTitulos extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblimagem)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(btnNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnMostrarTodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(lblimagem))
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -257,7 +275,21 @@ public class ListarTitulos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+        int posicao = tblResultado.getSelectedRow();
+        
+        if(posicao >= 0){
+            Titulos titulo = efetuarBusca.get(posicao);
+            String mensagem = "Quase pronto, deseja editar esta dependencia?";
+            int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Mensagem de Confirmação", JOptionPane.YES_NO_OPTION);
+            
+            if(opcao == JOptionPane.YES_OPTION ){
+                TelaCadastrodeTitulos telaCadastrarTitulos = new TelaCadastrodeTitulos(titulos,this);
+                telaCadastrarTitulos.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Escolha o campo na tabela a ser modificado");
+            }
+            
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -269,8 +301,29 @@ public class ListarTitulos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
+        int posicaoVetor = tblResultado.getSelectedRow();
+        
+        if(posicaoVetor >=0){
+            Titulos titulos = efetuarBusca.get(posicaoVetor);
+            String mensagem = "Deseja realmente excluir esse titulo?";
+            int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Mensagem de confirmação", JOptionPane.YES_NO_OPTION);
+           
+            if(opcao == JOptionPane.YES_OPTION){
+                bd_dao.Apagar(titulos);
+                buscarTodos();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Escolha o campo a ser excluído!");
+        }
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        buscar(txtNome.getText());
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnMostrarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarTodosActionPerformed
+        buscarTodos();
+    }//GEN-LAST:event_btnMostrarTodosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,6 +368,7 @@ public class ListarTitulos extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnMostrarTodos;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSair;
     private javax.swing.ButtonGroup buttonGroup1;
