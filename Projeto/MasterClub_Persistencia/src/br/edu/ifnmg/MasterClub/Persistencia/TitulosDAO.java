@@ -25,6 +25,7 @@ public class TitulosDAO extends DAOGenerico<Titulos> implements TitulosRepositor
        setConsultaAlterar("update titulos set id = ?, nome = ?,data_titulo = ? where id = ?");
        setConsultaApagar("delete from titulos where id = ?");
        setConsultaAbrir("select id, nome, data_titulo from titulos where id = ?");
+       setConsultaBusca("select id, nome, data_titulo from titulos ");
     } 
 
     @Override
