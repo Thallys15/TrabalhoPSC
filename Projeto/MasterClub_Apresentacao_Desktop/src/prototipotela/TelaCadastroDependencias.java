@@ -7,6 +7,7 @@ package prototipotela;
 
 import br.edu.ifnmg.MasterClub.Entidades.Dependencia;
 import br.edu.ifnmg.MasterClub.Entidades.DependenciaRepositorio;
+import br.edu.ifnmg.MasterClub.Entidades.ErroValidacao;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -23,18 +24,19 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
     MasterClub_Apresentacao master = new MasterClub_Apresentacao();
     DependenciaRepositorio bd = new GerenciarFuncionamento().getDependencia();
     ListarDependencias listarDependencias = new ListarDependencias();
-
     /**
      * Creates new form TelaCadastroDependencias
      */
     public TelaCadastroDependencias() {
         initComponents();
+        btnEditar.setEnabled(false);
     }
 
     TelaCadastroDependencias(Dependencia dependencia, ListarDependencias listarDependencias) {
         initComponents();
         preencherCampos(dependencia);
         this.listarDependencias = listarDependencias;
+        btnSalvar.setEnabled(false);
     }
 
     /**
@@ -50,12 +52,13 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnSalvar = new javax.swing.JButton();
         btnSairDep = new javax.swing.JButton();
         txtCapacidade = new javax.swing.JTextField();
         txtNome = new javax.swing.JTextField();
         BotaoLimparFunc = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -72,15 +75,6 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setText("Capacidade");
-
-        btnSalvar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
-        btnSalvar.setText("Salvar");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
 
         btnSairDep.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         btnSairDep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360844_Exit.png"))); // NOI18N
@@ -109,6 +103,24 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
             }
         });
 
+        btnSalvar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+
+        btnEditar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,6 +130,15 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(266, 266, 266)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotaoLimparFunc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSairDep, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -131,14 +152,8 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
                             .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCapacidade, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BotaoLimparFunc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSairDep, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(206, 206, 206)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -159,14 +174,16 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(56, 56, 56)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSalvar)
                             .addComponent(BotaoLimparFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3)
-                            .addComponent(btnSairDep)))
+                            .addComponent(btnSairDep)
+                            .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel7)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -185,7 +202,7 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
         ListarDependencias abrir = new ListarDependencias();
         abrir.setVisible(true);
         abrir.setLocationRelativeTo(null);
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -197,17 +214,29 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
             master.criarDependencia(dependencia);
             this.limparCampos();
             JOptionPane.showMessageDialog(this, "Parabéns!!! seu clube agora tem mais uma dependencia");
-            } else {
-                bd.Alterar(dependencia);
-                JOptionPane.showMessageDialog(this, "parabéns!!! voce alterou sua dependencia com sucesso", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
             }
-            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ops!!! algumas coisa não esta certa, verifique novamente sua conexão com o banco de dados." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
             this.limparCampos();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        try {
+            
+            this.recuperarCampos();
+            int codigo = dependencia.getId();
+            if (codigo != 0) {
+                bd.Alterar(dependencia);
+                JOptionPane.showMessageDialog(this, "parabéns!!! voce alterou sua dependencia com sucesso", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Alteração não efetuada ocorreu um erro." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+            this.limparCampos();
+        }        
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,6 +275,7 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoLimparFunc;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnSairDep;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton jButton3;
@@ -275,9 +305,10 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
             dependencia.setCapacidade(BigDecimal.valueOf(capacidade));
         }
     }
-    private void preencherCampos(Dependencia dependencia) {
-        String capacidade = String.valueOf(dependencia.getCapacidade());
-        txtNome.setText(dependencia.getNome());
+    private void preencherCampos(Dependencia dependencia1) {
+        String capacidade = String.valueOf(dependencia1.getCapacidade());
+        dependencia = dependencia1;
+        txtNome.setText(dependencia1.getNome());
         txtCapacidade.setText(capacidade);
         
     }

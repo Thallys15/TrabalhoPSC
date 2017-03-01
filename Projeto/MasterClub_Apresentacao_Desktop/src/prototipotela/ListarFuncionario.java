@@ -300,6 +300,7 @@ public class ListarFuncionario extends javax.swing.JFrame {
             if(opcao == JOptionPane.YES_OPTION ){
                 TelaCadastroFuncionario telaCadastrarFuncionario = new TelaCadastroFuncionario(funcionario,this);
                 telaCadastrarFuncionario.setVisible(true);
+                this.dispose();
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Escolha o campo na tabela a ser modificado");
             }

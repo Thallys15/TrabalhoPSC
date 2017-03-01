@@ -283,8 +283,9 @@ public class ListarTitulos extends javax.swing.JFrame {
             int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Mensagem de Confirmação", JOptionPane.YES_NO_OPTION);
             
             if(opcao == JOptionPane.YES_OPTION ){
-                TelaCadastrodeTitulos telaCadastrarTitulos = new TelaCadastrodeTitulos(titulos,this);
+                TelaCadastrodeTitulos telaCadastrarTitulos = new TelaCadastrodeTitulos(titulo,this);
                 telaCadastrarTitulos.setVisible(true);
+                this.dispose();
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Escolha o campo na tabela a ser modificado");
             }

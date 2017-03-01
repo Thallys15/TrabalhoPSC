@@ -22,7 +22,7 @@ public class TitulosDAO extends DAOGenerico<Titulos> implements TitulosRepositor
     
     public TitulosDAO(){
        setConsultaInserir("insert into titulos(nome, data_titulo)values(?,?)");
-       setConsultaAlterar("update titulos set id = ?, nome = ?,data_titulo = ? where id = ?");
+       setConsultaAlterar("update titulos set nome = ?,data_titulo = ? where id = ?");
        setConsultaApagar("delete from titulos where id = ?");
        setConsultaAbrir("select id, nome, data_titulo from titulos where id = ?");
        setConsultaBusca("select id, nome, data_titulo from titulos ");

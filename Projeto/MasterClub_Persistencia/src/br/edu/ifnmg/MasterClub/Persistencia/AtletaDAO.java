@@ -25,8 +25,7 @@ public class AtletaDAO extends DAOGenerico<Atleta> implements AtletaRepositorio{
         setConsultaApagar("delete from atleta where id = ?");
         setConsultaInserir("insert into atleta(nome,posicao, lado, categoria, naturalidade,idade, altura, peso, cpf, rg, clube)"
                 + " values(?,?,?,?,?,?,?,?,?,?,?)");
-        setConsultaAlterar("update  set  nome = ?, posicao = ?, lado = ?, categoria = ?"
-                + " naturalidade = ?, idade = ?, altura = ?, peso = ?, cpf = ?, rg = ?, clube = ? where id = ?");
+        setConsultaAlterar("update  atleta set  nome = ?, posicao = ?, lado = ?, categoria = ?, naturalidade = ?, idade = ?, altura = ?, peso = ?, cpf = ?, rg = ?, clube = ? where id = ?");
         setConsultaBusca("select id, nome, posicao, lado, categoria, naturalidade, idade, altura, peso, cpf, rg, clube from atleta ");
         clube = new ClubeDAO();
     }

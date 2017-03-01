@@ -114,7 +114,7 @@ public abstract class DAOGenerico<T extends Entidade> implements Repositorio<T> 
             sql.executeUpdate();
             return true;
         } catch (SQLException ex) {
-            System.out.println(ex + "Dg Alterar");
+            System.out.println(ex + "erro ao alterar");
         }
         return false;
     }

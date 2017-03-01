@@ -284,13 +284,14 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
         int posicao = tblResultado.getSelectedRow();
         
         if(posicao >= 0){
-            Patrocinio patrocinador = efetuarBusca.get(posicao);
-            String mensagem = "Quase pronto, deseja editar este patrocinador?";
+            Patrocinio patrocinio = efetuarBusca.get(posicao);
+            String mensagem = "Quase pronto, deseja editar esta dependencia?";
             int opcao = JOptionPane.showConfirmDialog(this, mensagem, "Mensagem de Confirmação", JOptionPane.YES_NO_OPTION);
             
             if(opcao == JOptionPane.YES_OPTION ){
-                TelaCadastroPatrocinador telaCadastrarPatrocinio = new TelaCadastroPatrocinador(patrocinador,this);
-                telaCadastrarPatrocinio.setVisible(true);
+                TelaCadastroPatrocinador telaCadastrarPatrocinador = new TelaCadastroPatrocinador(patrocinio,this);
+                telaCadastrarPatrocinador.setVisible(true);
+                this.dispose();
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Escolha o campo na tabela a ser modificado");
             }

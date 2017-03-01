@@ -31,12 +31,14 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
      */
     public TelaCadastrodeTitulos() {
         initComponents();
+        btnEditar.setEnabled(false);
     }
 
-    TelaCadastrodeTitulos(Titulos titulos, ListarTitulos listarTitulos) {
+    TelaCadastrodeTitulos(Titulos titulo, ListarTitulos listarTitulos) {
         initComponents();
-        preencherCampos(titulos);
+        preencherCampos(titulo);
         this.listarTitulos = listarTitulos;
+        btnSalvar.setEnabled(false);
     }
 
     /**
@@ -59,6 +61,7 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -114,6 +117,14 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/img/LIBERTA.png"))); // NOI18N
 
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout FunndoCadastroTitulosLayout = new javax.swing.GroupLayout(FunndoCadastroTitulos);
         FunndoCadastroTitulos.setLayout(FunndoCadastroTitulosLayout);
         FunndoCadastroTitulosLayout.setHorizontalGroup(
@@ -147,7 +158,9 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         FunndoCadastroTitulosLayout.setVerticalGroup(
@@ -172,7 +185,8 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoLimparFunc)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
@@ -201,9 +215,6 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
             master.criarTitulo(titulo);
             this.limparCampos();
             JOptionPane.showMessageDialog(this, "Titulo cadastrado!!!Parabéns pela conquista");
-            } else {
-                bd.Alterar(titulo);
-                JOptionPane.showMessageDialog(this, "Sucesso!!! O título foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
             }
             
         } catch (Exception e) {
@@ -221,13 +232,29 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
         ListarTitulos abrir = new ListarTitulos();
         abrir.setLocationRelativeTo(null);
         abrir.setVisible(true);
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        try {
+            
+            this.recuperarCampos();
+            int codigo = titulo.getId();
+            if (codigo != 0) {
+                bd.Alterar(titulo);
+                JOptionPane.showMessageDialog(this, "parabéns!!! voce alterou sua dependencia com sucesso", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Alteração não efetuada ocorreu um erro." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+            this.limparCampos();
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,6 +298,7 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
     private javax.swing.JPanel FunndoCadastroTitulos;
     private javax.swing.JLabel LogoTemporada;
     private javax.swing.JLabel NomeTorneioLabel;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -292,20 +320,17 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
             titulo.setNomeTorneio(nome);
         }
         Date temporada = new Date( formatador.parse(txtData.getText().trim()).getTime());
-          /*String dia = txtData.getText().substring(0,2);
-            String mes = txtData.getText().substring(3,5);
-            String ano = txtData.getText().substring(6);
-            String dataParaMysql = ano+""+mes+""+dia;   
-            dataParaMysql =new String(txtData.getText().trim());*/
+
         if (!temporada.equals("")) {
             titulo.setDatatitulo(temporada);
         }
 
     }
     private void preencherCampos(Titulos titulos) {
+        titulo = titulos;
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-        String temporada= formatador.format(titulo.getDatatitulo());
-        txtNomeTorneio.setText(titulo.getNomeTorneio());
+        String temporada= formatador.format(titulos.getDatatitulo());
+        txtNomeTorneio.setText(titulos.getNomeTorneio());
         txtData.setText(temporada);
         
     }

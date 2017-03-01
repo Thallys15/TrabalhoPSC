@@ -280,6 +280,7 @@ public class ListarDependencias extends javax.swing.JFrame {
             if(opcao == JOptionPane.YES_OPTION ){
                 TelaCadastroDependencias telaCadastrardependencia = new TelaCadastroDependencias(dependencia,this);
                 telaCadastrardependencia.setVisible(true);
+                this.dispose();
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Escolha o campo na tabela a ser modificado");
             }
@@ -288,7 +289,7 @@ public class ListarDependencias extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoEditarDepActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

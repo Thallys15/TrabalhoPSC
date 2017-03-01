@@ -30,12 +30,14 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
      */
     public TelaCadastroPatrocinador() {
         initComponents();
+        btnEditar.setEnabled(false);
     }
 
-    TelaCadastroPatrocinador(Patrocinio patrocinador, ListarPatrocinadores ListarPatrocinio) {
+    TelaCadastroPatrocinador(Patrocinio patrocinio, ListarPatrocinadores listarPatrocinio) {
         initComponents();
         preencherCampos(patrocinio);
-        this.listarPatrocinio = ListarPatrocinio;
+        this.listarPatrocinio = listarPatrocinio;
+        btnSalvar.setEnabled(false);
     }
 
     /**
@@ -58,6 +60,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         BotaoLimparFunc = new javax.swing.JButton();
         txtValorPatrocinio = new javax.swing.JFormattedTextField();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -112,6 +115,15 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
             }
         });
 
+        btnEditar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -137,11 +149,13 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BotaoSairCadPat, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BotaoSairCadPat, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(228, 228, 228)
                         .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,7 +180,8 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
                     .addComponent(btnSalvar)
                     .addComponent(BotaoSairCadPat)
                     .addComponent(BotaoLimparFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(btnEditar))
                 .addGap(57, 57, 57))
         );
 
@@ -195,7 +210,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
          ListarPatrocinadores abrir = new ListarPatrocinadores();
          abrir.setVisible(true);
          abrir.setLocationRelativeTo(null);
-         dispose();
+         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void BotaoLimparFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparFuncActionPerformed
@@ -211,9 +226,6 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
             master.criarPatrocinio(patrocinio);
             this.limparCampos();
             JOptionPane.showMessageDialog(this, "patrocinador Cadastrado com sucesso");
-            } else {
-                bd.Alterar(patrocinio);
-                JOptionPane.showMessageDialog(this, "Sucesso!!! O patrocinador foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
             }
             
         } catch (Exception e) {
@@ -222,6 +234,23 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
             this.limparCampos();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        try {
+            
+            this.recuperarCampos();
+            int codigo = patrocinio.getId();
+            if (codigo != 0) {
+                bd.Alterar(patrocinio);
+                JOptionPane.showMessageDialog(this, "Sucesso!!! O patrocinador foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Patrocinador não editado, informe o administrador da rede" + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+            this.limparCampos();
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,6 +290,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoLimparFunc;
     private javax.swing.JButton BotaoSairCadPat;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -290,9 +320,10 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
             patrocinio.setValorPatrocinio(BigDecimal.valueOf(valor));
         }
     }
-    private void preencherCampos(Patrocinio patrocinio) {
-        String valor = String.valueOf(patrocinio.getValorPatrocinio());
-        txtNome.setText(patrocinio.getNome());
+    private void preencherCampos(Patrocinio patrocinio1) {
+        patrocinio = patrocinio1;
+        String valor = String.valueOf(patrocinio1.getValorPatrocinio());
+        txtNome.setText(patrocinio1.getNome());
         txtValorPatrocinio.setText(valor);
         
     }
