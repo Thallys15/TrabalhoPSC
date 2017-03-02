@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f872c66d-89c4-4c7a-97fd-fe4080049810">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="88">
+			<staticText>
+				<reportElement style="Title" x="21" y="15" width="312" height="33" uuid="5f016d3b-4d70-4976-a57c-583a5dd5f64a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Listagem Patrocinadores]]></text>
+			</staticText>
+			<image>
+				<reportElement x="423" y="-18" width="132" height="103" uuid="0bb2904a-fa8a-48d5-8f22-6232f3c2e639"/>
+				<imageExpression><![CDATA["C:\\Users\\tls15\\Desktop\\TrabalhoPSC2\\TrabalhoPSC\\Projeto\\MasterClub_Apresentacao_Desktop\\src\\prototipotela\\img\\MasteClubLogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="4"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="48">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="868a6a8f-c16f-4ebf-8eb4-909ff962f8dc"/>
+			</line>
+			<staticText>
+				<reportElement x="7" y="25" width="40" height="20" uuid="35cbd31a-6eb2-498c-81a5-4395b2611f4e"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="21" width="100" height="20" uuid="b64c3d59-15d0-40c0-83c6-498bc57b8e2c"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="25" width="100" height="20" uuid="7182a4a0-0e19-4613-9eec-178c29f1f592"/>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="58">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="1d956828-97bb-4478-82f0-2cb95141ca94"/>
+			</line>
+			<textField>
+				<reportElement x="7" y="0" width="40" height="20" uuid="e23e3b4c-bc7a-446b-9ff1-4637ebd7ca7d"/>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="4" width="100" height="20" uuid="9159f92f-91e4-4e08-a4a4-78c32aca588d"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="4" width="100" height="20" uuid="4841c2db-84cd-4335-8b84-9161f9736dde"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="89"/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
