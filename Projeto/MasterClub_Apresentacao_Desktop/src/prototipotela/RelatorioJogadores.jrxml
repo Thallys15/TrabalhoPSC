@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="770c88ad-3ff7-402d-bc6f-e5dc5437e24c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="91">
+			<staticText>
+				<reportElement style="Title" x="11" y="0" width="275" height="33" uuid="8fcf5c61-fe66-4e9c-9c5d-57ba0f713225"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Listagem Jogadores]]></text>
+			</staticText>
+			<image>
+				<reportElement x="423" y="-12" width="132" height="103" uuid="4e242b3c-f898-4bc8-949d-3b379acf479a"/>
+				<imageExpression><![CDATA["C:\\Users\\tls15\\Desktop\\TrabalhoPSC2\\TrabalhoPSC\\Projeto\\MasterClub_Apresentacao_Desktop\\src\\prototipotela\\img\\MasteClubLogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="4"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="57">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="4c279444-622b-443e-a054-0169100191eb"/>
+			</line>
+			<staticText>
+				<reportElement x="-20" y="20" width="31" height="20" uuid="646b5cd9-dfe4-402f-bfe0-919e5fa9dbbb"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="20" width="54" height="20" uuid="4604acd1-5067-4065-aa72-616972a77130"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="21" width="56" height="20" uuid="c31e9bf9-7178-4b98-9bfb-34d18638f302"/>
+				<text><![CDATA[Posicao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="21" width="31" height="20" uuid="17cebc10-126a-4556-b1f0-8a2747a1e248"/>
+				<text><![CDATA[Lado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="21" width="50" height="20" uuid="91eb5215-bff5-4ab5-9276-b1c01c06e1de"/>
+				<text><![CDATA[Categoria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="21" width="64" height="20" uuid="ce128690-722a-4b9d-bb60-4edbca59dc8e"/>
+				<text><![CDATA[Naturalidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="21" width="31" height="20" uuid="aa0637a7-029d-4702-9221-f4b6dfe53b39"/>
+				<text><![CDATA[Idade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="21" width="39" height="20" uuid="bace6555-5978-4be4-b0e9-065a055f59d5"/>
+				<text><![CDATA[Altura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="21" width="28" height="20" uuid="d2232ee1-ea30-4360-8291-e1912e4d8a9d"/>
+				<text><![CDATA[Peso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="21" width="26" height="20" uuid="3086e5e2-bbea-46fe-8d45-d7bc88f3f719"/>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="20" width="26" height="20" uuid="f9c2d1c4-9732-4977-b12b-fff155062f7b"/>
+				<text><![CDATA[RG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="521" y="20" width="34" height="20" uuid="56a4fb1b-6b71-49d3-8e66-3fda60c3cdda"/>
+				<text><![CDATA[Clube]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="0283091a-7eb2-44b1-93e5-d285ddb4eea0"/>
+			</line>
+			<textField>
+				<reportElement x="-20" y="0" width="20" height="20" uuid="a11f9b5d-e70b-4dce-9d94-03ee05d2f01e"/>
+				<textFieldExpression><![CDATA[ID]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="0" width="54" height="20" uuid="b255e16e-eec5-48ea-bc92-0ac7acb0b43f"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="0" width="56" height="20" uuid="74eadf83-ed26-4db2-bc8a-4f117a3f32ef"/>
+				<textFieldExpression><![CDATA[$F{posicao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="0" width="44" height="20" uuid="f8718b62-d323-45d9-8833-a60366909b51"/>
+				<textFieldExpression><![CDATA[$F{lado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="0" width="74" height="20" uuid="5590891f-a2b3-4f16-8021-76002bf29d29"/>
+				<textFieldExpression><![CDATA[$F{categoria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="249" y="0" width="100" height="20" uuid="5b15eedb-3d71-4b08-b363-39549db63cb7"/>
+				<textFieldExpression><![CDATA[$F{naturalidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="349" y="0" width="47" height="20" uuid="b9f80acc-eb61-4bae-bcf0-abdbb16a6748"/>
+				<textFieldExpression><![CDATA[$F{idade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="0" width="53" height="20" uuid="210d2176-b341-46bf-a9df-033e5af436d3"/>
+				<textFieldExpression><![CDATA[$F{peso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="0" width="39" height="20" uuid="c4f9575b-78b8-4410-94eb-8f9a9fbf0304"/>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="502" y="0" width="100" height="20" uuid="1d1d011a-998f-4d5f-888a-b9e407897c70"/>
+				<textFieldExpression><![CDATA[$F{rg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="31" width="100" height="20" uuid="f0b6e0b3-0482-4aee-87c6-c105a2fc7295"/>
+				<textFieldExpression><![CDATA[$F{clube}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="61"/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

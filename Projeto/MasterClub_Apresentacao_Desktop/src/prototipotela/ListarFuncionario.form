@@ -75,12 +75,14 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="PainelTabela" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnEditar" alignment="3" max="32767" attributes="0"/>
-                      <Component id="btnNovo" alignment="3" max="32767" attributes="0"/>
-                      <Component id="btnExcluir" alignment="3" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnMostrarTodos" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnRelatorio" alignment="3" pref="43" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnEditar" alignment="3" max="32767" attributes="0"/>
+                          <Component id="btnNovo" alignment="3" max="32767" attributes="0"/>
+                          <Component id="btnExcluir" alignment="3" max="32767" attributes="0"/>
+                          <Component id="btnRelatorio" alignment="3" pref="43" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

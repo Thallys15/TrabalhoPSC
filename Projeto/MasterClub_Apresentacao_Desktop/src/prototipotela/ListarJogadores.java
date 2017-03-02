@@ -7,10 +7,24 @@ package prototipotela;
 
 import br.edu.ifnmg.MasterClub.Entidades.Atleta;
 import br.edu.ifnmg.MasterClub.Entidades.AtletaRepositorio;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -52,6 +66,7 @@ public class ListarJogadores extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblResultado = new javax.swing.JTable();
         btnMostrarTodos = new javax.swing.JButton();
+        btnRelatorio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -204,6 +219,15 @@ public class ListarJogadores extends javax.swing.JFrame {
             }
         });
 
+        btnRelatorio.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        btnRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474489777_pdf.png"))); // NOI18N
+        btnRelatorio.setText("Relatório");
+        btnRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRelatorioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -215,14 +239,16 @@ public class ListarJogadores extends javax.swing.JFrame {
                     .addComponent(PainelTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
+                .addGap(109, 109, 109)
                 .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addComponent(btnEditar)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(btnExcluir)
                 .addGap(18, 18, 18)
                 .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRelatorio)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -237,7 +263,8 @@ public class ListarJogadores extends javax.swing.JFrame {
                     .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMostrarTodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRelatorio))
                 .addContainerGap())
         );
 
@@ -303,6 +330,12 @@ public class ListarJogadores extends javax.swing.JFrame {
         buscar(txtNome.getText());  
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
+       AtletaRepositorio daoAtleta = GerenciarFuncionamento.getAtleta();
+       efetuarBusca = (ArrayList<Atleta>) daoAtleta.Abrir();
+       exibeRelatorioJasper("RelatorioJogadores.jasper", efetuarBusca );
+    }//GEN-LAST:event_btnRelatorioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -347,6 +380,7 @@ public class ListarJogadores extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnMostrarTodos;
     private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnRelatorio;
     private javax.swing.JButton btnSair;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNomeJogador;
@@ -410,5 +444,29 @@ public class ListarJogadores extends javax.swing.JFrame {
         }
         
         tblResultado.setModel(coluna);
+    }
+private void exibeRelatorioJasper(String caminho_relatorio, List dados) {
+         try {
+            // Parâmetros
+            Map parametros = new HashMap();
+
+            // Pega o caminho do arquivo do relatório
+            URL arquivo = getClass().getResource(caminho_relatorio);
+            
+            // Carrega o relatório na memória
+            JasperReport relatorio = (JasperReport) JRLoader.loadObject(arquivo);
+            
+            JRDataSource fontededados = new JRBeanCollectionDataSource(dados, true);
+            
+            JasperPrint jasperPrint = JasperFillManager.fillReport(relatorio, parametros, fontededados);
+            
+            // Visualiza o relatório
+            JasperViewer jrviewer = new JasperViewer(jasperPrint, false);
+            
+            jrviewer.setVisible(true);
+        
+        } catch (JRException ex) {
+            Logger.getLogger(JasperReport.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
