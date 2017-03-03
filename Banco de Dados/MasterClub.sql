@@ -42,7 +42,8 @@ use MasterClub;
     create table titulos(
 		id int primary key auto_increment,
         nome varchar(50),
-        data_titulo date
+        data_inicio date,
+        data_termino date
     );
     create table chefe(
 		id int primary key auto_increment,
@@ -73,8 +74,8 @@ use MasterClub;
         peso double,
         cpf char(14),
         rg char(11),
-        clube varchar(30),
-        foreign key (clube) references clube(nome)
+        clube int,
+        foreign key (clube) references clube(id)
     );
     create table responsavel_modalidade(
 		id int primary key,
