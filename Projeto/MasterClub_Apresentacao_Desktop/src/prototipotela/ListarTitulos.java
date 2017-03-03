@@ -63,20 +63,20 @@ public class ListarTitulos extends javax.swing.JFrame {
         tblResultado.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         tblResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Temporada"
+                "Id", "Nome", "data de inicio", "data de termino"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true
+                false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -95,8 +95,8 @@ public class ListarTitulos extends javax.swing.JFrame {
             PainelTabelaTitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelTabelaTitLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+                .addContainerGap())
         );
         PainelTabelaTitLayout.setVerticalGroup(
             PainelTabelaTitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,14 +385,14 @@ public class ListarTitulos extends javax.swing.JFrame {
     }
     private void buscarTodos() {
         
-        Titulos filtro = new Titulos(0,null,null);
+        Titulos filtro = new Titulos(0,null,null,null);
         efetuarBusca =(ArrayList<Titulos>) bd_dao.Buscar(filtro);
         preenchimentodaTabela(efetuarBusca);
         
     }
     private void buscar(String nome) {
         
-        Titulos filtro = new Titulos(0,nome,null);
+        Titulos filtro = new Titulos(0,nome,null,null);
         efetuarBusca = (ArrayList<Titulos>) bd_dao.Buscar(filtro);
         preenchimentodaTabela(efetuarBusca);
         
@@ -403,13 +403,15 @@ public class ListarTitulos extends javax.swing.JFrame {
         
         coluna.addColumn("id");
         coluna.addColumn("nome");
-        coluna.addColumn("DataTitulo");
+        coluna.addColumn("Data_inicio");
+        coluna.addColumn("Data_termino");
              
         for(Titulos BT:efetuarBusca){
             Vector linha = new Vector();
             linha.add(BT.getId());
             linha.add(BT.getNomeTorneio());
-            linha.add(BT.getDatatitulo());            
+            linha.add(BT.getDatainicio());
+            linha.add(BT.getDataTermino());
             
             coluna.addRow(linha);
             

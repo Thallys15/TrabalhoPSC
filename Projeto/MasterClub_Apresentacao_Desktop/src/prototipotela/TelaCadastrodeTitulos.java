@@ -56,12 +56,14 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
         txtNomeTorneio = new javax.swing.JTextField();
         AnoLabel = new javax.swing.JLabel();
         btnSalvar = new javax.swing.JButton();
-        txtData = new javax.swing.JFormattedTextField();
+        txtDatainicio = new javax.swing.JFormattedTextField();
         BotaoLimparFunc = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
+        AnoLabel1 = new javax.swing.JLabel();
+        txtDatatermino = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -76,7 +78,7 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
         NomeTorneioLabel.setText("Nome do Torneio");
 
         AnoLabel.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
-        AnoLabel.setText("Temporada");
+        AnoLabel.setText("data de inicio");
 
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
         btnSalvar.setText("Salvar");
@@ -86,7 +88,7 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
             }
         });
 
-        txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
+        txtDatainicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
 
         BotaoLimparFunc.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         BotaoLimparFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/limpar.png"))); // NOI18N
@@ -125,6 +127,11 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
             }
         });
 
+        AnoLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        AnoLabel1.setText("data de termino");
+
+        txtDatatermino.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
+
         javax.swing.GroupLayout FunndoCadastroTitulosLayout = new javax.swing.GroupLayout(FunndoCadastroTitulos);
         FunndoCadastroTitulos.setLayout(FunndoCadastroTitulosLayout);
         FunndoCadastroTitulosLayout.setHorizontalGroup(
@@ -134,20 +141,19 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
                     .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
                         .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                                .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                                        .addGap(209, 209, 209)
-                                        .addComponent(LogoTemporada))
-                                    .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
-                                        .addGap(42, 42, 42)
-                                        .addComponent(AnoLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(209, 209, 209)
+                                .addComponent(LogoTemporada)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FunndoCadastroTitulosLayout.createSequentialGroup()
-                                .addComponent(NomeTorneioLabel)
+                                .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(AnoLabel)
+                                    .addComponent(NomeTorneioLabel)
+                                    .addComponent(AnoLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNomeTorneio, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNomeTorneio, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDatainicio, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDatatermino, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(54, 54, 54)))
                         .addComponent(jLabel1))
                     .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
@@ -176,7 +182,11 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(AnoLabel)
-                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtDatainicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(FunndoCadastroTitulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AnoLabel1)
+                            .addComponent(txtDatatermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(FunndoCadastroTitulosLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)))
@@ -294,6 +304,7 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AnoLabel;
+    private javax.swing.JLabel AnoLabel1;
     private javax.swing.JButton BotaoLimparFunc;
     private javax.swing.JPanel FunndoCadastroTitulos;
     private javax.swing.JLabel LogoTemporada;
@@ -303,14 +314,15 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JFormattedTextField txtData;
+    private javax.swing.JFormattedTextField txtDatainicio;
+    private javax.swing.JFormattedTextField txtDatatermino;
     private javax.swing.JTextField txtNomeTorneio;
     // End of variables declaration//GEN-END:variables
     private void limparCampos() {
         
         txtNomeTorneio.setText("");
-        txtData.setText("");
-        
+        txtDatainicio.setText("");
+        txtDatatermino.setText("");
     }
     public void recuperarCampos() throws ParseException{
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
@@ -319,19 +331,26 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
         if (!nome.equals("")){
             titulo.setNomeTorneio(nome);
         }
-        Date temporada = new Date( formatador.parse(txtData.getText().trim()).getTime());
+        Date datainicio = new Date( formatador.parse(txtDatainicio.getText().trim()).getTime());
 
-        if (!temporada.equals("")) {
-            titulo.setDatatitulo(temporada);
+        if (!datainicio.equals("")) {
+            titulo.setDatainicio(datainicio);
+        }
+        Date datatermino = new Date( formatador.parse(txtDatatermino.getText().trim()).getTime());
+
+        if (!datatermino.equals("")) {
+            titulo.setDataTermino(datatermino);
         }
 
     }
     private void preencherCampos(Titulos titulos) {
         titulo = titulos;
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-        String temporada= formatador.format(titulos.getDatatitulo());
+        String datainicio= formatador.format(titulos.getDatainicio());
+        String datatermino= formatador.format(titulos.getDataTermino());
         txtNomeTorneio.setText(titulos.getNomeTorneio());
-        txtData.setText(temporada);
+        txtDatainicio.setText(datainicio);
+        txtDatatermino.setText(datatermino);
         
     }
 }

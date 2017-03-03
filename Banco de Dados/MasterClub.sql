@@ -73,8 +73,8 @@ use MasterClub;
         peso double,
         cpf char(14),
         rg char(11),
-        clube int,
-        foreign key (clube) references clube(id)
+        clube varchar(30),
+        foreign key (clube) references clube(nome)
     );
     create table responsavel_modalidade(
 		id int primary key,
@@ -121,6 +121,5 @@ use MasterClub;
         dataaluguel date,
         valorTotalAluguel float
 	);
-    insert into clube(cnpj,nome,quantidade_atletas,titulo) values ('111','sesc',10,1);
-    select * from patrocinio;
-    drop table patrocinio;
+    insert into usuario(login,senha) values ('igor','123');
+    select * from titulos;

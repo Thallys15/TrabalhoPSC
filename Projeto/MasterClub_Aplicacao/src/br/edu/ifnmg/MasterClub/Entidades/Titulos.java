@@ -6,6 +6,7 @@
 package br.edu.ifnmg.MasterClub.Entidades;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -14,15 +15,17 @@ import java.util.Date;
 public class Titulos implements Entidade {
     private int id;
     private String nomeTorneio;
-    private Date datatitulo;
+    private Date datainicio;
+    private Date dataTermino;
   
     public Titulos() {
     }
 
-    public Titulos(int id, String nomeTorneio, Date datatitulo) {
+    public Titulos(int id, String nomeTorneio, Date datainicio, Date dataTermino) {
         this.id = id;
         this.nomeTorneio = nomeTorneio;
-        this.datatitulo = datatitulo;
+        this.datainicio = datainicio;
+        this.dataTermino = dataTermino;
     }    
 
     public int getId() {
@@ -41,18 +44,29 @@ public class Titulos implements Entidade {
         this.nomeTorneio = nomeTorneio;
     }
     
-    public Date getDatatitulo() {
-        return datatitulo;
+    public Date getDatainicio() {
+        return datainicio;
     }
 
-    public void setDatatitulo(Date datatitulo) {
-        this.datatitulo = datatitulo;
+    public void setDatainicio(Date datainicio) {
+        this.datainicio = datainicio;
+    }
+
+    public Date getDataTermino() {
+        return dataTermino;
+    }
+
+    public void setDataTermino(Date dataTermino) {
+        this.dataTermino = dataTermino;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + this.id;
+        int hash = 7;
+        hash = 23 * hash + this.id;
+        hash = 23 * hash + Objects.hashCode(this.nomeTorneio);
+        hash = 23 * hash + Objects.hashCode(this.datainicio);
+        hash = 23 * hash + Objects.hashCode(this.dataTermino);
         return hash;
     }
 
@@ -71,13 +85,22 @@ public class Titulos implements Entidade {
         if (this.id != other.id) {
             return false;
         }
+        if (!Objects.equals(this.nomeTorneio, other.nomeTorneio)) {
+            return false;
+        }
+        if (!Objects.equals(this.datainicio, other.datainicio)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataTermino, other.dataTermino)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Titulos{" + "id=" + id + ", datatitulo=" + datatitulo + '}';
+        return "Titulos{" + "id=" + id + ", nomeTorneio=" + nomeTorneio + ", datainicio=" + datainicio + ", dataTermino=" + dataTermino + '}';
     }
 
-    
+   
 }
