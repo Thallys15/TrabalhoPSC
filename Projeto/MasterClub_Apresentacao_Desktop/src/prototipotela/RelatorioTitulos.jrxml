@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5fcfab61-c062-4aac-9bee-a9f2bf32cc92">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="107">
+			<staticText>
+				<reportElement style="Title" x="10" y="28" width="346" height="33" uuid="ce73b670-8d44-44b7-81f3-4194050358f1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Listagem de Campeonatos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="423" y="4" width="132" height="103" uuid="d8634d34-e33f-4c67-8cc5-158b38301780"/>
+				<imageExpression><![CDATA["C:\\Users\\tls15\\Desktop\\TrabalhoPSC2\\TrabalhoPSC\\Projeto\\MasterClub_Apresentacao_Desktop\\src\\prototipotela\\img\\MasteClubLogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="62">
+			<staticText>
+				<reportElement x="37" y="0" width="28" height="20" uuid="da5eafa3-89ab-4a11-9b7e-84ba22b32ff6"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="0" width="78" height="20" uuid="bdfb0976-d707-4bd9-afe2-ef025f004e90"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="0" width="100" height="20" uuid="9f4e82f7-8a36-4deb-8b38-4a70ab9d88b4"/>
+				<text><![CDATA[Data de Inicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="403" y="0" width="100" height="20" uuid="afc3477f-3d26-43b5-b402-91affb3a4e08"/>
+				<text><![CDATA[Data de Término]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="67">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="e4477451-4bb1-485d-9652-dc7319c063e6"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="80">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="982e79c1-82db-491e-86b6-b3440c6d6dd9"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="99">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="588908f3-47e8-4606-8909-04da1eb77567"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="2d4ec554-47db-41b1-9e1e-6c0493cc1eb1"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="0a495cc4-981c-4f11-a372-be75658a81d2"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
