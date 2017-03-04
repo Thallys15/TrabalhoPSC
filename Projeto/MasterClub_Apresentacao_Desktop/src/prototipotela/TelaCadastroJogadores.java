@@ -174,8 +174,8 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
             }
         });
 
-        btnEditar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474360786_floppy.png"))); // NOI18N
+        btnEditar.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/edit.png"))); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
