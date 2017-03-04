@@ -348,7 +348,10 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoSairJogaadoresActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        try {
+        String cpf = txtCpf.getText();  
+        CPF pf = new CPF(cpf);
+        if(pf.isCPF()== true){            
+            try {
             
             this.recuperarCampos();
             int codigo = atleta.getId();
@@ -365,6 +368,9 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
             Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
             this.limparCampos();
         }
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "CPF Invalido!!!","erro",JOptionPane.ERROR_MESSAGE);
+        }        
         
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -380,7 +386,10 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        try {
+        String cpf = txtCpf.getText();  
+        CPF pf = new CPF(cpf);
+        if(pf.isCPF()== true){            
+            try {
             
             this.recuperarCampos();
             int codigo = atleta.getId();
@@ -390,11 +399,14 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Sucesso!!! O atleta foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
             }
             
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Alteração do atleta não foi efetuada." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
-            this.limparCampos();
-        }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Alteração do atleta não foi efetuada." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+                this.limparCampos();
+            }
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "CPF Invalido!!!","erro",JOptionPane.ERROR_MESSAGE);
+        }        
     }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
