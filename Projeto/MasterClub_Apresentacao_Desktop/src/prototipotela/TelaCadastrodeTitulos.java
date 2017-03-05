@@ -218,15 +218,17 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         try {
-            
-            this.recuperarCampos();
-            int codigo = titulo.getId();            
-            if (codigo==0) {
-            master.criarTitulo(titulo);
-            this.limparCampos();
-            JOptionPane.showMessageDialog(this, "Titulo cadastrado!!!Parabéns pela conquista");
+            try{
+                this.recuperarCampos();
+                int codigo = titulo.getId();            
+                if (codigo==0) {
+                master.criarTitulo(titulo);
+                this.limparCampos();
+                JOptionPane.showMessageDialog(this, "Titulo cadastrado!!!Parabéns pela conquista");
+                }
+            }catch(ParseException e){
+                JOptionPane.showMessageDialog(rootPane, "A data inserida não é valida!!!","erro",JOptionPane.ERROR_MESSAGE);
             }
-            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
@@ -252,12 +254,15 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         try {
-            
-            this.recuperarCampos();
-            int codigo = titulo.getId();
-            if (codigo != 0) {
-                bd.Alterar(titulo);
-                JOptionPane.showMessageDialog(this, "parabéns!!! voce alterou sua dependencia com sucesso", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+            try{
+                this.recuperarCampos();
+                int codigo = titulo.getId();
+                if (codigo != 0) {
+                    bd.Alterar(titulo);
+                    JOptionPane.showMessageDialog(this, "parabéns!!! voce alterou sua dependencia com sucesso", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+                }
+            }catch(ParseException e){
+            JOptionPane.showMessageDialog(rootPane, "A data inserida não é valida!!!","erro",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Alteração não efetuada ocorreu um erro." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
