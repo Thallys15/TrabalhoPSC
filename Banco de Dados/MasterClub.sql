@@ -122,5 +122,5 @@ use MasterClub;
         dataaluguel date,
         valorTotalAluguel float
 	);
-    insert into usuario(login,senha) values ('igor','123');
-    select * from titulos;
+    insert into clube(cnpj,nome,quantidade_atletas,titulo) values ('12121232/211','sesc',15,2);
+    select * from clube;
