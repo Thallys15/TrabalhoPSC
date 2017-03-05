@@ -7,6 +7,8 @@ package prototipotela;
 
 import br.edu.ifnmg.MasterClub.Entidades.Usuario;
 import br.edu.ifnmg.MasterClub.Entidades.UsuarioRepositorio;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -123,6 +125,12 @@ UsuarioRepositorio dao = GerenciarFuncionamento
             }
         });
 
+        CampoInserirLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CampoInserirLoginKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout PlanodeFundo1Layout = new javax.swing.GroupLayout(PlanodeFundo1);
         PlanodeFundo1.setLayout(PlanodeFundo1Layout);
         PlanodeFundo1Layout.setHorizontalGroup(
@@ -205,7 +213,7 @@ UsuarioRepositorio dao = GerenciarFuncionamento
     }//GEN-LAST:event_BotaoSairLoginActionPerformed
 
     private void CampoInserirSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoInserirSenhaActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_CampoInserirSenhaActionPerformed
 
     private void CampoInserirSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirSenhaKeyPressed
@@ -214,6 +222,16 @@ UsuarioRepositorio dao = GerenciarFuncionamento
                     
         }
     }//GEN-LAST:event_CampoInserirSenhaKeyPressed
+
+    private void CampoInserirLoginKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirLoginKeyTyped
+        boolean capsLigado = Toolkit.getDefaultToolkit().getLockingKeyState(
+                KeyEvent.VK_CAPS_LOCK );
+        if ( capsLigado ) {
+            JOptionPane.showMessageDialog(this,"Tecla Caps Lock Ativada");
+        } else {
+            System.out.println( "Tecla Caps Lock Desativada!" );
+        }
+    }//GEN-LAST:event_CampoInserirLoginKeyTyped
 
     /**
      * @param args the command line arguments
