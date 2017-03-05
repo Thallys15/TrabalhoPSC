@@ -17,10 +17,6 @@
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Listagem Funcionário]]></text>
 			</staticText>
-			<image>
-				<reportElement x="411" y="-5" width="132" height="103" uuid="f648e2e4-56f4-4d57-8cb9-5d5944a8ecbb"/>
-				<imageExpression><![CDATA["C:\\Users\\tls15\\Desktop\\TrabalhoPSC2\\TrabalhoPSC\\Projeto\\MasterClub_Apresentacao_Desktop\\src\\prototipotela\\img\\MasteClubLogo.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>

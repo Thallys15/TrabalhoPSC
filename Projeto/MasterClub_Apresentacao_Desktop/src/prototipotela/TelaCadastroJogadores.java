@@ -351,16 +351,20 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
         String cpf = txtCpf.getText();  
         CPF pf = new CPF(cpf);
         if(pf.isCPF()== true){            
-            try {
+        try {
+            try{
             
-            this.recuperarCampos();
-            int codigo = atleta.getId();
-            if (codigo==0) {
-                
-            master.criarAtleta(atleta);
-            this.limparCampos();
-            JOptionPane.showMessageDialog(this, "atleta Cadastrado com sucesso");
-            
+                this.recuperarCampos();
+                int codigo = atleta.getId();
+                if (codigo==0) {
+
+                master.criarAtleta(atleta);
+                this.limparCampos();
+                JOptionPane.showMessageDialog(this, "atleta Cadastrado com sucesso");
+
+                }
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
             }
             
         } catch (Exception e) {
@@ -390,15 +394,17 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
         CPF pf = new CPF(cpf);
         if(pf.isCPF()== true){            
             try {
-            
-            this.recuperarCampos();
-            int codigo = atleta.getId();
-            if (codigo != 0) {
-                
-                bd.Alterar(atleta);
-                JOptionPane.showMessageDialog(this, "Sucesso!!! O atleta foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
-            }
-            
+                try{
+                    this.recuperarCampos();
+                    int codigo = atleta.getId();
+                    if (codigo != 0) {
+
+                        bd.Alterar(atleta);
+                        JOptionPane.showMessageDialog(this, "Sucesso!!! O atleta foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+                    }
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
+                }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Alteração do atleta não foi efetuada." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);

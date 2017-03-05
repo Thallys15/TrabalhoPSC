@@ -491,8 +491,7 @@ private void exibeRelatorioJasper(String caminho_relatorio, List dados) {
             
             JRDataSource fontededados = new JRBeanCollectionDataSource(dados, true);
             
-            JasperPrint jasperPrint = JasperFillManager.fillReport(relatorio, parametros, fontededados);
-            
+            JasperPrint jasperPrint = JasperFillManager.fillReport(relatorio, parametros, fontededados);           
             // Visualiza o relatório
             JasperViewer jrviewer = new JasperViewer(jasperPrint, false);
             

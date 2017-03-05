@@ -205,13 +205,16 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         try {
-            
-            this.recuperarCampos();
-            int codigo = dependencia.getId();
-            if (codigo==0) {
-            master.criarDependencia(dependencia);
-            this.limparCampos();
-            JOptionPane.showMessageDialog(this, "Parabéns!!! seu clube agora tem mais uma dependencia");
+            try{
+                this.recuperarCampos();
+                int codigo = dependencia.getId();
+                if (codigo==0) {
+                master.criarDependencia(dependencia);
+                this.limparCampos();
+                JOptionPane.showMessageDialog(this, "Parabéns!!! seu clube agora tem mais uma dependencia");
+                }
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ops!!! algumas coisa não esta certa, verifique novamente sua conexão com o banco de dados." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
@@ -222,12 +225,15 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         try {
-            
-            this.recuperarCampos();
-            int codigo = dependencia.getId();
-            if (codigo != 0) {
-                bd.Alterar(dependencia);
-                JOptionPane.showMessageDialog(this, "parabéns!!! voce alterou sua dependencia com sucesso", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+            try{
+                this.recuperarCampos();
+                int codigo = dependencia.getId();
+                if (codigo != 0) {
+                    bd.Alterar(dependencia);
+                    JOptionPane.showMessageDialog(this, "parabéns!!! voce alterou sua dependencia com sucesso", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+                }
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Alteração não efetuada ocorreu um erro." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);

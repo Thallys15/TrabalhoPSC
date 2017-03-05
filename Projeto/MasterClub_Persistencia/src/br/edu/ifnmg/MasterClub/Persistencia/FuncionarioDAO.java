@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class FuncionarioDAO extends DAOGenerico<Funcionario> implements FuncionarioRepositorio{
     
     public FuncionarioDAO(){
-        setConsultaAbrir("select id, nome, cpf, rg, cargo, idade,salario from funcionario where id = ?");
+        setConsultaAbrir("select id, nome, cpf, rg, cargo, idade,salario from funcionario");
         setConsultaApagar("delete from funcionario where id = ?");
         setConsultaInserir("insert into funcionario(nome, cpf, rg, cargo, idade,salario) values(?,?,?,?,?,?)");
         setConsultaAlterar("update funcionario set nome = ?, cpf = ?, rg = ?, cargo = ?, idade = ?, salario = ? where id = ?");

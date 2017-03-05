@@ -219,15 +219,17 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         try {
-            
-            this.recuperarCampos();
-            int codigo = patrocinio.getId();
-            if (codigo==0) {
-            master.criarPatrocinio(patrocinio);
-            this.limparCampos();
-            JOptionPane.showMessageDialog(this, "patrocinador Cadastrado com sucesso");
+            try{
+                this.recuperarCampos();
+                int codigo = patrocinio.getId();
+                if (codigo==0) {
+                master.criarPatrocinio(patrocinio);
+                this.limparCampos();
+                JOptionPane.showMessageDialog(this, "patrocinador Cadastrado com sucesso");
+                }
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
             }
-            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
@@ -237,13 +239,16 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         try {
-            
-            this.recuperarCampos();
-            int codigo = patrocinio.getId();
-            if (codigo != 0) {
-                bd.Alterar(patrocinio);
-                JOptionPane.showMessageDialog(this, "Sucesso!!! O patrocinador foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
-            }
+            try{
+                this.recuperarCampos();
+                int codigo = patrocinio.getId();
+                if (codigo != 0) {
+                    bd.Alterar(patrocinio);
+                    JOptionPane.showMessageDialog(this, "Sucesso!!! O patrocinador foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);    
+                }
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Patrocinador não editado, informe o administrador da rede" + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
