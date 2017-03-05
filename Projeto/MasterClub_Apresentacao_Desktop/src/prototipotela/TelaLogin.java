@@ -231,7 +231,7 @@ UsuarioRepositorio dao = GerenciarFuncionamento
         if ( capsLigado ) {
             JOptionPane.showMessageDialog(this,"Tecla Caps Lock Ativada");
         } else {
-            System.out.println( "Tecla Caps Lock Desativada!" );
+           
         }
     }//GEN-LAST:event_CampoInserirLoginKeyTyped
 

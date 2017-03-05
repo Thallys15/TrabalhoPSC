@@ -5,6 +5,20 @@
  */
 package prototipotela;
 
+import java.io.InputStream;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author thallys
@@ -85,12 +99,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ItemCadJogadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474063085_football.png"))); // NOI18N
         ItemCadJogadores.setText("Jogadores");
         ItemCadJogadores.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+                ItemCadJogadoresAncestorMoved(evt);
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                ItemCadJogadoresAncestorMoved(evt);
             }
         });
         ItemCadJogadores.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +173,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         BarraMenuTelaPrincipal.add(BarraMenuCampeonato);
 
-        BarraMenuFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474060852_03.png"))); // NOI18N
+        BarraMenuFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474489777_pdf.png"))); // NOI18N
         BarraMenuFinanceiro.setText("Relatório");
         BarraMenuFinanceiro.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 
@@ -173,15 +187,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuFinanceiro.add(ItemContratacoes);
 
         ItemEmprestimos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067951_finance-23.png"))); // NOI18N
-        ItemEmprestimos.setText("Empréstimos");
+        ItemEmprestimos.setText("Relatório Titulos");
+        ItemEmprestimos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemEmprestimosActionPerformed(evt);
+            }
+        });
         BarraMenuFinanceiro.add(ItemEmprestimos);
 
         ItemVendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474068036_Cart.png"))); // NOI18N
-        ItemVendas.setText("Vendas");
+        ItemVendas.setText("Relatório Jogadores");
         BarraMenuFinanceiro.add(ItemVendas);
 
         ItemPatrocinadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067698_visa.png"))); // NOI18N
-        ItemPatrocinadores.setText("Patrocinadores");
+        ItemPatrocinadores.setText("Relatório Patrocinadores");
         BarraMenuFinanceiro.add(ItemPatrocinadores);
 
         BarraMenuTelaPrincipal.add(BarraMenuFinanceiro);
@@ -258,10 +277,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ItemCadPatrocinadoresActionPerformed
 
     private void ItemContratacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemContratacoesActionPerformed
-        Contratacoes entrar = new Contratacoes();
-        entrar.setVisible(true);
-        entrar.setLocationRelativeTo(null);
-   
+        
     }//GEN-LAST:event_ItemContratacoesActionPerformed
 
     private void ItemInserirTorneioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemInserirTorneioActionPerformed
@@ -292,6 +308,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         entrar.setVisible(true);
         entrar.setLocationRelativeTo(null);
     }//GEN-LAST:event_BarraMenuSobreMouseClicked
+
+    private void ItemEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemEmprestimosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ItemEmprestimosActionPerformed
 
     /**
      * @param args the command line arguments

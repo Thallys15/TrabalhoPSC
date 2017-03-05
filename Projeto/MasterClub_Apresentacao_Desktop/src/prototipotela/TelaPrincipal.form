@@ -118,7 +118,7 @@
         <Menu class="javax.swing.JMenu" name="BarraMenuFinanceiro">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/prototipotela/icone/1474060852_03.png"/>
+              <Image iconType="3" name="/prototipotela/icone/1474489777_pdf.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rio"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -142,15 +142,18 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/prototipotela/icone/1474067951_finance-23.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Empr&#xe9;stimos"/>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio Titulos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ItemEmprestimosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ItemVendas">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/prototipotela/icone/1474068036_Cart.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Vendas"/>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio Jogadores"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ItemPatrocinadores">
@@ -158,7 +161,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/prototipotela/icone/1474067698_visa.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Patrocinadores"/>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio Patrocinadores"/>
               </Properties>
             </MenuItem>
           </SubComponents>
