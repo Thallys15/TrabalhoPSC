@@ -348,34 +348,37 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoSairJogaadoresActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        String cpf = txtCpf.getText();  
-        CPF pf = new CPF(cpf);
-        if(pf.isCPF()== true){            
-        try {
-            try{
-            
-                this.recuperarCampos();
-                int codigo = atleta.getId();
-                if (codigo==0) {
-
-                master.criarAtleta(atleta);
-                this.limparCampos();
-                JOptionPane.showMessageDialog(this, "atleta Cadastrado com sucesso");
-
-                }
-            }catch(NumberFormatException e){
-                JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
-            }
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
-            this.limparCampos();
-        }
+        if(this.validarCampos()){
+            JOptionPane.showMessageDialog(null, "Campos obrigátorios não preenchidos","Aviso",JOptionPane.WARNING_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(rootPane, "CPF Invalido!!!","erro",JOptionPane.ERROR_MESSAGE);
-        }        
-        
+            String cpf = txtCpf.getText();  
+            CPF pf = new CPF(cpf);
+            if(pf.isCPF()== true){            
+            try {
+                try{
+
+                    this.recuperarCampos();
+                    int codigo = atleta.getId();
+                    if (codigo==0) {
+
+                    master.criarAtleta(atleta);
+                    this.limparCampos();
+                    JOptionPane.showMessageDialog(this, "atleta Cadastrado com sucesso");
+
+                    }
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
+                }
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+                this.limparCampos();
+            }
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "CPF Invalido!!!","erro",JOptionPane.ERROR_MESSAGE);
+            }        
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void BotaoLimparFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparFuncActionPerformed
@@ -390,29 +393,33 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        String cpf = txtCpf.getText();  
-        CPF pf = new CPF(cpf);
-        if(pf.isCPF()== true){            
-            try {
-                try{
-                    this.recuperarCampos();
-                    int codigo = atleta.getId();
-                    if (codigo != 0) {
-
-                        bd.Alterar(atleta);
-                        JOptionPane.showMessageDialog(this, "Sucesso!!! O atleta foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
-                    }
-                }catch(NumberFormatException e){
-                    JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Alteração do atleta não foi efetuada." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
-                Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
-                this.limparCampos();
-            }
+        if(this.validarCampos()){
+            JOptionPane.showMessageDialog(null, "Campos obrigátorios não preenchidos","Aviso",JOptionPane.WARNING_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(rootPane, "CPF Invalido!!!","erro",JOptionPane.ERROR_MESSAGE);
-        }        
+            String cpf = txtCpf.getText();  
+            CPF pf = new CPF(cpf);
+            if(pf.isCPF()== true){            
+                try {
+                    try{
+                        this.recuperarCampos();
+                        int codigo = atleta.getId();
+                        if (codigo != 0) {
+
+                            bd.Alterar(atleta);
+                            JOptionPane.showMessageDialog(this, "Sucesso!!! O atleta foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+                        }
+                    }catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "Alteração do atleta não foi efetuada." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+                    Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+                    this.limparCampos();
+                }
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "CPF Invalido!!!","erro",JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
@@ -483,7 +490,16 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
     private javax.swing.JTextField txtPosicao;
     private javax.swing.JFormattedTextField txtRg;
     // End of variables declaration//GEN-END:variables
-     private void limparCampos() {
+    public boolean validarCampos(){
+        if(txtAltura.getText().equals("")&&txtCategoria.getText().equals("")&&txtClube.getText().equals("")
+                &&txtCpf.getText().equals("")&&txtIdade.getText().equals("")&&txtLado.getText().equals("")&&
+                txtNaturalidade.getText().equals("")&&txtNome.getText().equals("")&&txtPeso.getText().equals("")&&
+                txtPosicao.getText().equals("")&&txtRg.getText().equals("")){            
+            return true;
+        }
+        return false;
+    }
+    private void limparCampos() {
         
         txtNome.setText("");
         txtAltura.setText("");

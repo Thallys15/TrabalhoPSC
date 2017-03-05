@@ -217,22 +217,27 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        try {
-            try{
-                this.recuperarCampos();
-                int codigo = titulo.getId();            
-                if (codigo==0) {
-                master.criarTitulo(titulo);
-                this.limparCampos();
-                JOptionPane.showMessageDialog(this, "Titulo cadastrado!!!Parabéns pela conquista");
+        if(this.validarCampos()){
+            JOptionPane.showMessageDialog(null, "Campos obrigátorios não preenchidos","Aviso",JOptionPane.WARNING_MESSAGE);
+        }            
+        else{
+            try {
+                try{
+                    this.recuperarCampos();
+                    int codigo = titulo.getId();            
+                    if (codigo==0) {
+                    master.criarTitulo(titulo);
+                    this.limparCampos();
+                    JOptionPane.showMessageDialog(this, "Titulo cadastrado!!!Parabéns pela conquista");
+                    }
+                }catch(ParseException e){
+                    JOptionPane.showMessageDialog(rootPane, "A data inserida não é valida!!!","erro",JOptionPane.ERROR_MESSAGE);
                 }
-            }catch(ParseException e){
-                JOptionPane.showMessageDialog(rootPane, "A data inserida não é valida!!!","erro",JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+                this.limparCampos();
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
-            this.limparCampos();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -253,21 +258,26 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        try {
-            try{
-                this.recuperarCampos();
-                int codigo = titulo.getId();
-                if (codigo != 0) {
-                    bd.Alterar(titulo);
-                    JOptionPane.showMessageDialog(this, "parabéns!!! voce alterou sua dependencia com sucesso", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+        if(this.validarCampos()){
+            JOptionPane.showMessageDialog(null, "Campos obrigátorios não preenchidos","Aviso",JOptionPane.WARNING_MESSAGE);
+        } 
+        else{
+            try {
+                try{
+                    this.recuperarCampos();
+                    int codigo = titulo.getId();
+                    if (codigo != 0) {
+                        bd.Alterar(titulo);
+                        JOptionPane.showMessageDialog(this, "parabéns!!! voce alterou sua dependencia com sucesso", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+                    }
+                }catch(ParseException e){
+                JOptionPane.showMessageDialog(rootPane, "A data inserida não é valida!!!","erro",JOptionPane.ERROR_MESSAGE);
                 }
-            }catch(ParseException e){
-            JOptionPane.showMessageDialog(rootPane, "A data inserida não é valida!!!","erro",JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Alteração não efetuada ocorreu um erro." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+                this.limparCampos();
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Alteração não efetuada ocorreu um erro." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
-            this.limparCampos();
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -323,6 +333,12 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtDatatermino;
     private javax.swing.JTextField txtNomeTorneio;
     // End of variables declaration//GEN-END:variables
+    public boolean validarCampos(){
+        if(txtNomeTorneio.getText().equals("")&&txtDatainicio.getText().equals("")&&txtDatatermino.getText().equals("")){            
+            return true;
+        }
+        return false;
+    }
     private void limparCampos() {
         
         txtNomeTorneio.setText("");

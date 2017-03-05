@@ -204,42 +204,50 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        try {
-            try{
-                this.recuperarCampos();
-                int codigo = dependencia.getId();
-                if (codigo==0) {
-                master.criarDependencia(dependencia);
-                this.limparCampos();
-                JOptionPane.showMessageDialog(this, "Parabéns!!! seu clube agora tem mais uma dependencia");
+        if(this.validarCampos()){
+            JOptionPane.showMessageDialog(null, "Campos obrigátorios não preenchidos","Aviso",JOptionPane.WARNING_MESSAGE);
+        }else{
+            try {
+                try{
+                    this.recuperarCampos();
+                    int codigo = dependencia.getId();
+                    if (codigo==0) {
+                    master.criarDependencia(dependencia);
+                    this.limparCampos();
+                    JOptionPane.showMessageDialog(this, "Parabéns!!! seu clube agora tem mais uma dependencia");
+                    }
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
                 }
-            }catch(NumberFormatException e){
-                JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "ops!!! algumas coisa não esta certa, verifique novamente sua conexão com o banco de dados." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+                this.limparCampos();
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "ops!!! algumas coisa não esta certa, verifique novamente sua conexão com o banco de dados." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
-            this.limparCampos();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        try {
-            try{
-                this.recuperarCampos();
-                int codigo = dependencia.getId();
-                if (codigo != 0) {
-                    bd.Alterar(dependencia);
-                    JOptionPane.showMessageDialog(this, "parabéns!!! voce alterou sua dependencia com sucesso", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+        if(this.validarCampos()){
+            JOptionPane.showMessageDialog(null, "Campos obrigátorios não preenchidos","Aviso",JOptionPane.WARNING_MESSAGE);
+        }else{
+            try {
+                try{
+                    this.recuperarCampos();
+                    int codigo = dependencia.getId();
+                    if (codigo != 0) {
+                        bd.Alterar(dependencia);
+                        JOptionPane.showMessageDialog(this, "parabéns!!! voce alterou sua dependencia com sucesso", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);                
+                    }
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
                 }
-            }catch(NumberFormatException e){
-                JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Alteração não efetuada ocorreu um erro." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+                this.limparCampos();
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Alteração não efetuada ocorreu um erro." + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
-            this.limparCampos();
-        }        
+        }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
@@ -290,6 +298,12 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
     private javax.swing.JTextField txtCapacidade;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
+    public boolean validarCampos(){
+        if(txtCapacidade.getText().equals("")&&txtNome.getText().equals("")){            
+            return true;
+        }
+        return false;
+    }
     private void limparCampos() {
         
         txtNome.setText("");        

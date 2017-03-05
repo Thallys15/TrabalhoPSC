@@ -276,29 +276,33 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        String cpf = txtCpf.getText();  
-        CPF pf = new CPF(cpf);
-        if(pf.isCPF()== true){            
-            try {
-                try{
-                    this.recuperarCampos();
-                    int codigo = funcionario.getId();
-                    if (codigo==0) {
-                    master.criarFuncionario(funcionario);
-                    this.limparCampos();
-                    JOptionPane.showMessageDialog(this, "Funcionario cadastrado com sucesso");
+        if(this.validarCampos()){
+            JOptionPane.showMessageDialog(null, "Campos obrigátorios não preenchidos","Aviso",JOptionPane.WARNING_MESSAGE);
+        } else{
+            String cpf = txtCpf.getText();  
+            CPF pf = new CPF(cpf);
+            if(pf.isCPF()== true){            
+                try {
+                    try{
+                        this.recuperarCampos();
+                        int codigo = funcionario.getId();
+                        if (codigo==0) {
+                        master.criarFuncionario(funcionario);
+                        this.limparCampos();
+                        JOptionPane.showMessageDialog(this, "Funcionario cadastrado com sucesso");
+                        }
+                    }catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
                     }
-                }catch(NumberFormatException e){
-                    JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
-                }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
-            this.limparCampos();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+                this.limparCampos();
+            }
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "CPF Invalido!!!","erro",JOptionPane.ERROR_MESSAGE);
+            }  
         }
-        }else{
-            JOptionPane.showMessageDialog(rootPane, "CPF Invalido!!!","erro",JOptionPane.ERROR_MESSAGE);
-        }         
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -318,31 +322,35 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        String cpf = txtCpf.getText();  
-        CPF pf = new CPF(cpf);
-        if(pf.isCPF()== true){            
-            try {
-                try{
-                    this.recuperarCampos();
-                    int codigo = funcionario.getId();
-                    if (codigo !=0) {
+        if(this.validarCampos()){
+            JOptionPane.showMessageDialog(null, "Campos obrigátorios não preenchidos","Aviso",JOptionPane.WARNING_MESSAGE);
+        } else{
+            String cpf = txtCpf.getText();  
+            CPF pf = new CPF(cpf);
+            if(pf.isCPF()== true){            
+                try {
+                    try{
+                        this.recuperarCampos();
+                        int codigo = funcionario.getId();
+                        if (codigo !=0) {
+                        bd.Alterar(funcionario);
+                        JOptionPane.showMessageDialog(this, "Sucesso!!! O funcionario foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
+                } else {
                     bd.Alterar(funcionario);
                     JOptionPane.showMessageDialog(this, "Sucesso!!! O funcionario foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                bd.Alterar(funcionario);
-                JOptionPane.showMessageDialog(this, "Sucesso!!! O funcionario foi editado", "Mensagem de confirmação", JOptionPane.INFORMATION_MESSAGE);
-            }
-                }catch(NumberFormatException e){
-                    JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
                 }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
-            this.limparCampos();
+                    }catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog(rootPane, "Dados invalidos. Impossivel converter letras para números.","erro",JOptionPane.ERROR_MESSAGE);
+                    }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Cadastro não realizado! Verifique sua conexão com o banco de dados " + e.getMessage(), "erro!", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(TelaCadastroDependencias.class.getName()).log(Level.SEVERE, null, e);
+                this.limparCampos();
+            }
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "CPF Invalido!!!","erro",JOptionPane.ERROR_MESSAGE);
+            }
         }
-        }else{
-            JOptionPane.showMessageDialog(rootPane, "CPF Invalido!!!","erro",JOptionPane.ERROR_MESSAGE);
-        }                  
     }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
@@ -402,6 +410,13 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtRg;
     private javax.swing.JTextField txtSalario;
     // End of variables declaration//GEN-END:variables
+    public boolean validarCampos(){
+        if(txtNome.getText().equals("")&&txtCargo.getText().equals("")&&txtCpf.getText().equals("")
+                &&txtIdade.getText().equals("")&&txtRg.getText().equals("")&&txtSalario.getText().equals("")){            
+            return true;
+        }
+        return false;
+    }
     private void limparCampos() {
         
         txtNome.setText("");
