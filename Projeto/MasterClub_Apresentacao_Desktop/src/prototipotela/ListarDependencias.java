@@ -289,7 +289,7 @@ public class ListarDependencias extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoEditarDepActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        
+        limparCampos();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

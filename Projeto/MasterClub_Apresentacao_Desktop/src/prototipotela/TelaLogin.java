@@ -10,6 +10,7 @@ import br.edu.ifnmg.MasterClub.Entidades.UsuarioRepositorio;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -226,6 +227,7 @@ UsuarioRepositorio dao = GerenciarFuncionamento
     private void CampoInserirLoginKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoInserirLoginKeyTyped
         boolean capsLigado = Toolkit.getDefaultToolkit().getLockingKeyState(
                 KeyEvent.VK_CAPS_LOCK );
+        final JPanel panel = new JPanel();
         if ( capsLigado ) {
             JOptionPane.showMessageDialog(this,"Tecla Caps Lock Ativada");
         } else {
