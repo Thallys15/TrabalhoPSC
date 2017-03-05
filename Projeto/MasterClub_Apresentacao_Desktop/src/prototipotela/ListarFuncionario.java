@@ -387,7 +387,6 @@ public class ListarFuncionario extends javax.swing.JFrame {
 
     private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
        try {
-        
         PreparedStatement sql = conn.prepareStatement("select id, nome, cpf, rg, cargo, idade, salario from funcionario");
         ResultSet resultado = sql.executeQuery();
         JRResultSetDataSource relaResul = new JRResultSetDataSource(resultado);

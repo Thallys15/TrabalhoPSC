@@ -26,13 +26,17 @@
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Listagem Funcionário]]></text>
 			</staticText>
+			<image>
+				<reportElement x="425" y="-5" width="128" height="103" uuid="7e43cfdb-4252-4038-adcb-1997bc79c270"/>
+				<imageExpression><![CDATA["C:\\Users\\tls15\\Desktop\\TrabalhoPSC4\\TrabalhoPSC\\Projeto\\MasterClub_Apresentacao_Desktop\\src\\prototipotela\\img\\MasteClubLogo.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="76" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="fba10b86-f7e2-4cbc-a66b-99ea06e609f5"/>
 				<graphicElement>
@@ -44,8 +48,24 @@
 				<text><![CDATA[id]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="54" y="2" width="100" height="20" uuid="1a530e97-50ab-4882-ac79-45cb3bdc44e6"/>
+				<reportElement x="54" y="0" width="55" height="20" uuid="1a530e97-50ab-4882-ac79-45cb3bdc44e6"/>
 				<text><![CDATA[nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="2" width="100" height="20" uuid="f5778766-b6c0-4c42-a6b0-55e6839c2f40"/>
+				<text><![CDATA[cpf]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="2" width="100" height="20" uuid="4d790615-83e0-4d24-8337-e9711e0cc4ae"/>
+				<text><![CDATA[rg]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="2" width="100" height="20" uuid="fd4112f6-dd20-4f88-a1d0-995fea4aed53"/>
+				<text><![CDATA[cargo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="2" width="100" height="20" uuid="9c28ef1e-ca95-47f6-914b-5a445b995431"/>
+				<text><![CDATA[salario]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -62,8 +82,24 @@
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="16" width="100" height="20" uuid="e6a16b42-b240-4c89-ac01-b3465329e5e2"/>
+				<reportElement x="54" y="15" width="73" height="20" uuid="e6a16b42-b240-4c89-ac01-b3465329e5e2"/>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="16" width="54" height="20" uuid="6c96e8ca-4f4a-45d6-988b-812d22b3d2c3"/>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="16" width="100" height="20" uuid="3cfb32ac-108e-44c7-8f37-03f2b6eb8be8"/>
+				<textFieldExpression><![CDATA[$F{rg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="15" width="100" height="20" uuid="f2452540-5037-4e5a-940c-8b2938cb24b2"/>
+				<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="16" width="100" height="20" uuid="d7f25429-72b2-421a-9f1f-d7377643a891"/>
+				<textFieldExpression><![CDATA[$F{salario}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
