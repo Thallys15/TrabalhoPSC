@@ -5,9 +5,14 @@
  */
 package prototipotela;
 
+import java.sql.SQLException;
+import java.sql.ResultSet;
 import br.edu.ifnmg.MasterClub.Entidades.Funcionario;
 import br.edu.ifnmg.MasterClub.Entidades.FuncionarioRepositorio;
+import br.edu.ifnmg.MasterClub.Persistencia.ConnectionFactory;
+import br.edu.ifnmg.MasterClub.Persistencia.DB;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +37,9 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
-
+import br.edu.ifnmg.MasterClub.Persistencia.DAOGenerico;
+import java.io.InputStream;
+import java.sql.PreparedStatement;
 
 
 /**
@@ -43,12 +50,21 @@ public class ListarFuncionario extends javax.swing.JFrame {
     FuncionarioRepositorio bd_dao;
     Funcionario funcionario = new Funcionario();
     ArrayList<Funcionario> efetuarBusca = new ArrayList<>();
-    
+    protected Connection conn;
 
     /**
      * Creates new form ListarFuncionario
      */
     public ListarFuncionario() {
+        try {
+            DB.Iniciar();
+            conn = ConnectionFactory.getConnection();
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Driver não encontrado!");
+        
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
         initComponents();
         this.bd_dao = GerenciarFuncionamento.getFuncionario();
     }
@@ -370,9 +386,22 @@ public class ListarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMostrarTodosActionPerformed
 
     private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
-       FuncionarioRepositorio daoFuncionario = GerenciarFuncionamento.getFuncionario();
-       efetuarBusca = (ArrayList<Funcionario>) daoFuncionario.Abrir();
-       exibeRelatorioJasper("RelatorioFuncionario.jasper", efetuarBusca );
+       try {
+        
+        PreparedStatement sql = conn.prepareStatement("select id, nome, cpf, rg, cargo, idade, salario from funcionario");
+        ResultSet resultado = sql.executeQuery();
+        JRResultSetDataSource relaResul = new JRResultSetDataSource(resultado);
+        String reportDefinition = "RelatorioFuncionario.jasper";
+
+        InputStream reportDefinitionStream = getClass().getResourceAsStream(reportDefinition);
+        JasperPrint jpPrint = JasperFillManager.fillReport(reportDefinitionStream, new HashMap(), relaResul);
+        JasperViewer jv = new JasperViewer(jpPrint);
+        jv.setVisible(true);
+    } catch (SQLException ex) {
+        Logger.getLogger(ListarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (JRException ex) {
+        Logger.getLogger(ListarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }//GEN-LAST:event_btnRelatorioActionPerformed
 
     /**
@@ -478,7 +507,7 @@ private void limparCampos() {
         
         tblResultado.setModel(coluna);
     }
-private void exibeRelatorioJasper(String caminho_relatorio, List dados) {
+/*private void exibeRelatorioJasper(String caminho_relatorio, List dados) {
          try {
             // Parâmetros
             Map parametros = new HashMap();
@@ -500,6 +529,6 @@ private void exibeRelatorioJasper(String caminho_relatorio, List dados) {
         } catch (JRException ex) {
             Logger.getLogger(JasperReport.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
 }
 
