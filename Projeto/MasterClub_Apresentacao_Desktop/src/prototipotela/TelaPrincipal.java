@@ -160,7 +160,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BarraMenuTelaPrincipal.add(BarraMenuCampeonato);
 
         BarraMenuFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474060852_03.png"))); // NOI18N
-        BarraMenuFinanceiro.setText("Financeiro");
+        BarraMenuFinanceiro.setText("Relatório");
         BarraMenuFinanceiro.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 
         ItemContratacoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474067819_vector_65_12.png"))); // NOI18N
