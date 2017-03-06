@@ -3,47 +3,68 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="data_inicio" class="java.util.Date"/>
+	<field name="data_termino" class="java.util.Date"/>
 	<background>
 		<band/>
 	</background>
 	<title>
-		<band height="107">
+		<band height="126">
 			<staticText>
-				<reportElement style="Title" x="10" y="28" width="346" height="33" uuid="ce73b670-8d44-44b7-81f3-4194050358f1"/>
-				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Listagem de Campeonatos]]></text>
+				<reportElement x="15" y="17" width="211" height="47" uuid="3a8df344-a2d4-4c86-bd7a-2e411466d80e"/>
+				<textElement>
+					<font fontName="Arial" size="24"/>
+				</textElement>
+				<text><![CDATA[Listagem Títulos]]></text>
 			</staticText>
 			<image>
-				<reportElement x="423" y="4" width="132" height="103" uuid="d8634d34-e33f-4c67-8cc5-158b38301780"/>
-				<imageExpression><![CDATA["C:\\Users\\tls15\\Desktop\\TrabalhoPSC2\\TrabalhoPSC\\Projeto\\MasterClub_Apresentacao_Desktop\\src\\prototipotela\\img\\MasteClubLogo.png"]]></imageExpression>
+				<reportElement x="397" y="0" width="142" height="114" uuid="e627ef41-eef9-4c2e-a7c1-5cc88fb93ca9"/>
+				<imageExpression><![CDATA["C:\\Users\\tls15\\Desktop\\TrabalhoPSC6\\TrabalhoPSC\\Projeto\\MasterClub_Apresentacao_Desktop\\src\\prototipotela\\img\\MasteClubLogo.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="62">
-			<staticText>
-				<reportElement x="37" y="0" width="28" height="20" uuid="da5eafa3-89ab-4a11-9b7e-84ba22b32ff6"/>
-				<text><![CDATA[ID]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="128" y="0" width="78" height="20" uuid="bdfb0976-d707-4bd9-afe2-ef025f004e90"/>
-				<text><![CDATA[Nome]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="256" y="0" width="100" height="20" uuid="9f4e82f7-8a36-4deb-8b38-4a70ab9d88b4"/>
-				<text><![CDATA[Data de Inicio]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="403" y="0" width="100" height="20" uuid="afc3477f-3d26-43b5-b402-91affb3a4e08"/>
-				<text><![CDATA[Data de Término]]></text>
-			</staticText>
-		</band>
+		<band/>
 	</pageHeader>
 	<columnHeader>
-		<band height="67">
+		<band height="108">
 			<line>
 				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="e4477451-4bb1-485d-9652-dc7319c063e6"/>
 			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="43ab5b29-27c5-4ab6-88eb-33daf2859de6"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="88" width="100" height="20" uuid="747752b6-1562-41b1-bab2-7f27d1cc16ee"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="115" y="2" width="100" height="20" uuid="c573e290-91ad-494e-8a4e-b7c877bbd7f3"/>
+				<text><![CDATA[nome]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="115" y="88" width="100" height="20" uuid="627b4724-458f-4b34-99ac-04eadbc8c4c4"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="226" y="1" width="100" height="20" uuid="df001e77-d004-4eb8-a439-f6b2d8ed1dcb"/>
+				<text><![CDATA[data_inicio]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="226" y="88" width="100" height="20" uuid="b399a286-fadd-4446-b3af-d4b16e1d9da4"/>
+				<textFieldExpression><![CDATA[$F{data_inicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="348" y="2" width="100" height="20" uuid="1c1eeb93-ec14-42db-bb60-412c2353e62b"/>
+				<text><![CDATA[data_termino]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="348" y="88" width="100" height="20" uuid="c25a04f7-c12b-4525-ad23-2f0ac9476b93"/>
+				<textFieldExpression><![CDATA[$F{data_termino}]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
