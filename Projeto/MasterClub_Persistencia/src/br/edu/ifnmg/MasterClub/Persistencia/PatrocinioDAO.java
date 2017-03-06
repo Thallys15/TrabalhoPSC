@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class PatrocinioDAO extends DAOGenerico<Patrocinio> implements PatrocinioRepositorio{
     
     public PatrocinioDAO(){
-        setConsultaAbrir("select id, nome, valor from patrocinio where id = ?");
+        setConsultaAbrir("select id, nome, valor from patrocinio");
         setConsultaApagar("delete from patrocinio where id = ?");
         setConsultaInserir("insert into patrocinio(nome,valor) values(?,?)");
         setConsultaAlterar("update patrocinio set nome = ?, valor = ? where id = ?");

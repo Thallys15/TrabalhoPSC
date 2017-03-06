@@ -465,8 +465,8 @@ private void limparCampos() {
 
     private void buscarTodos() {
         
-        Funcionario filtro = new Funcionario(0,null,null,null,null,0,null);
-        efetuarBusca =(ArrayList<Funcionario>) bd_dao.Buscar(filtro);
+        //Funcionario filtro = new Funcionario(0,null,null,null,null,0,null);
+        efetuarBusca =(ArrayList<Funcionario>) bd_dao.Abrir();
         preenchimentodaTabela(efetuarBusca);
         
     }

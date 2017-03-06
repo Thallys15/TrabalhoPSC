@@ -440,9 +440,8 @@ public class ListarTitulos extends javax.swing.JFrame {
         txtNome.setText("");        
     }
     private void buscarTodos() {
-        
-        Titulos filtro = new Titulos(0,null,null,null);
-        efetuarBusca =(ArrayList<Titulos>) bd_dao.Buscar(filtro);
+                
+        efetuarBusca =(ArrayList<Titulos>) bd_dao.Abrir();
         preenchimentodaTabela(efetuarBusca);
         
     }

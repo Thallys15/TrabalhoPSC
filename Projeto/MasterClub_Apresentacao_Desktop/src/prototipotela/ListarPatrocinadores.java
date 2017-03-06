@@ -419,8 +419,8 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
 
     private void buscarTodos() {
         
-        Patrocinio filtro = new Patrocinio(0,null,null);
-        efetuarBusca =(ArrayList<Patrocinio>) bd_dao.Buscar(filtro);
+        //Patrocinio filtro = new Patrocinio(0,null,null);
+        efetuarBusca =(ArrayList<Patrocinio>) bd_dao.Abrir();
         preenchimentodaTabela(efetuarBusca);
         
     }

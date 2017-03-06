@@ -415,8 +415,8 @@ public class ListarDependencias extends javax.swing.JFrame {
     }
     private void buscarTodos() {
         
-        Dependencia filtro = new Dependencia(0,null,null);
-        efetuarBusca =(ArrayList<Dependencia>) bd_dao.Buscar(filtro);
+        //Dependencia filtro = new Dependencia(0,null,null);
+        efetuarBusca =(ArrayList<Dependencia>) bd_dao.Abrir();
         preenchimentodaTabela(efetuarBusca);
         
     }

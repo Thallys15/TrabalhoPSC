@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class DependenciaDAO extends DAOGenerico<Dependencia> implements DependenciaRepositorio{
     
     public DependenciaDAO() {
-        setConsultaAbrir("select id, nome, capacidade from dependencia where id = ?");
+        setConsultaAbrir("select id, nome, capacidade from dependencia");
         setConsultaApagar("delete from dependencia where id = ?");
         setConsultaInserir("insert into dependencia(nome,capacidade) values(?,?)");
         setConsultaAlterar("update dependencia set nome = ?, capacidade = ? where id = ?");
