@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5a385e94-5fc4-4cc5-abeb-6fe9972be12c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="capacidade" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="77">
+			<staticText>
+				<reportElement x="24" y="15" width="285" height="36" uuid="c5f8702e-89d9-443b-8250-292959b0358b"/>
+				<textElement>
+					<font fontName="Arial" size="24"/>
+				</textElement>
+				<text><![CDATA[Listagem Dependencias]]></text>
+			</staticText>
+			<image>
+				<reportElement x="427" y="-10" width="128" height="82" uuid="b7627d40-bdf3-43a1-83ec-628b41736d0a"/>
+				<imageExpression><![CDATA["C:\\Users\\tls15\\Desktop\\TrabalhoPSC6\\TrabalhoPSC\\Projeto\\MasterClub_Apresentacao_Desktop\\src\\prototipotela\\img\\MasteClubLogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="49">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="a095ba28-6c72-41d0-ad52-0d36aeb17f01"/>
+			</line>
+			<staticText>
+				<reportElement x="24" y="2" width="100" height="20" uuid="064bbd42-13ee-4959-99e8-8a6a24ef6fa6"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="176" y="2" width="100" height="20" uuid="3d23147f-73c4-4b8d-a216-2c5e753e6267"/>
+				<text><![CDATA[nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="2" width="100" height="20" uuid="2e5b4dfb-ff80-4a48-a8e2-5f164d933962"/>
+				<text><![CDATA[capacidade]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="82">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="eaff8c8a-a262-495d-a643-9d740798ba9c"/>
+			</line>
+			<textField>
+				<reportElement x="24" y="36" width="100" height="20" uuid="b8c7b3c3-1fd6-4cd5-a75d-fec3c83b201f"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="176" y="34" width="100" height="20" uuid="8a0d2ea0-6865-4d45-910c-640ae60b6e95"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="36" width="100" height="20" uuid="31841061-068c-48b6-89a9-00b1fc2467cb"/>
+				<textFieldExpression><![CDATA[$F{capacidade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="64">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="5e63b31f-0848-43cf-8fcd-59a65c591284"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="fc4d414c-420f-4de8-bcc5-36f6e9889f4d"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="26807b0b-9257-4c84-a3f0-7e88d02e48e8"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
