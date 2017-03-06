@@ -3,19 +3,24 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="valor" class="java.lang.Double"/>
 	<background>
 		<band/>
 	</background>
 	<title>
 		<band height="88">
 			<staticText>
-				<reportElement style="Title" x="21" y="15" width="312" height="33" uuid="5f016d3b-4d70-4976-a57c-583a5dd5f64a"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="34" y="19" width="284" height="46" uuid="ad95609c-2776-4baa-bc34-6a9b260320fb"/>
+				<textElement>
+					<font fontName="Arial" size="24"/>
+				</textElement>
 				<text><![CDATA[Listagem Patrocinadores]]></text>
 			</staticText>
 			<image>
-				<reportElement x="423" y="-18" width="132" height="103" uuid="0bb2904a-fa8a-48d5-8f22-6232f3c2e639"/>
-				<imageExpression><![CDATA["C:\\Users\\tls15\\Desktop\\TrabalhoPSC2\\TrabalhoPSC\\Projeto\\MasterClub_Apresentacao_Desktop\\src\\prototipotela\\img\\MasteClubLogo.png"]]></imageExpression>
+				<reportElement x="439" y="-10" width="116" height="88" uuid="c6720ba8-2c86-4010-946f-a3a80c16289b"/>
+				<imageExpression><![CDATA["C:\\Users\\tls15\\Desktop\\TrabalhoPSC6\\TrabalhoPSC\\Projeto\\MasterClub_Apresentacao_Desktop\\src\\prototipotela\\img\\MasteClubLogo.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -23,21 +28,21 @@
 		<band height="4"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="48">
+		<band height="32">
 			<line>
 				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="868a6a8f-c16f-4ebf-8eb4-909ff962f8dc"/>
 			</line>
 			<staticText>
-				<reportElement x="7" y="25" width="40" height="20" uuid="35cbd31a-6eb2-498c-81a5-4395b2611f4e"/>
-				<text><![CDATA[ID]]></text>
+				<reportElement x="0" y="1" width="63" height="20" uuid="b0fafc20-5170-4228-9ac9-c42d36aec857"/>
+				<text><![CDATA[id]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="114" y="21" width="100" height="20" uuid="b64c3d59-15d0-40c0-83c6-498bc57b8e2c"/>
-				<text><![CDATA[Nome]]></text>
+				<reportElement x="121" y="1" width="100" height="20" uuid="557ec8c9-8559-49b5-a8d7-ee4b7678cefc"/>
+				<text><![CDATA[nome]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="323" y="25" width="100" height="20" uuid="7182a4a0-0e19-4613-9eec-178c29f1f592"/>
-				<text><![CDATA[Valor]]></text>
+				<reportElement x="257" y="1" width="100" height="20" uuid="76611447-98b3-4c74-a07f-d2fa3255e18a"/>
+				<text><![CDATA[valor]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -47,15 +52,15 @@
 				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="1d956828-97bb-4478-82f0-2cb95141ca94"/>
 			</line>
 			<textField>
-				<reportElement x="7" y="0" width="40" height="20" uuid="e23e3b4c-bc7a-446b-9ff1-4637ebd7ca7d"/>
-				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+				<reportElement x="0" y="20" width="100" height="20" uuid="45f4c626-3131-45f1-a02f-cfd8b860d0d8"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="114" y="4" width="100" height="20" uuid="9159f92f-91e4-4e08-a4a4-78c32aca588d"/>
+				<reportElement x="121" y="20" width="100" height="20" uuid="f851a4da-06fd-4c06-a1ab-0810c23bade0"/>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="323" y="4" width="100" height="20" uuid="4841c2db-84cd-4335-8b84-9161f9736dde"/>
+				<reportElement x="257" y="20" width="100" height="20" uuid="58157653-eab1-4c4f-918d-e4805e575353"/>
 				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
 			</textField>
 		</band>

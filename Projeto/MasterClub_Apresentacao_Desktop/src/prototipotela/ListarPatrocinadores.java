@@ -7,10 +7,25 @@ package prototipotela;
 
 import br.edu.ifnmg.MasterClub.Entidades.Patrocinio;
 import br.edu.ifnmg.MasterClub.Entidades.PatrocinioRepositorio;
+import br.edu.ifnmg.MasterClub.Persistencia.ConnectionFactory;
+import br.edu.ifnmg.MasterClub.Persistencia.DB;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -20,11 +35,20 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
     PatrocinioRepositorio bd_dao;
     Patrocinio patrocinador = new Patrocinio();
     ArrayList<Patrocinio> efetuarBusca = new ArrayList<>();
-
+    protected Connection conn;
     /**
      * Creates new form ListarPatrocinadores
      */
-    public ListarPatrocinadores() {
+   public ListarPatrocinadores() {
+        try {
+            DB.Iniciar();
+            conn = ConnectionFactory.getConnection();
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Driver não encontrado!");
+        
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
         initComponents();
         this.bd_dao = GerenciarFuncionamento.getPatrocinio();
     }
@@ -52,6 +76,7 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
         BotaoEditarPat = new javax.swing.JButton();
         lblimagem = new javax.swing.JLabel();
         btnMostrarTodos = new javax.swing.JButton();
+        btnRelatorio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -201,6 +226,15 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
             }
         });
 
+        btnRelatorio.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        btnRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/prototipotela/icone/1474489777_pdf.png"))); // NOI18N
+        btnRelatorio.setText("Relatório");
+        btnRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRelatorioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -211,6 +245,7 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
                     .addComponent(PainelFiltroPatrocinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PainelTabelaPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(BotaoNovoPat, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -218,11 +253,12 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BotaoExcluirPat)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(PainelTabelaPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 104, Short.MAX_VALUE)))
-                .addGap(18, 18, 18))
+                                .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnRelatorio)))
+                        .addGap(10, 10, 10)
+                        .addComponent(lblimagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,19 +266,18 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(PainelFiltroPatrocinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(PainelTabelaPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BotaoEditarPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotaoExcluirPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotaoNovoPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(PainelTabelaPat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotaoEditarPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotaoExcluirPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotaoNovoPat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMostrarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblimagem, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -307,6 +342,24 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
         buscarTodos();
     }//GEN-LAST:event_btnMostrarTodosActionPerformed
 
+    private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
+        try {
+        PreparedStatement sql = conn.prepareStatement("select id, nome, valor from patrocinio");
+        ResultSet resultado = sql.executeQuery();
+        JRResultSetDataSource relaResul = new JRResultSetDataSource(resultado);
+        String reportDefinition = "RelatorioPatrocinadores.jasper";
+
+        InputStream reportDefinitionStream = getClass().getResourceAsStream(reportDefinition);
+        JasperPrint jpPrint = JasperFillManager.fillReport(reportDefinitionStream, new HashMap(), relaResul);
+        JasperViewer jv = new JasperViewer(jpPrint);
+        jv.setVisible(true);
+    } catch (SQLException ex) {
+        Logger.getLogger(ListarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (JRException ex) {
+        Logger.getLogger(ListarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_btnRelatorioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -352,6 +405,7 @@ public class ListarPatrocinadores extends javax.swing.JFrame {
     private javax.swing.JPanel PainelFiltroPatrocinador;
     private javax.swing.JPanel PainelTabelaPat;
     private javax.swing.JButton btnMostrarTodos;
+    private javax.swing.JButton btnRelatorio;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNomePatrocinador;
     private javax.swing.JLabel lblimagem;
