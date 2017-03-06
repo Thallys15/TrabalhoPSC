@@ -7,7 +7,14 @@ package prototipotela;
 
 import br.edu.ifnmg.MasterClub.Entidades.Atleta;
 import br.edu.ifnmg.MasterClub.Entidades.AtletaRepositorio;
+import br.edu.ifnmg.MasterClub.Persistencia.ConnectionFactory;
+import br.edu.ifnmg.MasterClub.Persistencia.DB;
+import java.io.InputStream;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +26,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -34,11 +42,20 @@ public class ListarJogadores extends javax.swing.JFrame {
     AtletaRepositorio bd_dao;
     Atleta atleta = new Atleta();
     ArrayList<Atleta> efetuarBusca = new ArrayList<>();
-
+    protected Connection conn;
     /**
      * Creates new form ListarJogadores
      */
     public ListarJogadores() {
+        try {
+            DB.Iniciar();
+            conn = ConnectionFactory.getConnection();
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Driver não encontrado!");
+        
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
         initComponents();
         this.bd_dao = GerenciarFuncionamento.getAtleta();
     }
@@ -332,9 +349,21 @@ public class ListarJogadores extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
-       AtletaRepositorio daoAtleta = GerenciarFuncionamento.getAtleta();
-       efetuarBusca = (ArrayList<Atleta>) daoAtleta.Abrir();
-       exibeRelatorioJasper("RelatorioJogadores.jasper", efetuarBusca );
+       try {
+        PreparedStatement sql = conn.prepareStatement("select id, nome, posicao, lado, categoria, naturalidade, idade, altura, peso, cpf, rg, clube from atleta");
+        ResultSet resultado = sql.executeQuery();
+        JRResultSetDataSource relaResul = new JRResultSetDataSource(resultado);
+        String reportDefinition = "RelatorioJogadores.jasper";
+
+        InputStream reportDefinitionStream = getClass().getResourceAsStream(reportDefinition);
+        JasperPrint jpPrint = JasperFillManager.fillReport(reportDefinitionStream, new HashMap(), relaResul);
+        JasperViewer jv = new JasperViewer(jpPrint);
+        jv.setVisible(true);
+    } catch (SQLException ex) {
+        Logger.getLogger(ListarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (JRException ex) {
+        Logger.getLogger(ListarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }//GEN-LAST:event_btnRelatorioActionPerformed
 
     /**
