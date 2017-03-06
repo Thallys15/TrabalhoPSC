@@ -411,8 +411,7 @@ public class TelaCadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField txtSalario;
     // End of variables declaration//GEN-END:variables
     public boolean validarCampos(){
-        if(txtNome.getText().equals("")&&txtCargo.getText().equals("")&&txtCpf.getText().equals("")
-                &&txtIdade.getText().equals("")&&txtRg.getText().equals("")&&txtSalario.getText().equals("")){            
+        if(txtNome.getText().equals("")||txtCargo.getText().equals("")||txtIdade.getText().equals("")||txtSalario.getText().equals("")){            
             return true;
         }
         return false;

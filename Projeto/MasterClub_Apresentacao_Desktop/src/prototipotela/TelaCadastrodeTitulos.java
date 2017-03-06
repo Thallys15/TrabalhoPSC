@@ -334,7 +334,7 @@ public class TelaCadastrodeTitulos extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeTorneio;
     // End of variables declaration//GEN-END:variables
     public boolean validarCampos(){
-        if(txtNomeTorneio.getText().equals("")&&txtDatainicio.getText().equals("")&&txtDatatermino.getText().equals("")){            
+        if(txtNomeTorneio.getText().equals("")||txtDatainicio.getText().equals("")||txtDatatermino.getText().equals("")){            
             return true;
         }
         return false;

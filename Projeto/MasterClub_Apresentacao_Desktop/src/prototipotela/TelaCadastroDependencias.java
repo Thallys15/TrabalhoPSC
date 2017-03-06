@@ -299,7 +299,7 @@ public class TelaCadastroDependencias extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
     public boolean validarCampos(){
-        if(txtCapacidade.getText().equals("")&&txtNome.getText().equals("")){            
+        if(txtCapacidade.getText().equals("")||txtNome.getText().equals("")){            
             return true;
         }
         return false;

@@ -491,10 +491,10 @@ public class TelaCadastroJogadores extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtRg;
     // End of variables declaration//GEN-END:variables
     public boolean validarCampos(){
-        if(txtAltura.getText().equals("")&&txtCategoria.getText().equals("")&&txtClube.getText().equals("")
-                &&txtCpf.getText().equals("")&&txtIdade.getText().equals("")&&txtLado.getText().equals("")&&
-                txtNaturalidade.getText().equals("")&&txtNome.getText().equals("")&&txtPeso.getText().equals("")&&
-                txtPosicao.getText().equals("")&&txtRg.getText().equals("")){            
+        if(txtAltura.getText().equals("")||txtCategoria.getText().equals("")||txtClube.getText().equals("")
+                ||txtIdade.getText().equals("")||txtLado.getText().equals("")||
+                txtNaturalidade.getText().equals("")||txtNome.getText().equals("")||txtPeso.getText().equals("")||
+                txtPosicao.getText().equals("")){            
             return true;
         }
         return false;

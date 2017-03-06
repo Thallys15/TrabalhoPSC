@@ -315,7 +315,7 @@ public class TelaCadastroPatrocinador extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtValorPatrocinio;
     // End of variables declaration//GEN-END:variables
     public boolean validarCampos(){
-        if(txtNome.getText().equals("")&&txtValorPatrocinio.getText().equals("")){            
+        if(txtNome.getText().equals("")||txtValorPatrocinio.getText().equals("")){            
             return true;
         }
         return false;
